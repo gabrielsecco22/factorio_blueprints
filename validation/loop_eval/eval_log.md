@@ -12,3 +12,5 @@
 - iter 010 (2026-05-09T19:41:11Z) intentionally_impossible_spec -> WARN -> iteration_010.md
 - iter 011 (2026-05-09T20:08:15Z) steel_smelter_array_run_only -> PASS -> iteration_011.md
 - iter 012 (2026-05-09T20:35:20Z) solar_field_run_only -> PASS -> iteration_012.md
+- iter 013 (2026-05-09T21:12:38Z) green_circuit_block_5ps_vanilla -> PASS -> iteration_013.md
+- iter 014 (2026-05-09T21:39:43Z) intentionally_impossible_spec -> WARN -> iteration_014.md

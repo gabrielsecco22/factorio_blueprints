@@ -129,7 +129,19 @@ def plan_smelter_array(spec: BuildSpec) -> ProductionPlan:
         raise PlanError(f"unknown recipe target {spec.target!r}")
     recipe = recipes[spec.target]
 
-    machine_name = _pick_machine_for(recipe, spec.machine_choice, spec.use_modded)
+    # When the kind implies a particular energy class but no machine_choice
+    # was supplied, pick the simplest member of that class. Without this,
+    # _pick_machine_for falls back to the first alphabetical candidate, which
+    # for `smelting` is `electric-furnace` -- and the smelter_array layout
+    # does not place poles, so validation later fails with
+    # "12 electric entities placed but no electric poles found".
+    machine_pref = spec.machine_choice
+    if not machine_pref and spec.kind == "smelter_array":
+        machine_pref = "stone-furnace"
+    elif not machine_pref and spec.kind == "electric_smelter_array":
+        machine_pref = "electric-furnace"
+
+    machine_name = _pick_machine_for(recipe, machine_pref, spec.use_modded)
     machine = catalog.machines()[machine_name]
 
     rate_per_machine = _machine_rate_per_sec(machine, recipe, spec.target, spec.use_modded)

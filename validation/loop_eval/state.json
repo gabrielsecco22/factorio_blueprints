@@ -1,5 +1,5 @@
 {
-  "iteration": 12,
+  "iteration": 14,
   "cases_done": [
     "green_circuit_block_5ps_vanilla",
     "intentionally_impossible_spec",
@@ -12,6 +12,8 @@
     "green_circuit_block_5ps_vanilla",
     "intentionally_impossible_spec",
     "steel_smelter_array_run_only",
-    "solar_field_run_only"
+    "solar_field_run_only",
+    "green_circuit_block_5ps_vanilla",
+    "intentionally_impossible_spec"
   ]
 }

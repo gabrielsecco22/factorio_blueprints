@@ -105,6 +105,12 @@ TEST_CASES = [
          "python3 tools/render_blueprint.py --json "
          "library/external/factoriobin/demo.bp"),
     ]),
+    ("beacon_smelter_array_run_only", [
+        # The first Space-Age-grade synthesis case: 12 electric furnaces + 24
+        # beacons + prod-3 modules = ~5x baseline throughput.
+        ("creator: beacon-aware example",
+         ["python3", "-m", "harness.examples.beacon_smelter_array"]),
+    ]),
     ("quality_legendary_iron_plate", [
         # Exercise quality multipliers via the rate calculator. A legendary
         # stone-furnace runs at base_speed * 2.5 = 5 plates / (3.2/2.5)s.
