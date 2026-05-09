@@ -1,0 +1,1357 @@
+{
+  "recycler": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99,
+        "max": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "copper-bacteria": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "copper-bacteria-cultivation": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "iron-bacteria": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "iron-bacteria-cultivation": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "artificial-yumako-soil": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "overgrowth-yumako-soil": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "artificial-jellynut-soil": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "overgrowth-jellynut-soil": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "pentapod-egg": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "space-science-pack": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "metallurgic-science-pack": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "agricultural-science-pack": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "electromagnetic-science-pack": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99,
+        "max": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "cryogenic-science-pack": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 300,
+        "max": 300
+      }
+    ],
+    "allowed_planets": [
+      "aquilo"
+    ]
+  },
+  "thruster-fuel": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "thruster-oxidizer": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "advanced-thruster-fuel": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "advanced-thruster-oxidizer": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "acid-neutralisation": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "foundry": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "turbo-transport-belt": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "turbo-underground-belt": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "turbo-splitter": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "big-mining-drill": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "biochamber": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "fish-breeding": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "allowed_planets": [
+      "nauvis"
+    ]
+  },
+  "lightning-rod": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99,
+        "max": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "electromagnetic-plant": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "lightning-collector": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99,
+        "max": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "cryogenic-plant": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 100,
+        "max": 600
+      }
+    ],
+    "allowed_planets": [
+      "aquilo"
+    ]
+  },
+  "quantum-processor": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "max": 600
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "space-platform"
+    ]
+  },
+  "fusion-reactor": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 100,
+        "max": 600
+      }
+    ],
+    "allowed_planets": [
+      "aquilo"
+    ]
+  },
+  "fusion-generator": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 100,
+        "max": 600
+      }
+    ],
+    "allowed_planets": [
+      "aquilo"
+    ]
+  },
+  "promethium-science-pack": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "wood-processing": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "allowed_planets": [
+      "nauvis"
+    ]
+  },
+  "turbo-mdrn-loader": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "space-cultivator": {
+    "type": "assembling-machine",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "promethium-transport-belt": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "promethium-underground-belt": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "promethium-splitter": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "cultivate-space-yumako-tree": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "yumako-tree-greenhouse": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "cultivate-space-jellystem": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "jellystem-greenhouse": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "cultivate-space-tree-plant": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "tree-plant-greenhouse": {
+    "type": "recipe",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "wooden-chest": {
+    "type": "container",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0.1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "iron-chest": {
+    "type": "container",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0.1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "steel-chest": {
+    "type": "container",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0.1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "stone-furnace": {
+    "type": "furnace",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "steel-furnace": {
+    "type": "furnace",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "boiler": {
+    "type": "boiler",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "burner-inserter": {
+    "type": "inserter",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "crusher": {
+    "type": "assembling-machine",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "captive-biter-spawner": {
+    "type": "assembling-machine",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "allowed_planets": [
+      "nauvis"
+    ]
+  },
+  "biolab": {
+    "type": "lab",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "allowed_planets": [
+      "nauvis"
+    ]
+  },
+  "car": {
+    "type": "car",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "tank": {
+    "type": "car",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "passive-provider-chest": {
+    "type": "logistic-container",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0.1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "active-provider-chest": {
+    "type": "logistic-container",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0.1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "storage-chest": {
+    "type": "logistic-container",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0.1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "buffer-chest": {
+    "type": "logistic-container",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0.1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "requester-chest": {
+    "type": "logistic-container",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0.1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "rocket-silo": {
+    "type": "rocket-silo",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "cargo-landing-pad": {
+    "type": "cargo-landing-pad",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "roboport": {
+    "type": "roboport",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "heating-tower": {
+    "type": "reactor",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "spidertron": {
+    "type": "spider-vehicle",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "burner-mining-drill": {
+    "type": "mining-drill",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "legacy-straight-rail": {
+    "type": "legacy-straight-rail",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "legacy-curved-rail": {
+    "type": "legacy-curved-rail",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "straight-rail": {
+    "type": "straight-rail",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "half-diagonal-rail": {
+    "type": "half-diagonal-rail",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "curved-rail-a": {
+    "type": "curved-rail-a",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "curved-rail-b": {
+    "type": "curved-rail-b",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "rail-ramp": {
+    "type": "rail-ramp",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "elevated-straight-rail": {
+    "type": "elevated-straight-rail",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "elevated-half-diagonal-rail": {
+    "type": "elevated-half-diagonal-rail",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "elevated-curved-rail-a": {
+    "type": "elevated-curved-rail-a",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "elevated-curved-rail-b": {
+    "type": "elevated-curved-rail-b",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "rail-support": {
+    "type": "rail-support",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "locomotive": {
+    "type": "locomotive",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "cargo-wagon": {
+    "type": "cargo-wagon",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "fluid-wagon": {
+    "type": "fluid-wagon",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "artillery-wagon": {
+    "type": "artillery-wagon",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "train-stop": {
+    "type": "train-stop",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "rail-signal": {
+    "type": "rail-signal",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "rail-chain-signal": {
+    "type": "rail-chain-signal",
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 1
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "flamethrower-turret": {
+    "type": "fluid-turret",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "fulgora",
+      "gleba",
+      "nauvis",
+      "vulcanus"
+    ]
+  },
+  "space-platform-hub": {
+    "type": "space-platform-hub",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "asteroid-collector": {
+    "type": "asteroid-collector",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "thruster": {
+    "type": "thruster",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "agricultural-tower": {
+    "type": "agricultural-tower",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba",
+      "nauvis"
+    ]
+  },
+  "tree-plant": {
+    "type": "plant",
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "allowed_planets": [
+      "nauvis"
+    ]
+  }
+}

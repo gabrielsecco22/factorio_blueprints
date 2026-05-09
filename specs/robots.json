@@ -1,0 +1,96 @@
+{
+  "robots": [
+    {
+      "name": "logistic-robot",
+      "type": "logistic-robot",
+      "max_speed_tiles_per_tick": 0.4,
+      "max_speed_tiles_per_second": 24.0,
+      "max_payload_size": 100,
+      "energy_per_tick_j": 170.0,
+      "energy_per_move_j": 17000.0,
+      "max_energy_kj": 15000.0,
+      "min_to_charge_fraction": 0.2,
+      "max_to_charge_fraction": 0.95,
+      "speed_multiplier_when_out_of_energy": 0.2,
+      "from_mod": "base",
+      "vanilla_2_0_76": {
+        "max_speed_tiles_per_tick": 0.05,
+        "max_speed_tiles_per_second": 3.0,
+        "max_payload_size": 1,
+        "max_payload_via_research": 4,
+        "energy_per_tick_j": 4.0,
+        "energy_per_move_j": 5000.0,
+        "max_energy_kj": 1500.0,
+        "note": "vanilla 2.0 logistic-robot: 0.05 tile/tick base speed, payload 1 (research worker_robot_storage tops out at 4). Energy per tick/move and battery from base prototype."
+      }
+    },
+    {
+      "name": "construction-robot",
+      "type": "construction-robot",
+      "max_speed_tiles_per_tick": 0.42,
+      "max_speed_tiles_per_second": 25.2,
+      "max_payload_size": 10,
+      "energy_per_tick_j": 85.0,
+      "energy_per_move_j": 6800.0,
+      "max_energy_kj": 30000.0,
+      "min_to_charge_fraction": 0.2,
+      "max_to_charge_fraction": 0.95,
+      "speed_multiplier_when_out_of_energy": 0.2,
+      "from_mod": "base",
+      "vanilla_2_0_76": {
+        "max_speed_tiles_per_tick": 0.06,
+        "max_speed_tiles_per_second": 3.6,
+        "max_payload_size": 1,
+        "max_payload_via_research": 4,
+        "energy_per_tick_j": 2.0,
+        "energy_per_move_j": 5000.0,
+        "max_energy_kj": 1500.0,
+        "note": "vanilla 2.0 construction-robot: 0.06 tile/tick (~3.6 tiles/s) base speed, payload 1 (research raises to 4)."
+      }
+    },
+    {
+      "name": "fission-construction-robot",
+      "type": "construction-robot",
+      "max_speed_tiles_per_tick": 0.42,
+      "max_speed_tiles_per_second": 25.2,
+      "max_payload_size": 10,
+      "energy_per_tick_j": 0.0,
+      "energy_per_move_j": 0.0,
+      "max_energy_kj": 30000.0,
+      "min_to_charge_fraction": 0.2,
+      "max_to_charge_fraction": 0.95,
+      "speed_multiplier_when_out_of_energy": 0.2,
+      "from_mod": "FasterStart"
+    }
+  ],
+  "roboports": [
+    {
+      "name": "roboport",
+      "type": "roboport",
+      "logistics_radius_tiles": 50,
+      "construction_radius_tiles": 110,
+      "robot_slots_count": 7,
+      "material_slots_count": 7,
+      "charging_station_count": 16,
+      "charging_energy_mw": 20.0,
+      "input_flow_limit_mw": 80.0,
+      "buffer_capacity_mj": 2500.0,
+      "energy_usage_kw": 50.0,
+      "recharge_minimum_mj": 40.0,
+      "from_mod": "base",
+      "vanilla_2_0_76": {
+        "logistics_radius_tiles": 50,
+        "construction_radius_tiles": 110,
+        "robot_slots_count": 7,
+        "material_slots_count": 7,
+        "charging_station_count": 4,
+        "charging_energy_mw": 4.0,
+        "input_flow_limit_mw": 5.0,
+        "buffer_capacity_mj": 100.0,
+        "energy_usage_kw": 50.0,
+        "recharge_minimum_mj": 40.0,
+        "note": "vanilla 2.0 roboport: 4 charging stations at 4 MW each, 5 MW input cap, 100 MJ buffer. The user's BetterRoboport mod overrides this to 16/20/80/2500."
+      }
+    }
+  ]
+}

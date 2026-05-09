@@ -1,0 +1,245 @@
+[
+  {
+    "name": "efficiency-module",
+    "category": "efficiency",
+    "tier": 1,
+    "effect": {
+      "consumption": -0.3
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "efficiency-module-2",
+    "category": "efficiency",
+    "tier": 2,
+    "effect": {
+      "consumption": -0.4
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "efficiency-module-3",
+    "category": "efficiency",
+    "tier": 3,
+    "effect": {
+      "consumption": -0.5
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "efficiency-module-fish",
+    "category": "efficiency",
+    "tier": 2,
+    "effect": {
+      "consumption": -1,
+      "pollution": -1
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 100,
+    "weight": 1000,
+    "from_mod": "base"
+  },
+  {
+    "name": "productivity-module",
+    "category": "productivity",
+    "tier": 1,
+    "effect": {
+      "productivity": 0.04,
+      "consumption": 0.4,
+      "pollution": 0.05,
+      "speed": -0.05
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "productivity-module-2",
+    "category": "productivity",
+    "tier": 2,
+    "effect": {
+      "productivity": 0.06,
+      "consumption": 0.6,
+      "pollution": 0.07,
+      "speed": -0.1
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "productivity-module-3",
+    "category": "productivity",
+    "tier": 3,
+    "effect": {
+      "productivity": 0.1,
+      "consumption": 0.8,
+      "pollution": 0.1,
+      "speed": -0.15
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "productivity-module-fish",
+    "category": "productivity",
+    "tier": 2,
+    "effect": {
+      "productivity": 0.5
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 100,
+    "weight": 1000,
+    "from_mod": "base"
+  },
+  {
+    "name": "quality-module",
+    "category": "quality",
+    "tier": 1,
+    "effect": {
+      "quality": 0.1,
+      "speed": -0.05
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "quality"
+  },
+  {
+    "name": "quality-module-2",
+    "category": "quality",
+    "tier": 2,
+    "effect": {
+      "quality": 0.2,
+      "speed": -0.05
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "quality"
+  },
+  {
+    "name": "quality-module-3",
+    "category": "quality",
+    "tier": 3,
+    "effect": {
+      "quality": 0.25,
+      "speed": -0.05
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "quality"
+  },
+  {
+    "name": "quality-module-fish",
+    "category": "quality",
+    "tier": 2,
+    "effect": {
+      "quality": 5
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 100,
+    "weight": 1000,
+    "from_mod": "quality"
+  },
+  {
+    "name": "speed-module",
+    "category": "speed",
+    "tier": 1,
+    "effect": {
+      "speed": 0.2,
+      "consumption": 0.5,
+      "quality": -0.1
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "speed-module-2",
+    "category": "speed",
+    "tier": 2,
+    "effect": {
+      "speed": 0.3,
+      "consumption": 0.6,
+      "quality": -0.15
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "speed-module-3",
+    "category": "speed",
+    "tier": 3,
+    "effect": {
+      "speed": 0.5,
+      "consumption": 0.7,
+      "quality": -0.25
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 500,
+    "weight": 20000,
+    "from_mod": "base"
+  },
+  {
+    "name": "speed-module-fish",
+    "category": "speed",
+    "tier": 2,
+    "effect": {
+      "speed": 0.5
+    },
+    "limitation": null,
+    "limitation_blacklist": null,
+    "limitation_message_key": null,
+    "stack_size": 100,
+    "weight": 1000,
+    "from_mod": "base"
+  }
+]

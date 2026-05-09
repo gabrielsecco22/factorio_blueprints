@@ -1,0 +1,155 @@
+{
+  "poles": [
+    {
+      "name": "small-electric-pole",
+      "type": "electric-pole",
+      "supply_area_radius_tiles": 2.5,
+      "supply_area_square_tiles": 5.0,
+      "wire_reach_tiles": 7.5,
+      "max_health": 100,
+      "from_mod": "base"
+    },
+    {
+      "name": "big-electric-pole",
+      "type": "electric-pole",
+      "supply_area_radius_tiles": 2,
+      "supply_area_square_tiles": 4,
+      "wire_reach_tiles": 32,
+      "max_health": 150,
+      "from_mod": "base"
+    },
+    {
+      "name": "medium-electric-pole",
+      "type": "electric-pole",
+      "supply_area_radius_tiles": 3.5,
+      "supply_area_square_tiles": 7.0,
+      "wire_reach_tiles": 9,
+      "max_health": 100,
+      "from_mod": "base"
+    },
+    {
+      "name": "substation",
+      "type": "electric-pole",
+      "supply_area_radius_tiles": 9,
+      "supply_area_square_tiles": 18,
+      "wire_reach_tiles": 18,
+      "max_health": 200,
+      "from_mod": "base"
+    }
+  ],
+  "accumulators": [
+    {
+      "name": "accumulator",
+      "type": "accumulator",
+      "energy_capacity_mj": 5.0,
+      "input_flow_kw": 300.0,
+      "output_flow_kw": 300.0,
+      "max_health": 150,
+      "from_mod": "base"
+    },
+    {
+      "name": "accumulator-mk2",
+      "type": "accumulator",
+      "energy_capacity_mj": 50.0,
+      "input_flow_kw": 900.0,
+      "output_flow_kw": 900.0,
+      "max_health": 200,
+      "from_mod": "accumulator-mk2"
+    }
+  ],
+  "solar_panels": [
+    {
+      "name": "solar-panel",
+      "type": "solar-panel",
+      "production_kw_peak": 60.0,
+      "average_kw_nauvis": 42.0,
+      "from_mod": "base"
+    }
+  ],
+  "boilers": [
+    {
+      "name": "boiler",
+      "type": "boiler",
+      "energy_consumption_mw": 1.8,
+      "target_temperature_c": 165,
+      "mode": "output-to-separate-pipe",
+      "from_mod": "base"
+    },
+    {
+      "name": "heat-exchanger",
+      "type": "boiler",
+      "energy_consumption_mw": 10.0,
+      "target_temperature_c": 500,
+      "mode": "output-to-separate-pipe",
+      "from_mod": "base"
+    }
+  ],
+  "generators": [
+    {
+      "name": "steam-engine",
+      "type": "generator",
+      "effectivity": 1,
+      "fluid_usage_per_tick": 0.5,
+      "maximum_temperature_c": 165,
+      "max_power_output_mw": null,
+      "from_mod": "base"
+    },
+    {
+      "name": "steam-turbine",
+      "type": "generator",
+      "effectivity": 1,
+      "fluid_usage_per_tick": 1,
+      "maximum_temperature_c": 500,
+      "max_power_output_mw": null,
+      "from_mod": "base"
+    }
+  ],
+  "reactors": [
+    {
+      "name": "nuclear-reactor",
+      "type": "reactor",
+      "consumption_mw": 40.0,
+      "neighbour_bonus": 1,
+      "max_health": 500,
+      "energy_source_type": "burner",
+      "from_mod": "base"
+    },
+    {
+      "name": "heating-tower",
+      "type": "reactor",
+      "consumption_mw": 40.0,
+      "neighbour_bonus": 0,
+      "max_health": 500,
+      "energy_source_type": "burner",
+      "from_mod": "space-age"
+    }
+  ],
+  "fusion_reactors": [
+    {
+      "name": "fusion-reactor",
+      "type": "fusion-reactor",
+      "power_input_mw": 10.0,
+      "max_fluid_usage": 0.06666666666666667,
+      "two_direction_only": true,
+      "perceived_performance": {
+        "minimum": 0.25,
+        "performance_to_activity_rate": 2
+      },
+      "max_health": 1000,
+      "from_mod": "space-age"
+    }
+  ],
+  "fusion_generators": [
+    {
+      "name": "fusion-generator",
+      "type": "fusion-generator",
+      "max_fluid_usage": 0.03333333333333333,
+      "perceived_performance": {
+        "minimum": 0.25,
+        "performance_to_activity_rate": 2
+      },
+      "max_health": 1000,
+      "from_mod": "space-age"
+    }
+  ]
+}

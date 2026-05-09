@@ -1,0 +1,339 @@
+[
+  {
+    "name": "transport-belt",
+    "type": "transport-belt",
+    "speed_tiles_per_tick": 0.03125,
+    "items_per_second_per_lane": 15.0,
+    "items_per_second_total": 30.0,
+    "items_per_minute_total": 1800.0,
+    "underground_max_distance": 5,
+    "from_mod": "base",
+    "related_underground_belt": "underground-belt"
+  },
+  {
+    "name": "fast-transport-belt",
+    "type": "transport-belt",
+    "speed_tiles_per_tick": 0.0625,
+    "items_per_second_per_lane": 30.0,
+    "items_per_second_total": 60.0,
+    "items_per_minute_total": 3600.0,
+    "underground_max_distance": 7,
+    "from_mod": "base",
+    "related_underground_belt": "fast-underground-belt"
+  },
+  {
+    "name": "express-transport-belt",
+    "type": "transport-belt",
+    "speed_tiles_per_tick": 0.09375,
+    "items_per_second_per_lane": 45.0,
+    "items_per_second_total": 90.0,
+    "items_per_minute_total": 5400.0,
+    "underground_max_distance": 9,
+    "from_mod": "base",
+    "related_underground_belt": "express-underground-belt"
+  },
+  {
+    "name": "turbo-transport-belt",
+    "type": "transport-belt",
+    "speed_tiles_per_tick": 0.125,
+    "items_per_second_per_lane": 60.0,
+    "items_per_second_total": 120.0,
+    "items_per_minute_total": 7200.0,
+    "underground_max_distance": 11,
+    "from_mod": "space-age",
+    "related_underground_belt": "turbo-underground-belt"
+  },
+  {
+    "name": "promethium-transport-belt",
+    "type": "transport-belt",
+    "speed_tiles_per_tick": 0.1875,
+    "items_per_second_per_lane": 90.0,
+    "items_per_second_total": 180.0,
+    "items_per_minute_total": 10800.0,
+    "underground_max_distance": 13,
+    "from_mod": "promethium-belts",
+    "related_underground_belt": "promethium-underground-belt"
+  },
+  {
+    "name": "underground-belt",
+    "type": "underground-belt",
+    "speed_tiles_per_tick": 0.03125,
+    "items_per_second_per_lane": 15.0,
+    "items_per_second_total": 30.0,
+    "items_per_minute_total": 1800.0,
+    "underground_max_distance": 5,
+    "from_mod": "base"
+  },
+  {
+    "name": "fast-underground-belt",
+    "type": "underground-belt",
+    "speed_tiles_per_tick": 0.0625,
+    "items_per_second_per_lane": 30.0,
+    "items_per_second_total": 60.0,
+    "items_per_minute_total": 3600.0,
+    "underground_max_distance": 7,
+    "from_mod": "base"
+  },
+  {
+    "name": "express-underground-belt",
+    "type": "underground-belt",
+    "speed_tiles_per_tick": 0.09375,
+    "items_per_second_per_lane": 45.0,
+    "items_per_second_total": 90.0,
+    "items_per_minute_total": 5400.0,
+    "underground_max_distance": 9,
+    "from_mod": "base"
+  },
+  {
+    "name": "turbo-underground-belt",
+    "type": "underground-belt",
+    "speed_tiles_per_tick": 0.125,
+    "items_per_second_per_lane": 60.0,
+    "items_per_second_total": 120.0,
+    "items_per_minute_total": 7200.0,
+    "underground_max_distance": 11,
+    "from_mod": "space-age"
+  },
+  {
+    "name": "promethium-underground-belt",
+    "type": "underground-belt",
+    "speed_tiles_per_tick": 0.1875,
+    "items_per_second_per_lane": 90.0,
+    "items_per_second_total": 180.0,
+    "items_per_minute_total": 10800.0,
+    "underground_max_distance": 13,
+    "from_mod": "promethium-belts"
+  },
+  {
+    "name": "splitter",
+    "type": "splitter",
+    "speed_tiles_per_tick": 0.03125,
+    "items_per_second_per_lane": 15.0,
+    "items_per_second_total": 30.0,
+    "items_per_minute_total": 1800.0,
+    "underground_max_distance": null,
+    "from_mod": "base"
+  },
+  {
+    "name": "fast-splitter",
+    "type": "splitter",
+    "speed_tiles_per_tick": 0.0625,
+    "items_per_second_per_lane": 30.0,
+    "items_per_second_total": 60.0,
+    "items_per_minute_total": 3600.0,
+    "underground_max_distance": null,
+    "from_mod": "base"
+  },
+  {
+    "name": "express-splitter",
+    "type": "splitter",
+    "speed_tiles_per_tick": 0.09375,
+    "items_per_second_per_lane": 45.0,
+    "items_per_second_total": 90.0,
+    "items_per_minute_total": 5400.0,
+    "underground_max_distance": null,
+    "from_mod": "base"
+  },
+  {
+    "name": "turbo-splitter",
+    "type": "splitter",
+    "speed_tiles_per_tick": 0.125,
+    "items_per_second_per_lane": 60.0,
+    "items_per_second_total": 120.0,
+    "items_per_minute_total": 7200.0,
+    "underground_max_distance": null,
+    "from_mod": "space-age"
+  },
+  {
+    "name": "promethium-splitter",
+    "type": "splitter",
+    "speed_tiles_per_tick": 0.1875,
+    "items_per_second_per_lane": 90.0,
+    "items_per_second_total": 180.0,
+    "items_per_minute_total": 10800.0,
+    "underground_max_distance": null,
+    "from_mod": "promethium-belts"
+  },
+  {
+    "name": "loader",
+    "type": "loader",
+    "speed_tiles_per_tick": 0.03125,
+    "items_per_second_per_lane": 15.0,
+    "items_per_second_total": 30.0,
+    "items_per_minute_total": 1800.0,
+    "underground_max_distance": null,
+    "from_mod": "base"
+  },
+  {
+    "name": "fast-loader",
+    "type": "loader",
+    "speed_tiles_per_tick": 0.0625,
+    "items_per_second_per_lane": 30.0,
+    "items_per_second_total": 60.0,
+    "items_per_minute_total": 3600.0,
+    "underground_max_distance": null,
+    "from_mod": "base"
+  },
+  {
+    "name": "express-loader",
+    "type": "loader",
+    "speed_tiles_per_tick": 0.09375,
+    "items_per_second_per_lane": 45.0,
+    "items_per_second_total": 90.0,
+    "items_per_minute_total": 5400.0,
+    "underground_max_distance": null,
+    "from_mod": "base"
+  },
+  {
+    "name": "turbo-loader",
+    "type": "loader",
+    "speed_tiles_per_tick": 0.125,
+    "items_per_second_per_lane": 60.0,
+    "items_per_second_total": 120.0,
+    "items_per_minute_total": 7200.0,
+    "underground_max_distance": null,
+    "from_mod": "space-age"
+  },
+  {
+    "name": "promethium-loader",
+    "type": "loader",
+    "speed_tiles_per_tick": 0.1875,
+    "items_per_second_per_lane": 90.0,
+    "items_per_second_total": 180.0,
+    "items_per_minute_total": 10800.0,
+    "underground_max_distance": null,
+    "from_mod": "promethium-belts"
+  },
+  {
+    "name": "loader-1x1",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.03125,
+    "items_per_second_per_lane": 15.0,
+    "items_per_second_total": 30.0,
+    "items_per_minute_total": 1800.0,
+    "underground_max_distance": null,
+    "from_mod": "base",
+    "container_distance": 1
+  },
+  {
+    "name": "mdrn-loader",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.03125,
+    "items_per_second_per_lane": 15.0,
+    "items_per_second_total": 30.0,
+    "items_per_minute_total": 1800.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "mdrn-loader-split",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.03125,
+    "items_per_second_per_lane": 15.0,
+    "items_per_second_total": 30.0,
+    "items_per_minute_total": 1800.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "fast-mdrn-loader",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.0625,
+    "items_per_second_per_lane": 30.0,
+    "items_per_second_total": 60.0,
+    "items_per_minute_total": 3600.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "fast-mdrn-loader-split",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.0625,
+    "items_per_second_per_lane": 30.0,
+    "items_per_second_total": 60.0,
+    "items_per_minute_total": 3600.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "express-mdrn-loader",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.09375,
+    "items_per_second_per_lane": 45.0,
+    "items_per_second_total": 90.0,
+    "items_per_minute_total": 5400.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "express-mdrn-loader-split",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.09375,
+    "items_per_second_per_lane": 45.0,
+    "items_per_second_total": 90.0,
+    "items_per_minute_total": 5400.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "chute-mdrn-loader",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.015625,
+    "items_per_second_per_lane": 7.5,
+    "items_per_second_total": 15.0,
+    "items_per_minute_total": 900.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "turbo-mdrn-loader",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.125,
+    "items_per_second_per_lane": 60.0,
+    "items_per_second_total": 120.0,
+    "items_per_minute_total": 7200.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "turbo-mdrn-loader-split",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.125,
+    "items_per_second_per_lane": 60.0,
+    "items_per_second_total": 120.0,
+    "items_per_minute_total": 7200.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "stack-mdrn-loader",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.1875,
+    "items_per_second_per_lane": 90.0,
+    "items_per_second_total": 180.0,
+    "items_per_minute_total": 10800.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  },
+  {
+    "name": "stack-mdrn-loader-split",
+    "type": "loader-1x1",
+    "speed_tiles_per_tick": 0.1875,
+    "items_per_second_per_lane": 90.0,
+    "items_per_second_total": 180.0,
+    "items_per_minute_total": 10800.0,
+    "underground_max_distance": null,
+    "from_mod": "loaders-modernized",
+    "container_distance": 1
+  }
+]

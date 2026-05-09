@@ -1,0 +1,252 @@
+[
+  {
+    "name": "nauvis",
+    "type": "planet",
+    "starmap_distance": 15,
+    "starmap_orientation": 0.275,
+    "starmap_magnitude": 1,
+    "gravity_pull": 10,
+    "solar_power_in_space": 300,
+    "surface_properties": {
+      "gravity": 10,
+      "pressure": 1000,
+      "magnetic-field": 90,
+      "solar-power": 100,
+      "day-night-cycle": 25200
+    },
+    "starmap_distance_to_nauvis": null,
+    "trip_time_to_nauvis_seconds": null,
+    "native_resources": [
+      "coal",
+      "copper-ore",
+      "crude-oil",
+      "iron-ore",
+      "stone",
+      "uranium-ore"
+    ],
+    "native_entities": [
+      "biter-spawner",
+      "spitter-spawner",
+      "small-biter",
+      "medium-biter",
+      "big-biter",
+      "behemoth-biter",
+      "small-spitter",
+      "medium-spitter",
+      "big-spitter",
+      "behemoth-spitter",
+      "small-worm-turret",
+      "medium-worm-turret",
+      "big-worm-turret",
+      "behemoth-worm-turret"
+    ],
+    "lacks": [],
+    "from_mod": "base"
+  },
+  {
+    "name": "vulcanus",
+    "type": "planet",
+    "starmap_distance": 10,
+    "starmap_orientation": 0.1,
+    "starmap_magnitude": 1.5,
+    "gravity_pull": 10,
+    "solar_power_in_space": 600,
+    "surface_properties": {
+      "gravity": 40,
+      "pressure": 4000,
+      "magnetic-field": 25,
+      "solar-power": 400,
+      "day-night-cycle": 5400
+    },
+    "starmap_distance_to_nauvis": 15000,
+    "trip_time_to_nauvis_seconds": 83,
+    "native_resources": [
+      "calcite",
+      "coal",
+      "sulfuric-acid-geyser",
+      "tungsten-ore"
+    ],
+    "native_entities": [
+      "small-demolisher",
+      "medium-demolisher",
+      "big-demolisher"
+    ],
+    "lacks": [
+      "copper-ore",
+      "crude-oil",
+      "iron-ore",
+      "stone",
+      "uranium-ore"
+    ],
+    "from_mod": "space-age"
+  },
+  {
+    "name": "gleba",
+    "type": "planet",
+    "starmap_distance": 20,
+    "starmap_orientation": 0.175,
+    "starmap_magnitude": 1.1,
+    "gravity_pull": 10,
+    "solar_power_in_space": 200,
+    "surface_properties": {
+      "gravity": 20,
+      "pressure": 2000,
+      "magnetic-field": 25,
+      "solar-power": 50,
+      "day-night-cycle": 36000
+    },
+    "starmap_distance_to_nauvis": 15000,
+    "trip_time_to_nauvis_seconds": 83,
+    "native_resources": [
+      "stone"
+    ],
+    "native_entities": [
+      "gleba-spawner",
+      "gleba-spawner-small",
+      "small-strafer-pentapod",
+      "medium-strafer-pentapod",
+      "big-strafer-pentapod",
+      "small-stomper-pentapod",
+      "medium-stomper-pentapod",
+      "big-stomper-pentapod",
+      "small-wriggler-pentapod",
+      "medium-wriggler-pentapod",
+      "big-wriggler-pentapod"
+    ],
+    "lacks": [
+      "coal",
+      "copper-ore",
+      "crude-oil",
+      "iron-ore",
+      "uranium-ore"
+    ],
+    "from_mod": "space-age"
+  },
+  {
+    "name": "fulgora",
+    "type": "planet",
+    "starmap_distance": 25,
+    "starmap_orientation": 0.325,
+    "starmap_magnitude": 0.9,
+    "gravity_pull": 10,
+    "solar_power_in_space": 120,
+    "surface_properties": {
+      "gravity": 8,
+      "pressure": 800,
+      "magnetic-field": 99,
+      "solar-power": 20,
+      "day-night-cycle": 10800
+    },
+    "starmap_distance_to_nauvis": 15000,
+    "trip_time_to_nauvis_seconds": 83,
+    "native_resources": [
+      "scrap"
+    ],
+    "native_entities": [],
+    "lacks": [
+      "coal",
+      "copper-ore",
+      "crude-oil",
+      "iron-ore",
+      "stone",
+      "uranium-ore"
+    ],
+    "from_mod": "space-age"
+  },
+  {
+    "name": "aquilo",
+    "type": "planet",
+    "starmap_distance": 35,
+    "starmap_orientation": 0.225,
+    "starmap_magnitude": 1,
+    "gravity_pull": 10,
+    "solar_power_in_space": 60,
+    "surface_properties": {
+      "gravity": 15,
+      "pressure": 300,
+      "magnetic-field": 10,
+      "solar-power": 1,
+      "day-night-cycle": 72000
+    },
+    "starmap_distance_to_nauvis": null,
+    "trip_time_to_nauvis_seconds": null,
+    "native_resources": [
+      "crude-oil",
+      "fluorine-vent",
+      "lithium-brine"
+    ],
+    "native_entities": [],
+    "lacks": [
+      "coal",
+      "copper-ore",
+      "iron-ore",
+      "stone",
+      "uranium-ore"
+    ],
+    "from_mod": "space-age"
+  },
+  {
+    "name": "space-platform",
+    "type": "surface",
+    "starmap_distance": null,
+    "starmap_orientation": null,
+    "starmap_magnitude": null,
+    "gravity_pull": 0,
+    "solar_power_in_space": null,
+    "surface_properties": {
+      "gravity": 0,
+      "pressure": 0,
+      "magnetic-field": 0,
+      "solar-power": 100,
+      "day-night-cycle": 0
+    },
+    "starmap_distance_to_nauvis": null,
+    "trip_time_to_nauvis_seconds": null,
+    "native_resources": [],
+    "native_entities": [],
+    "lacks": [
+      "water",
+      "trees",
+      "wood",
+      "stone",
+      "iron-ore",
+      "copper-ore",
+      "coal",
+      "uranium-ore",
+      "crude-oil"
+    ],
+    "from_mod": "space-age"
+  },
+  {
+    "name": "solar-system-edge",
+    "type": "space-location",
+    "starmap_distance": 50,
+    "starmap_orientation": 0.25,
+    "starmap_magnitude": 1,
+    "gravity_pull": -10,
+    "solar_power_in_space": null,
+    "surface_properties": {},
+    "starmap_distance_to_nauvis": null,
+    "trip_time_to_nauvis_seconds": null,
+    "native_resources": [],
+    "native_entities": [],
+    "lacks": [],
+    "from_mod": "space-age"
+  },
+  {
+    "name": "shattered-planet",
+    "type": "space-location",
+    "starmap_distance": 80,
+    "starmap_orientation": 0.25,
+    "starmap_magnitude": 1,
+    "gravity_pull": -10,
+    "solar_power_in_space": null,
+    "surface_properties": {},
+    "starmap_distance_to_nauvis": null,
+    "trip_time_to_nauvis_seconds": null,
+    "native_resources": [],
+    "native_entities": [],
+    "lacks": [],
+    "from_mod": "space-age"
+  }
+]

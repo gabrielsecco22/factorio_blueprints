@@ -1,0 +1,158 @@
+[
+  {
+    "name": "inserter",
+    "type": "inserter",
+    "rotation_speed_rev_per_tick": 0.014,
+    "extension_speed_tiles_per_tick": 0.035,
+    "quarter_turn_ticks": 17.8571,
+    "default_stack_size": 1,
+    "stack_size_bonus": 0,
+    "is_bulk": false,
+    "filter_count": 5,
+    "energy_per_movement_kj": 5.0,
+    "energy_per_rotation_kj": 5.0,
+    "drain_kw": 0.4,
+    "energy_source_type": "electric",
+    "pickup_position": [
+      0,
+      -1
+    ],
+    "insert_position": [
+      0,
+      1.2
+    ],
+    "pickup_distance_tiles": 1.0,
+    "insert_distance_tiles": 1.2,
+    "from_mod": "base"
+  },
+  {
+    "name": "fast-inserter",
+    "type": "inserter",
+    "rotation_speed_rev_per_tick": 0.04,
+    "extension_speed_tiles_per_tick": 0.1,
+    "quarter_turn_ticks": 6.25,
+    "default_stack_size": 1,
+    "stack_size_bonus": 0,
+    "is_bulk": false,
+    "filter_count": 5,
+    "energy_per_movement_kj": 7.0,
+    "energy_per_rotation_kj": 7.0,
+    "drain_kw": 0.5,
+    "energy_source_type": "electric",
+    "pickup_position": [
+      0,
+      -1
+    ],
+    "insert_position": [
+      0,
+      1.2
+    ],
+    "pickup_distance_tiles": 1.0,
+    "insert_distance_tiles": 1.2,
+    "from_mod": "base"
+  },
+  {
+    "name": "long-handed-inserter",
+    "type": "inserter",
+    "rotation_speed_rev_per_tick": 0.02,
+    "extension_speed_tiles_per_tick": 0.05,
+    "quarter_turn_ticks": 12.5,
+    "default_stack_size": 1,
+    "stack_size_bonus": 0,
+    "is_bulk": false,
+    "filter_count": 5,
+    "energy_per_movement_kj": 5.0,
+    "energy_per_rotation_kj": 5.0,
+    "drain_kw": 0.4,
+    "energy_source_type": "electric",
+    "pickup_position": [
+      0,
+      -2
+    ],
+    "insert_position": [
+      0,
+      2.2
+    ],
+    "pickup_distance_tiles": 2.0,
+    "insert_distance_tiles": 2.2,
+    "from_mod": "base"
+  },
+  {
+    "name": "burner-inserter",
+    "type": "inserter",
+    "rotation_speed_rev_per_tick": 0.013,
+    "extension_speed_tiles_per_tick": 0.035,
+    "quarter_turn_ticks": 19.2308,
+    "default_stack_size": 1,
+    "stack_size_bonus": 0,
+    "is_bulk": false,
+    "filter_count": 5,
+    "energy_per_movement_kj": 50.0,
+    "energy_per_rotation_kj": 50.0,
+    "drain_kw": null,
+    "energy_source_type": "burner",
+    "pickup_position": [
+      0,
+      -1
+    ],
+    "insert_position": [
+      0,
+      1.2
+    ],
+    "pickup_distance_tiles": 1.0,
+    "insert_distance_tiles": 1.2,
+    "from_mod": "base"
+  },
+  {
+    "name": "bulk-inserter",
+    "type": "inserter",
+    "rotation_speed_rev_per_tick": 0.04,
+    "extension_speed_tiles_per_tick": 0.1,
+    "quarter_turn_ticks": 6.25,
+    "default_stack_size": 1,
+    "stack_size_bonus": 0,
+    "is_bulk": true,
+    "filter_count": 5,
+    "energy_per_movement_kj": 20.0,
+    "energy_per_rotation_kj": 20.0,
+    "drain_kw": 1.0,
+    "energy_source_type": "electric",
+    "pickup_position": [
+      0,
+      -1
+    ],
+    "insert_position": [
+      0,
+      1.2
+    ],
+    "pickup_distance_tiles": 1.0,
+    "insert_distance_tiles": 1.2,
+    "from_mod": "base"
+  },
+  {
+    "name": "stack-inserter",
+    "type": "inserter",
+    "rotation_speed_rev_per_tick": 0.04,
+    "extension_speed_tiles_per_tick": 0.1,
+    "quarter_turn_ticks": 6.25,
+    "default_stack_size": 1,
+    "stack_size_bonus": 4,
+    "is_bulk": true,
+    "filter_count": 5,
+    "energy_per_movement_kj": 40.0,
+    "energy_per_rotation_kj": 40.0,
+    "drain_kw": 1.0,
+    "energy_source_type": "electric",
+    "pickup_position": [
+      0,
+      -1
+    ],
+    "insert_position": [
+      0,
+      1.2
+    ],
+    "pickup_distance_tiles": 1.0,
+    "insert_distance_tiles": 1.2,
+    "from_mod": "space-age"
+  }
+]

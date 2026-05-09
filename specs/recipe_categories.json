@@ -1,0 +1,147 @@
+{
+  "crafting_categories": {
+    "advanced-crafting": [
+      "assembling-machine-1",
+      "assembling-machine-2",
+      "assembling-machine-3"
+    ],
+    "basic-crafting": [
+      "assembling-machine-1",
+      "assembling-machine-2",
+      "assembling-machine-3"
+    ],
+    "captive-spawner-process": [
+      "captive-biter-spawner"
+    ],
+    "centrifuging": [
+      "centrifuge"
+    ],
+    "chemistry": [
+      "chemical-plant"
+    ],
+    "chemistry-or-cryogenics": [
+      "chemical-plant",
+      "cryogenic-plant"
+    ],
+    "crafting": [
+      "assembling-machine-1",
+      "assembling-machine-2",
+      "assembling-machine-3"
+    ],
+    "crafting-with-fluid": [
+      "assembling-machine-2",
+      "assembling-machine-3"
+    ],
+    "crafting-with-fluid-or-metallurgy": [
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "foundry"
+    ],
+    "crushing": [
+      "crusher"
+    ],
+    "cryogenics": [
+      "cryogenic-plant"
+    ],
+    "cryogenics-or-assembling": [
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "cryogenic-plant"
+    ],
+    "cultivation-jellystem": [
+      "jellystem-greenhouse"
+    ],
+    "cultivation-tree-plant": [
+      "tree-plant-greenhouse"
+    ],
+    "cultivation-yumako-tree": [
+      "yumako-tree-greenhouse"
+    ],
+    "electromagnetics": [
+      "electromagnetic-plant"
+    ],
+    "electronics": [
+      "assembling-machine-1",
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "electromagnetic-plant"
+    ],
+    "electronics-or-assembling": [
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "electromagnetic-plant"
+    ],
+    "electronics-with-fluid": [
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "electromagnetic-plant"
+    ],
+    "metallurgy": [
+      "foundry"
+    ],
+    "metallurgy-or-assembling": [
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "foundry"
+    ],
+    "oil-processing": [
+      "oil-refinery"
+    ],
+    "organic": [
+      "biochamber"
+    ],
+    "organic-or-assembling": [
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "biochamber"
+    ],
+    "organic-or-chemistry": [
+      "biochamber",
+      "chemical-plant"
+    ],
+    "organic-or-hand-crafting": [
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "biochamber"
+    ],
+    "pressing": [
+      "assembling-machine-1",
+      "assembling-machine-2",
+      "assembling-machine-3",
+      "foundry"
+    ],
+    "recycling": [
+      "recycler"
+    ],
+    "recycling-or-hand-crafting": [
+      "recycler"
+    ],
+    "rocket-building": [
+      "rocket-silo"
+    ],
+    "smelting": [
+      "electric-furnace",
+      "steel-furnace",
+      "stone-furnace"
+    ],
+    "space-cultivation": [
+      "space-cultivator"
+    ],
+    "spore-releasing": [
+      "spore-tower"
+    ]
+  },
+  "resource_categories": {
+    "basic-fluid": [
+      "pumpjack"
+    ],
+    "basic-solid": [
+      "big-mining-drill",
+      "burner-mining-drill",
+      "electric-mining-drill"
+    ],
+    "hard-solid": [
+      "big-mining-drill"
+    ]
+  }
+}

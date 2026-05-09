@@ -1,0 +1,3782 @@
+[
+  {
+    "name": "assembling-machine-1",
+    "type": "assembling-machine",
+    "from_mod": "base",
+    "crafting_categories": [
+      "crafting",
+      "basic-crafting",
+      "advanced-crafting",
+      "electronics",
+      "pressing"
+    ],
+    "crafting_speed": 0.5,
+    "energy_usage_kw": 75.0,
+    "energy_usage_raw": "75kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 4
+      }
+    },
+    "drain_kw": null,
+    "pollution": 4,
+    "emissions": {
+      "pollution": 4
+    },
+    "module_slots": 1,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 0,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "assembling-machine-2",
+    "type": "assembling-machine",
+    "from_mod": "base",
+    "crafting_categories": [
+      "basic-crafting",
+      "crafting",
+      "advanced-crafting",
+      "crafting-with-fluid",
+      "electronics",
+      "electronics-with-fluid",
+      "pressing",
+      "metallurgy-or-assembling",
+      "organic-or-hand-crafting",
+      "organic-or-assembling",
+      "electronics-or-assembling",
+      "cryogenics-or-assembling",
+      "crafting-with-fluid-or-metallurgy"
+    ],
+    "crafting_speed": 0.75,
+    "energy_usage_kw": 150.0,
+    "energy_usage_raw": "150kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 3
+      }
+    },
+    "drain_kw": null,
+    "pollution": 3,
+    "emissions": {
+      "pollution": 3
+    },
+    "module_slots": 3,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              0,
+              -1
+            ]
+          }
+        ],
+        "secondary_draw_orders": {
+          "north": -1
+        },
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              0,
+              1
+            ]
+          }
+        ],
+        "secondary_draw_orders": {
+          "north": -1
+        },
+        "volume": 1000,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 2,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "assembling-machine-3",
+    "type": "assembling-machine",
+    "from_mod": "base",
+    "crafting_categories": [
+      "basic-crafting",
+      "crafting",
+      "advanced-crafting",
+      "crafting-with-fluid",
+      "electronics",
+      "electronics-with-fluid",
+      "pressing",
+      "metallurgy-or-assembling",
+      "organic-or-hand-crafting",
+      "organic-or-assembling",
+      "electronics-or-assembling",
+      "cryogenics-or-assembling",
+      "crafting-with-fluid-or-metallurgy"
+    ],
+    "crafting_speed": 1.25,
+    "energy_usage_kw": 375.0,
+    "energy_usage_raw": "375kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 2
+      }
+    },
+    "drain_kw": null,
+    "pollution": 2,
+    "emissions": {
+      "pollution": 2
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              0,
+              -1
+            ]
+          }
+        ],
+        "secondary_draw_orders": {
+          "north": -1
+        },
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              0,
+              1
+            ]
+          }
+        ],
+        "secondary_draw_orders": {
+          "north": -1
+        },
+        "volume": 1000,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 4,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "biochamber",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "organic",
+      "organic-or-hand-crafting",
+      "organic-or-assembling",
+      "organic-or-chemistry"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 500.0,
+    "energy_usage_raw": "500kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "nutrients"
+      ],
+      "effectivity": 1,
+      "burner_usage": "nutrients",
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "pollution": -1
+      }
+    },
+    "drain_kw": null,
+    "pollution": -1,
+    "emissions": {
+      "pollution": -1
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 1
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              -1,
+              -1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              1,
+              -1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              1,
+              1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "output"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              -1,
+              1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "fuel_categories": [
+      "nutrients"
+    ],
+    "vanilla_2_0_76": {
+      "module_slots": 4,
+      "base_effect": {
+        "productivity": 0.5
+      }
+    }
+  },
+  {
+    "name": "captive-biter-spawner",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "captive-spawner-process"
+    ],
+    "crafting_speed": 1,
+    "energy_usage_kw": 100.0,
+    "energy_usage_raw": "100kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "food"
+      ],
+      "effectivity": 1,
+      "fuel_inventory_size": 1,
+      "burner_usage": "food",
+      "emissions_per_minute": {
+        "pollution": -1
+      }
+    },
+    "drain_kw": null,
+    "pollution": -1,
+    "emissions": {
+      "pollution": -1
+    },
+    "module_slots": 1,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      5,
+      5
+    ],
+    "collision_box": [
+      [
+        -2.2,
+        -2.2
+      ],
+      [
+        2.2,
+        2.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -2.5,
+        -2.5
+      ],
+      [
+        2.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "fuel_categories": [
+      "food"
+    ],
+    "vanilla_2_0_76": {
+      "module_slots": 1,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "centrifuge",
+    "type": "assembling-machine",
+    "from_mod": "base",
+    "crafting_categories": [
+      "centrifuging"
+    ],
+    "crafting_speed": 1,
+    "energy_usage_kw": 350.0,
+    "energy_usage_raw": "350kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 4
+      }
+    },
+    "drain_kw": null,
+    "pollution": 4,
+    "emissions": {
+      "pollution": 4
+    },
+    "module_slots": 3,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 2,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "chemical-plant",
+    "type": "assembling-machine",
+    "from_mod": "base",
+    "crafting_categories": [
+      "chemistry",
+      "chemistry-or-cryogenics",
+      "organic-or-chemistry"
+    ],
+    "crafting_speed": 1,
+    "energy_usage_kw": 210.0,
+    "energy_usage_raw": "210kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 4
+      }
+    },
+    "drain_kw": null,
+    "pollution": 4,
+    "emissions": {
+      "pollution": 4
+    },
+    "module_slots": 4,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              -1,
+              -1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              1,
+              -1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              -1,
+              1
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              1,
+              1
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 3,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "crusher",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "crushing"
+    ],
+    "crafting_speed": 1,
+    "energy_usage_kw": 540.0,
+    "energy_usage_raw": "540kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 1
+      }
+    },
+    "drain_kw": null,
+    "pollution": 1,
+    "emissions": {
+      "pollution": 1
+    },
+    "module_slots": 3,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      2,
+      3
+    ],
+    "collision_box": [
+      [
+        -0.7,
+        -1.2
+      ],
+      [
+        0.7,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1,
+        -1.5
+      ],
+      [
+        1,
+        1.5
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "heating_energy_kw": 200.0,
+    "vanilla_2_0_76": {
+      "module_slots": 2,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "cryogenic-plant",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "cryogenics",
+      "chemistry-or-cryogenics",
+      "cryogenics-or-assembling"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 1500.0,
+    "energy_usage_raw": "1500kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 6
+      }
+    },
+    "drain_kw": null,
+    "pollution": 6,
+    "emissions": {
+      "pollution": 6
+    },
+    "module_slots": 9,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              -2,
+              2
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              0,
+              2
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              2,
+              2
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              -2,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              0,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              2,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      5,
+      5
+    ],
+    "collision_box": [
+      [
+        -2.4,
+        -2.4
+      ],
+      [
+        2.4,
+        2.4
+      ]
+    ],
+    "selection_box": [
+      [
+        -2.5,
+        -2.5
+      ],
+      [
+        2.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 8,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "electromagnetic-plant",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "electromagnetics",
+      "electronics",
+      "electronics-with-fluid",
+      "electronics-or-assembling"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 2000.0,
+    "energy_usage_raw": "2000kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 4
+      }
+    },
+    "drain_kw": null,
+    "pollution": 4,
+    "emissions": {
+      "pollution": 4
+    },
+    "module_slots": 6,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 1
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 12,
+            "position": [
+              -1.5,
+              0.5
+            ]
+          }
+        ],
+        "secondary_draw_orders": {
+          "north": -1
+        },
+        "volume": 200,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 4,
+            "position": [
+              1.5,
+              -0.5
+            ]
+          }
+        ],
+        "secondary_draw_orders": {
+          "north": -1
+        },
+        "volume": 200,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 8,
+            "position": [
+              0.5,
+              1.5
+            ]
+          }
+        ],
+        "secondary_draw_orders": {
+          "north": -1
+        },
+        "volume": 100,
+        "production_type": "output"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 0,
+            "position": [
+              -0.5,
+              -1.5
+            ]
+          }
+        ],
+        "secondary_draw_orders": {
+          "north": -1
+        },
+        "volume": 100,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      4,
+      4
+    ],
+    "collision_box": [
+      [
+        -1.7,
+        -1.7
+      ],
+      [
+        1.7,
+        1.7
+      ]
+    ],
+    "selection_box": [
+      [
+        -2,
+        -2
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 5,
+      "base_effect": {
+        "productivity": 0.5
+      }
+    }
+  },
+  {
+    "name": "foundry",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "metallurgy",
+      "pressing",
+      "crafting-with-fluid-or-metallurgy",
+      "metallurgy-or-assembling"
+    ],
+    "crafting_speed": 4,
+    "energy_usage_kw": 2500.0,
+    "energy_usage_raw": "2500kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 6
+      }
+    },
+    "drain_kw": null,
+    "pollution": 6,
+    "emissions": {
+      "pollution": 6
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 1
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              -1,
+              2
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              1,
+              2
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              -1,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              1,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      5,
+      5
+    ],
+    "collision_box": [
+      [
+        -2.2,
+        -2.2
+      ],
+      [
+        2.2,
+        2.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -2.5,
+        -2.5
+      ],
+      [
+        2.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 300.0,
+    "vanilla_2_0_76": {
+      "module_slots": 4,
+      "base_effect": {
+        "productivity": 0.5
+      }
+    }
+  },
+  {
+    "name": "jellystem-greenhouse",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "cultivation-jellystem"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 500.0,
+    "energy_usage_raw": "500kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "nutrients"
+      ],
+      "effectivity": 2.5,
+      "burner_usage": "nutrients",
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "spores": 0,
+        "pollution": -1
+      }
+    },
+    "drain_kw": null,
+    "pollution": -1,
+    "emissions": {
+      "spores": 0,
+      "pollution": -1
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              0,
+              -1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "filter": "water",
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              0,
+              1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "fuel_categories": [
+      "nutrients"
+    ]
+  },
+  {
+    "name": "oil-refinery",
+    "type": "assembling-machine",
+    "from_mod": "base",
+    "crafting_categories": [
+      "oil-processing"
+    ],
+    "crafting_speed": 1,
+    "energy_usage_kw": 420.0,
+    "energy_usage_raw": "420kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 6
+      }
+    },
+    "drain_kw": null,
+    "pollution": 6,
+    "emissions": {
+      "pollution": 6
+    },
+    "module_slots": 4,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              -1,
+              2
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              1,
+              2
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              -2,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              0,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              2,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      5,
+      5
+    ],
+    "collision_box": [
+      [
+        -2.4,
+        -2.4
+      ],
+      [
+        2.4,
+        2.4
+      ]
+    ],
+    "selection_box": [
+      [
+        -2.5,
+        -2.5
+      ],
+      [
+        2.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 200.0,
+    "vanilla_2_0_76": {
+      "module_slots": 3,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "space-cultivator",
+    "type": "assembling-machine",
+    "from_mod": "quality-seeds",
+    "crafting_categories": [
+      "space-cultivation"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 500.0,
+    "energy_usage_raw": "500kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "nutrients"
+      ],
+      "effectivity": 2.5,
+      "burner_usage": "nutrients",
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "pollution": -1
+      }
+    },
+    "drain_kw": null,
+    "pollution": -1,
+    "emissions": {
+      "pollution": -1
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 1
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 0,
+            "position": [
+              -1,
+              -2
+            ]
+          }
+        ],
+        "volume": 500,
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 8,
+            "position": [
+              1,
+              2
+            ]
+          }
+        ],
+        "volume": 500,
+        "production_type": "input"
+      }
+    ],
+    "tile_size": [
+      5,
+      5
+    ],
+    "collision_box": [
+      [
+        -2.4,
+        -2.4
+      ],
+      [
+        2.4,
+        2.4
+      ]
+    ],
+    "selection_box": [
+      [
+        -2.4,
+        -2.4
+      ],
+      [
+        2.4,
+        2.4
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "heating_energy_kw": 100.0,
+    "fuel_categories": [
+      "nutrients"
+    ]
+  },
+  {
+    "name": "tree-plant-greenhouse",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "cultivation-tree-plant"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 500.0,
+    "energy_usage_raw": "500kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "nutrients"
+      ],
+      "effectivity": 2.5,
+      "burner_usage": "nutrients",
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "spores": 0,
+        "pollution": -1
+      }
+    },
+    "drain_kw": null,
+    "pollution": -1,
+    "emissions": {
+      "spores": 0,
+      "pollution": -1
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              0,
+              -1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "filter": "water",
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              0,
+              1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "fuel_categories": [
+      "nutrients"
+    ]
+  },
+  {
+    "name": "yumako-tree-greenhouse",
+    "type": "assembling-machine",
+    "from_mod": "space-age",
+    "crafting_categories": [
+      "cultivation-yumako-tree"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 500.0,
+    "energy_usage_raw": "500kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "nutrients"
+      ],
+      "effectivity": 2.5,
+      "burner_usage": "nutrients",
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "spores": 0,
+        "pollution": -1
+      }
+    },
+    "drain_kw": null,
+    "pollution": -1,
+    "emissions": {
+      "spores": 0,
+      "pollution": -1
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 0,
+            "position": [
+              0,
+              -1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "filter": "water",
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 8,
+            "position": [
+              0,
+              1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "fuel_categories": [
+      "nutrients"
+    ]
+  },
+  {
+    "name": "electric-furnace",
+    "type": "furnace",
+    "from_mod": "base",
+    "crafting_categories": [
+      "smelting"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 180.0,
+    "energy_usage_raw": "180kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 1
+      }
+    },
+    "drain_kw": null,
+    "pollution": 1,
+    "emissions": {
+      "pollution": 1
+    },
+    "module_slots": 3,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 2,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "recycler",
+    "type": "furnace",
+    "from_mod": "quality",
+    "crafting_categories": [
+      "recycling",
+      "recycling-or-hand-crafting"
+    ],
+    "crafting_speed": 0.5,
+    "energy_usage_kw": 180.0,
+    "energy_usage_raw": "180kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 2
+      }
+    },
+    "drain_kw": null,
+    "pollution": 2,
+    "emissions": {
+      "pollution": 2
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      2,
+      4
+    ],
+    "collision_box": [
+      [
+        -0.7,
+        -1.7
+      ],
+      [
+        0.7,
+        1.7
+      ]
+    ],
+    "selection_box": [
+      [
+        -0.9,
+        -1.85
+      ],
+      [
+        0.9,
+        1.85
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 4,
+      "base_effect": {},
+      "allowed_effects": [
+        "consumption",
+        "speed",
+        "pollution",
+        "quality"
+      ],
+      "note": "vanilla recycler explicitly disallows productivity"
+    }
+  },
+  {
+    "name": "spore-tower",
+    "type": "furnace",
+    "from_mod": "quality-seeds",
+    "crafting_categories": [
+      "spore-releasing"
+    ],
+    "crafting_speed": 1,
+    "energy_usage_kw": 1.0,
+    "energy_usage_raw": "1kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "spores": 60
+      }
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": {
+      "spores": 60
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              1,
+              1
+            ]
+          }
+        ],
+        "volume": 1000,
+        "filter": "spores",
+        "production_type": "input"
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0
+  },
+  {
+    "name": "steel-furnace",
+    "type": "furnace",
+    "from_mod": "base",
+    "crafting_categories": [
+      "smelting"
+    ],
+    "crafting_speed": 2,
+    "energy_usage_kw": 90.0,
+    "energy_usage_raw": "90kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "chemical"
+      ],
+      "effectivity": 1,
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "pollution": 4
+      }
+    },
+    "drain_kw": null,
+    "pollution": 4,
+    "emissions": {
+      "pollution": 4
+    },
+    "module_slots": 1,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      2,
+      2
+    ],
+    "collision_box": [
+      [
+        -0.7,
+        -0.7
+      ],
+      [
+        0.7,
+        0.7
+      ]
+    ],
+    "selection_box": [
+      [
+        -0.8,
+        -1
+      ],
+      [
+        0.8,
+        1
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "fuel_categories": [
+      "chemical"
+    ],
+    "vanilla_2_0_76": {
+      "module_slots": 0,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "stone-furnace",
+    "type": "furnace",
+    "from_mod": "base",
+    "crafting_categories": [
+      "smelting"
+    ],
+    "crafting_speed": 1,
+    "energy_usage_kw": 90.0,
+    "energy_usage_raw": "90kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "chemical"
+      ],
+      "effectivity": 1,
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "pollution": 2
+      }
+    },
+    "drain_kw": null,
+    "pollution": 2,
+    "emissions": {
+      "pollution": 2
+    },
+    "module_slots": 1,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      2,
+      2
+    ],
+    "collision_box": [
+      [
+        -0.7,
+        -0.7
+      ],
+      [
+        0.7,
+        0.7
+      ]
+    ],
+    "selection_box": [
+      [
+        -0.8,
+        -1
+      ],
+      [
+        0.8,
+        1
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "fuel_categories": [
+      "chemical"
+    ],
+    "vanilla_2_0_76": {
+      "module_slots": 0,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "rocket-silo",
+    "type": "rocket-silo",
+    "from_mod": "base",
+    "crafting_categories": [
+      "rocket-building"
+    ],
+    "crafting_speed": 1,
+    "energy_usage_kw": 250.0,
+    "energy_usage_raw": "250kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "primary-input"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      9,
+      9
+    ],
+    "collision_box": [
+      [
+        -4.2,
+        -4.2
+      ],
+      [
+        4.2,
+        4.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -4.5,
+        -4.5
+      ],
+      [
+        4.5,
+        4.5
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1
+      }
+    ],
+    "rocket_parts_required": 50,
+    "fixed_recipe": "rocket-part",
+    "active_energy_usage_kw": 3990.0,
+    "lamp_energy_usage_kw": 0.0,
+    "heating_energy_kw": 300.0,
+    "vanilla_2_0_76": {
+      "module_slots": 4,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "big-mining-drill",
+    "type": "mining-drill",
+    "from_mod": "space-age",
+    "crafting_categories": null,
+    "resource_categories": [
+      "basic-solid",
+      "hard-solid"
+    ],
+    "mining_speed": 2.5,
+    "crafting_speed": null,
+    "energy_usage_kw": 300.0,
+    "energy_usage_raw": "300kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 40
+      }
+    },
+    "drain_kw": null,
+    "pollution": 40,
+    "emissions": {
+      "pollution": 40
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "direction": 12,
+            "position": [
+              -2,
+              -1
+            ]
+          },
+          {
+            "direction": 4,
+            "position": [
+              2,
+              -1
+            ]
+          },
+          {
+            "direction": 8,
+            "position": [
+              1,
+              2
+            ]
+          },
+          {
+            "direction": 8,
+            "position": [
+              -1,
+              2
+            ]
+          }
+        ],
+        "volume": 200
+      }
+    ],
+    "tile_size": [
+      5,
+      5
+    ],
+    "collision_box": [
+      [
+        -2.35,
+        -2.35
+      ],
+      [
+        2.35,
+        2.35
+      ]
+    ],
+    "selection_box": [
+      [
+        -2.5,
+        -2.5
+      ],
+      [
+        2.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 200.0,
+    "vanilla_2_0_76": {
+      "module_slots": 4,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "burner-mining-drill",
+    "type": "mining-drill",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "resource_categories": [
+      "basic-solid"
+    ],
+    "mining_speed": 0.25,
+    "crafting_speed": null,
+    "energy_usage_kw": 150.0,
+    "energy_usage_raw": "150kW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "chemical"
+      ],
+      "effectivity": 1,
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "pollution": 12
+      }
+    },
+    "drain_kw": null,
+    "pollution": 12,
+    "emissions": {
+      "pollution": 12
+    },
+    "module_slots": 1,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      2,
+      2
+    ],
+    "collision_box": [
+      [
+        -0.7,
+        -0.7
+      ],
+      [
+        0.7,
+        0.7
+      ]
+    ],
+    "selection_box": [
+      [
+        -1,
+        -1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "heating_energy_kw": 50.0,
+    "fuel_categories": [
+      "chemical"
+    ],
+    "vanilla_2_0_76": {
+      "module_slots": 0,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "electric-mining-drill",
+    "type": "mining-drill",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "resource_categories": [
+      "basic-solid"
+    ],
+    "mining_speed": 0.5,
+    "crafting_speed": null,
+    "energy_usage_kw": 90.0,
+    "energy_usage_raw": "90kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 10
+      }
+    },
+    "drain_kw": null,
+    "pollution": 10,
+    "emissions": {
+      "pollution": 10
+    },
+    "module_slots": 4,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "direction": 12,
+            "position": [
+              -1,
+              0
+            ]
+          },
+          {
+            "direction": 4,
+            "position": [
+              1,
+              0
+            ]
+          },
+          {
+            "direction": 8,
+            "position": [
+              0,
+              1
+            ]
+          }
+        ],
+        "volume": 200
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.35,
+        -1.35
+      ],
+      [
+        1.35,
+        1.35
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 3,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "pumpjack",
+    "type": "mining-drill",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "resource_categories": [
+      "basic-fluid"
+    ],
+    "mining_speed": 1,
+    "crafting_speed": null,
+    "energy_usage_kw": 90.0,
+    "energy_usage_raw": "90kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 10
+      }
+    },
+    "drain_kw": null,
+    "pollution": 10,
+    "emissions": {
+      "pollution": 10
+    },
+    "module_slots": 3,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "direction": 0,
+            "flow_direction": "output"
+          }
+        ],
+        "volume": 1000
+      }
+    ],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "heating_energy_kw": 50.0,
+    "vanilla_2_0_76": {
+      "module_slots": 2,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "boiler",
+    "type": "boiler",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 1800.0,
+    "energy_usage_raw": "1.8MW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "chemical"
+      ],
+      "effectivity": 1,
+      "fuel_inventory_size": 1,
+      "emissions_per_minute": {
+        "pollution": 30
+      }
+    },
+    "drain_kw": null,
+    "pollution": 30,
+    "emissions": {
+      "pollution": 30
+    },
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 12,
+            "position": [
+              -1,
+              0.5
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 4,
+            "position": [
+              1,
+              0.5
+            ]
+          }
+        ],
+        "volume": 200,
+        "filter": "water",
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              0,
+              -0.5
+            ]
+          }
+        ],
+        "volume": 200,
+        "filter": "steam",
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      2
+    ],
+    "collision_box": [
+      [
+        -1.29,
+        -0.79
+      ],
+      [
+        1.29,
+        0.79
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1
+      ],
+      [
+        1.5,
+        1
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "target_temperature": 165,
+    "mode": "output-to-separate-pipe",
+    "fuel_categories": [
+      "chemical"
+    ]
+  },
+  {
+    "name": "heat-exchanger",
+    "type": "boiler",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 10000.0,
+    "energy_usage_raw": "10MW",
+    "energy_source": {
+      "type": "heat"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 12,
+            "position": [
+              -1,
+              0.5
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 4,
+            "position": [
+              1,
+              0.5
+            ]
+          }
+        ],
+        "volume": 200,
+        "filter": "water",
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              0,
+              -0.5
+            ]
+          }
+        ],
+        "volume": 200,
+        "filter": "steam",
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      2
+    ],
+    "collision_box": [
+      [
+        -1.29,
+        -0.79
+      ],
+      [
+        1.29,
+        0.79
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1
+      ],
+      [
+        1.5,
+        1
+      ]
+    ],
+    "surface_conditions": null,
+    "target_temperature": 500,
+    "mode": "output-to-separate-pipe"
+  },
+  {
+    "name": "steam-engine",
+    "type": "generator",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": null,
+    "energy_usage_raw": null,
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-output"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 8,
+            "position": [
+              0,
+              2
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 0,
+            "position": [
+              0,
+              -2
+            ]
+          }
+        ],
+        "minimum_temperature": 100,
+        "volume": 200,
+        "filter": "steam",
+        "production_type": "input"
+      }
+    ],
+    "tile_size": [
+      3,
+      5
+    ],
+    "collision_box": [
+      [
+        -1.25,
+        -2.35
+      ],
+      [
+        1.25,
+        2.35
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -2.5
+      ],
+      [
+        1.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": null,
+    "fluid_usage_per_tick": 0.5,
+    "effectivity": 1,
+    "maximum_temperature": 165,
+    "heating_energy_kw": 50.0
+  },
+  {
+    "name": "steam-turbine",
+    "type": "generator",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": null,
+    "energy_usage_raw": null,
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-output"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 8,
+            "position": [
+              0,
+              2
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 0,
+            "position": [
+              0,
+              -2
+            ]
+          }
+        ],
+        "minimum_temperature": 100,
+        "volume": 200,
+        "filter": "steam",
+        "production_type": "input"
+      }
+    ],
+    "tile_size": [
+      3,
+      5
+    ],
+    "collision_box": [
+      [
+        -1.25,
+        -2.35
+      ],
+      [
+        1.25,
+        2.35
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -2.5
+      ],
+      [
+        1.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": null,
+    "fluid_usage_per_tick": 1,
+    "effectivity": 1,
+    "maximum_temperature": 500,
+    "heating_energy_kw": 50.0
+  },
+  {
+    "name": "heating-tower",
+    "type": "reactor",
+    "from_mod": "space-age",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 40000.0,
+    "energy_usage_raw": "40MW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "chemical"
+      ],
+      "effectivity": 2.5,
+      "fuel_inventory_size": 2,
+      "burnt_inventory_size": 2,
+      "emissions_per_minute": {
+        "pollution": 100
+      }
+    },
+    "drain_kw": null,
+    "pollution": 100,
+    "emissions": {
+      "pollution": 100
+    },
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.25,
+        -1.25
+      ],
+      [
+        1.25,
+        1.25
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 10
+      }
+    ],
+    "consumption_kw": 40000.0,
+    "neighbour_bonus": 0,
+    "heat_buffer_max_temp": 1000,
+    "heat_buffer_specific_heat": "5MJ",
+    "fuel_categories": [
+      "chemical"
+    ]
+  },
+  {
+    "name": "nuclear-reactor",
+    "type": "reactor",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 40000.0,
+    "energy_usage_raw": "40MW",
+    "energy_source": {
+      "type": "burner",
+      "fuel_categories": [
+        "nuclear"
+      ],
+      "effectivity": 1,
+      "fuel_inventory_size": 1,
+      "burnt_inventory_size": 1
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      5,
+      5
+    ],
+    "collision_box": [
+      [
+        -2.2,
+        -2.2
+      ],
+      [
+        2.2,
+        2.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -2.5,
+        -2.5
+      ],
+      [
+        2.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": null,
+    "consumption_kw": 40000.0,
+    "neighbour_bonus": 1,
+    "heat_buffer_max_temp": 1000,
+    "heat_buffer_specific_heat": "10MJ",
+    "fuel_categories": [
+      "nuclear"
+    ]
+  },
+  {
+    "name": "fusion-generator",
+    "type": "fusion-generator",
+    "from_mod": "space-age",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": null,
+    "energy_usage_raw": null,
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-output",
+      "output_flow_limit": "50MW"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              -1,
+              2
+            ]
+          },
+          {
+            "flow_direction": "input",
+            "direction": 8,
+            "position": [
+              1,
+              2
+            ]
+          },
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              0,
+              -2
+            ]
+          },
+          {
+            "flow_direction": "output",
+            "direction": 12,
+            "position": [
+              -1,
+              0
+            ]
+          },
+          {
+            "flow_direction": "output",
+            "direction": 4,
+            "position": [
+              1,
+              0
+            ]
+          },
+          {
+            "flow_direction": "output",
+            "direction": 12,
+            "position": [
+              -1,
+              -1
+            ]
+          },
+          {
+            "flow_direction": "output",
+            "direction": 4,
+            "position": [
+              1,
+              -1
+            ]
+          }
+        ],
+        "volume": 10,
+        "filter": "fusion-plasma",
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              -1,
+              -2
+            ]
+          },
+          {
+            "flow_direction": "output",
+            "direction": 0,
+            "position": [
+              1,
+              -2
+            ]
+          }
+        ],
+        "volume": 100,
+        "filter": "fluoroketone-hot",
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      3,
+      5
+    ],
+    "collision_box": [
+      [
+        -1.4,
+        -2.4
+      ],
+      [
+        1.4,
+        2.4
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -2.5
+      ],
+      [
+        1.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": null,
+    "max_fluid_usage": 0.03333333333333333
+  },
+  {
+    "name": "fusion-reactor",
+    "type": "fusion-reactor",
+    "from_mod": "space-age",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": null,
+    "energy_usage_raw": null,
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "primary-input"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 12,
+            "position": [
+              -2.5,
+              -1.5
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 12,
+            "position": [
+              -2.5,
+              1.5
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 4,
+            "position": [
+              2.5,
+              -1.5
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 4,
+            "position": [
+              2.5,
+              1.5
+            ]
+          }
+        ],
+        "volume": 1000,
+        "filter": "fluoroketone-cold",
+        "production_type": "input"
+      },
+      {
+        "pipe_connections": [
+          {
+            "flow_direction": "input-output",
+            "direction": 8,
+            "position": [
+              -1.5,
+              2.5
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 8,
+            "position": [
+              1.5,
+              2.5
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 0,
+            "position": [
+              -1.5,
+              -2.5
+            ]
+          },
+          {
+            "flow_direction": "input-output",
+            "direction": 0,
+            "position": [
+              1.5,
+              -2.5
+            ]
+          }
+        ],
+        "volume": 10,
+        "filter": "fusion-plasma",
+        "production_type": "output"
+      }
+    ],
+    "tile_size": [
+      6,
+      6
+    ],
+    "collision_box": [
+      [
+        -2.9,
+        -2.9
+      ],
+      [
+        2.9,
+        2.9
+      ]
+    ],
+    "selection_box": [
+      [
+        -3,
+        -3
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "surface_conditions": null,
+    "consumption_kw": null,
+    "neighbour_bonus": null,
+    "heat_buffer_max_temp": null,
+    "heat_buffer_specific_heat": null
+  },
+  {
+    "name": "agricultural-tower",
+    "type": "agricultural-tower",
+    "from_mod": "space-age",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 100.0,
+    "energy_usage_raw": "100kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "spores": 4
+      }
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": {
+      "spores": 4
+    },
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 2000
+      }
+    ],
+    "radius": 3,
+    "crane_energy_usage_kw": 100.0,
+    "input_inventory_size": 3,
+    "heating_energy_kw": 100.0
+  },
+  {
+    "name": "asteroid-collector",
+    "type": "asteroid-collector",
+    "from_mod": "space-age",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": null,
+    "energy_usage_raw": null,
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 0,
+    "allowed_effects": null,
+    "allowed_module_categories": null,
+    "base_effect": {},
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "collection_radius": 7.5,
+    "inventory_size": 39,
+    "arm_count_base": 1,
+    "arm_speed_base": 0.2,
+    "passive_energy_usage_kw": null,
+    "arm_energy_usage_kw": null
+  },
+  {
+    "name": "biolab",
+    "type": "lab",
+    "from_mod": "space-age",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 300.0,
+    "energy_usage_raw": "300kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input",
+      "emissions_per_minute": {
+        "pollution": 8
+      }
+    },
+    "drain_kw": null,
+    "pollution": 8,
+    "emissions": {
+      "pollution": 8
+    },
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      5,
+      5
+    ],
+    "collision_box": [
+      [
+        -2.2,
+        -2.2
+      ],
+      [
+        2.2,
+        2.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -2.5,
+        -2.5
+      ],
+      [
+        2.5,
+        2.5
+      ]
+    ],
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "researching_speed": 2,
+    "inputs": [
+      "automation-science-pack",
+      "logistic-science-pack",
+      "military-science-pack",
+      "chemical-science-pack",
+      "production-science-pack",
+      "utility-science-pack",
+      "space-science-pack",
+      "metallurgic-science-pack",
+      "agricultural-science-pack",
+      "electromagnetic-science-pack",
+      "cryogenic-science-pack",
+      "promethium-science-pack"
+    ],
+    "vanilla_2_0_76": {
+      "module_slots": 4,
+      "base_effect": {
+        "productivity": 0.5
+      }
+    }
+  },
+  {
+    "name": "lab",
+    "type": "lab",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 60.0,
+    "energy_usage_raw": "60kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 3,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "researching_speed": 1,
+    "inputs": [
+      "automation-science-pack",
+      "logistic-science-pack",
+      "military-science-pack",
+      "chemical-science-pack",
+      "production-science-pack",
+      "utility-science-pack",
+      "space-science-pack",
+      "metallurgic-science-pack",
+      "agricultural-science-pack",
+      "electromagnetic-science-pack",
+      "cryogenic-science-pack",
+      "promethium-science-pack"
+    ],
+    "heating_energy_kw": 100.0,
+    "vanilla_2_0_76": {
+      "module_slots": 2,
+      "base_effect": {}
+    }
+  },
+  {
+    "name": "beacon",
+    "type": "beacon",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 480.0,
+    "energy_usage_raw": "480kW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 5,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      3,
+      3
+    ],
+    "collision_box": [
+      [
+        -1.2,
+        -1.2
+      ],
+      [
+        1.2,
+        1.2
+      ]
+    ],
+    "selection_box": [
+      [
+        -1.5,
+        -1.5
+      ],
+      [
+        1.5,
+        1.5
+      ]
+    ],
+    "surface_conditions": null,
+    "distribution_effectivity": 3,
+    "distribution_effectivity_bonus_per_quality_level": 0.2,
+    "supply_area_distance": 3,
+    "heating_energy_kw": 400.0
+  },
+  {
+    "name": "beacon-fish",
+    "type": "beacon",
+    "from_mod": "base",
+    "crafting_categories": null,
+    "crafting_speed": null,
+    "energy_usage_kw": 10000.0,
+    "energy_usage_raw": "10MW",
+    "energy_source": {
+      "type": "electric",
+      "usage_priority": "secondary-input"
+    },
+    "drain_kw": null,
+    "pollution": null,
+    "emissions": null,
+    "module_slots": 4,
+    "allowed_effects": [
+      "consumption",
+      "speed",
+      "productivity",
+      "pollution",
+      "quality"
+    ],
+    "allowed_module_categories": null,
+    "base_effect": {
+      "productivity": 0.5
+    },
+    "uses_module_effects": true,
+    "uses_beacon_effects": true,
+    "uses_surface_effects": true,
+    "fluid_boxes": [],
+    "tile_size": [
+      2,
+      2
+    ],
+    "collision_box": [
+      [
+        -0.7,
+        -0.7
+      ],
+      [
+        0.7,
+        0.7
+      ]
+    ],
+    "selection_box": [
+      [
+        -1,
+        -1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "surface_conditions": null,
+    "distribution_effectivity": 8,
+    "distribution_effectivity_bonus_per_quality_level": 0.2,
+    "supply_area_distance": 4,
+    "heating_energy_kw": 400.0
+  }
+]

@@ -1,0 +1,565 @@
+{
+  "recycler": {
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99,
+        "max": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "copper-bacteria": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "copper-bacteria-cultivation": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "iron-bacteria": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "iron-bacteria-cultivation": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "artificial-yumako-soil": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "overgrowth-yumako-soil": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "artificial-jellynut-soil": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "overgrowth-jellynut-soil": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "pentapod-egg": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "space-science-pack": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "metallurgic-science-pack": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "agricultural-science-pack": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "electromagnetic-science-pack": {
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99,
+        "max": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "cryogenic-science-pack": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 300,
+        "max": 300
+      }
+    ],
+    "allowed_planets": [
+      "aquilo"
+    ]
+  },
+  "thruster-fuel": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "thruster-oxidizer": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "advanced-thruster-fuel": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "advanced-thruster-oxidizer": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "acid-neutralisation": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "foundry": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "turbo-transport-belt": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "turbo-underground-belt": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "turbo-splitter": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "big-mining-drill": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "biochamber": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "fish-breeding": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "allowed_planets": [
+      "nauvis"
+    ]
+  },
+  "lightning-rod": {
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99,
+        "max": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "electromagnetic-plant": {
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "lightning-collector": {
+    "surface_conditions": [
+      {
+        "property": "magnetic-field",
+        "min": 99,
+        "max": 99
+      }
+    ],
+    "allowed_planets": [
+      "fulgora"
+    ]
+  },
+  "cryogenic-plant": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 100,
+        "max": 600
+      }
+    ],
+    "allowed_planets": [
+      "aquilo"
+    ]
+  },
+  "quantum-processor": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "max": 600
+      }
+    ],
+    "allowed_planets": [
+      "aquilo",
+      "space-platform"
+    ]
+  },
+  "fusion-reactor": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 100,
+        "max": 600
+      }
+    ],
+    "allowed_planets": [
+      "aquilo"
+    ]
+  },
+  "fusion-generator": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 100,
+        "max": 600
+      }
+    ],
+    "allowed_planets": [
+      "aquilo"
+    ]
+  },
+  "promethium-science-pack": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "wood-processing": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 1000,
+        "max": 1000
+      }
+    ],
+    "allowed_planets": [
+      "nauvis"
+    ]
+  },
+  "turbo-mdrn-loader": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 4000,
+        "max": 4000
+      }
+    ],
+    "allowed_planets": [
+      "vulcanus"
+    ]
+  },
+  "space-cultivator": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "promethium-transport-belt": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "promethium-underground-belt": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "promethium-splitter": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "cultivate-space-yumako-tree": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "yumako-tree-greenhouse": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "cultivate-space-jellystem": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "jellystem-greenhouse": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  },
+  "cultivate-space-tree-plant": {
+    "surface_conditions": [
+      {
+        "property": "gravity",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "allowed_planets": [
+      "space-platform"
+    ]
+  },
+  "tree-plant-greenhouse": {
+    "surface_conditions": [
+      {
+        "property": "pressure",
+        "min": 2000,
+        "max": 2000
+      }
+    ],
+    "allowed_planets": [
+      "gleba"
+    ]
+  }
+}

@@ -1,0 +1,1360 @@
+
+
+{
+  "double-setting": 
+  {
+    "faster-robots-speed": 
+    {
+      "type": "double-setting",
+      "name": "faster-robots-speed",
+      "localised_name": "Additional robot speed",
+      "localised_description": "Additional robot speed. Game default speed is 0.05",
+      "setting_type": "startup",
+      "minimum_value": 0,
+      "default_value": 0.05
+    },
+    "efficient-robots-efficiency": 
+    {
+      "type": "double-setting",
+      "name": "efficient-robots-efficiency",
+      "localised_name": "Robot efficiency",
+      "localised_description": "To get base game efficiency use 0",
+      "setting_type": "startup",
+      "minimum_value": 0,
+      "maximum_value": 100,
+      "default_value": 50
+    },
+    "distribution-delay": 
+    {
+      "type": "double-setting",
+      "name": "distribution-delay",
+      "setting_type": "runtime-per-user",
+      "order": "zzz",
+      "default_value": 0.9,
+      "minimum_value": 0.01,
+      "hidden": true
+    },
+    "extra-zoom-zoom-min": 
+    {
+      "type": "double-setting",
+      "name": "extra-zoom-zoom-min",
+      "order": "a",
+      "setting_type": "runtime-per-user",
+      "default_value": 4,
+      "minimum_value": 1,
+      "maximum_value": 16
+    },
+    "robot-carry-size-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "robot-carry-size-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "robot-speed-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "robot-speed-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "robot-battery-size-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "robot-battery-size-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "robot-energy-usage-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "robot-energy-usage-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "robot-energy-tick-usage-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "robot-energy-tick-usage-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "construction-robot-carry-size-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "construction-robot-carry-size-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "construction-robot-speed-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "construction-robot-speed-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "construction-robot-battery-size-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "construction-robot-battery-size-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "construction-robot-energy-usage-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "construction-robot-energy-usage-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "construction-robot-energy-tick-usage-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "construction-robot-energy-tick-usage-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "logistics-robot-carry-size-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "logistics-robot-carry-size-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "logistics-robot-speed-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "logistics-robot-speed-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "logistics-robot-battery-size-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "logistics-robot-battery-size-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "logistics-robot-energy-usage-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "logistics-robot-energy-usage-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "logistics-robot-energy-tick-usage-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "logistics-robot-energy-tick-usage-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "roboport-logistics-radius-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "roboport-logistics-radius-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "roboport-construction-radius-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "roboport-construction-radius-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "roboport-charging-rate-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "roboport-charging-rate-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "roboport-buffer-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "roboport-buffer-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "roboport-energy-usage-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "roboport-energy-usage-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "robot-stack-size": 
+    {
+      "type": "double-setting",
+      "name": "robot-stack-size",
+      "setting_type": "startup",
+      "default_value": 50
+    },
+    "robot-health-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "robot-health-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "inserter-speed-multiplier": 
+    {
+      "type": "double-setting",
+      "name": "inserter-speed-multiplier",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0
+    },
+    "ad-beacon-efficiency": 
+    {
+      "type": "double-setting",
+      "name": "ad-beacon-efficiency",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0.1,
+      "maximum_value": 100,
+      "order": "b-b"
+    },
+    "productivity-productivity": 
+    {
+      "type": "double-setting",
+      "name": "productivity-productivity",
+      "setting_type": "startup",
+      "default_value": 4,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-b-a"
+    },
+    "productivity-speed": 
+    {
+      "type": "double-setting",
+      "name": "productivity-speed",
+      "setting_type": "startup",
+      "default_value": -5,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-b-b"
+    },
+    "productivity-consumption": 
+    {
+      "type": "double-setting",
+      "name": "productivity-consumption",
+      "setting_type": "startup",
+      "default_value": 40,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-b-c"
+    },
+    "productivity-pollution": 
+    {
+      "type": "double-setting",
+      "name": "productivity-pollution",
+      "setting_type": "startup",
+      "default_value": 5,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-b-d"
+    },
+    "speed-speed": 
+    {
+      "type": "double-setting",
+      "name": "speed-speed",
+      "setting_type": "startup",
+      "default_value": 20,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-c-a"
+    },
+    "speed-productivity": 
+    {
+      "type": "double-setting",
+      "name": "speed-productivity",
+      "setting_type": "startup",
+      "default_value": 50,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-c-b"
+    },
+    "speed-consumption": 
+    {
+      "type": "double-setting",
+      "name": "speed-consumption",
+      "setting_type": "startup",
+      "default_value": 50,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-c-d"
+    },
+    "efficiency-consumption": 
+    {
+      "type": "double-setting",
+      "name": "efficiency-consumption",
+      "setting_type": "startup",
+      "default_value": -30,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-d-a"
+    },
+    "efficiency-pollution": 
+    {
+      "type": "double-setting",
+      "name": "efficiency-pollution",
+      "setting_type": "startup",
+      "default_value": 0,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-d-b"
+    },
+    "quality-quality": 
+    {
+      "type": "double-setting",
+      "name": "quality-quality",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": -1000,
+      "maximum_value": 1000,
+      "order": "c-e-a"
+    },
+    "quality-speed": 
+    {
+      "type": "double-setting",
+      "name": "quality-speed",
+      "setting_type": "startup",
+      "default_value": -5,
+      "minimum_value": -10000,
+      "maximum_value": 10000,
+      "order": "c-e-b"
+    },
+    "productivity-quality": 
+    {
+      "type": "double-setting",
+      "name": "productivity-quality",
+      "setting_type": "startup",
+      "default_value": 0,
+      "minimum_value": -1000,
+      "maximum_value": 1000,
+      "order": "c-b-e"
+    },
+    "speed-quality": 
+    {
+      "type": "double-setting",
+      "name": "speed-quality",
+      "setting_type": "startup",
+      "default_value": -1,
+      "minimum_value": -1000,
+      "maximum_value": 1000,
+      "order": "c-c-c"
+    },
+    "aspr-health-ratio": 
+    {
+      "type": "double-setting",
+      "name": "aspr-health-ratio",
+      "description": "aspr-health-ratio",
+      "setting_type": "runtime-global",
+      "default_value": 0.5,
+      "allowed_values": 
+      [
+        0.25,
+        0.3300000000000000266453525910037569701671600341796875,
+        0.5,
+        0.660000000000000053290705182007513940334320068359375,
+        0.75
+      ],
+      "order": "2"
+    },
+    "base_effect": 
+    {
+      "type": "double-setting",
+      "name": "base_effect",
+      "setting_type": "startup",
+      "default_value": 100,
+      "maximum_value": 1000,
+      "minimum_value": 0,
+      "order": "1006"
+    },
+    "visible-planets-planet-init-scale": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-planet-init-scale",
+      "setting_type": "runtime-global",
+      "default_value": 0,
+      "minimum_value": 0,
+      "order": "b[sprite]-a"
+    },
+    "visible-planets-planet-scale": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-planet-scale",
+      "setting_type": "runtime-global",
+      "default_value": 6,
+      "minimum_value": 0,
+      "order": "b[sprite]-b"
+    },
+    "visible-planets-parallax-factor": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-parallax-factor",
+      "setting_type": "runtime-global",
+      "default_value": 3,
+      "minimum_value": 0.1,
+      "order": "c[parallax]-c"
+    },
+    "visible-planets-rotation-speed": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-rotation-speed",
+      "setting_type": "runtime-global",
+      "default_value": 0.01,
+      "minimum_value": -180,
+      "maximum_value": 180,
+      "order": "d[rotation]-b"
+    },
+    "visible-planets-planetslib-scale": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-planetslib-scale",
+      "setting_type": "startup",
+      "default_value": 0.2,
+      "minimum_value": 0,
+      "maximum_value": 10,
+      "order": "b[planetslib]-b"
+    },
+    "visible-planets-planetslib-dist": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-planetslib-dist",
+      "setting_type": "startup",
+      "default_value": 10,
+      "order": "b[planetslib]-c"
+    },
+    "visible-planets-planetslib-init-angle": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-planetslib-init-angle",
+      "setting_type": "startup",
+      "default_value": 0,
+      "order": "b[planetslib]-d"
+    },
+    "visible-planets-planetslib-spacing-mult": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-planetslib-spacing-mult",
+      "setting_type": "startup",
+      "default_value": 1,
+      "order": "b[planetslib]-e"
+    },
+    "visible-planets-planetslib-tint": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-planetslib-tint",
+      "setting_type": "startup",
+      "default_value": 0.5,
+      "minimum_value": 0,
+      "maximum_value": 1,
+      "order": "b[planetslib]-f"
+    },
+    "visible-planets-blur-intensity": 
+    {
+      "type": "double-setting",
+      "name": "visible-planets-blur-intensity",
+      "setting_type": "startup",
+      "default_value": 1,
+      "minimum_value": 0.01,
+      "order": "c[blur]-b"
+    }
+  },
+  "int-setting": 
+  {
+    "calcui-decimal-places": 
+    {
+      "type": "int-setting",
+      "default_value": 2,
+      "minimum_value": 0,
+      "maximum_value": 10,
+      "name": "calcui-decimal-places",
+      "setting_type": "runtime-per-user"
+    },
+    "global-max-inventory-cleanup-range": 
+    {
+      "type": "int-setting",
+      "name": "global-max-inventory-cleanup-range",
+      "order": "c",
+      "setting_type": "runtime-global",
+      "default_value": 1000,
+      "minimum_value": 0
+    },
+    "max-inventory-cleanup-drop-range": 
+    {
+      "type": "int-setting",
+      "name": "max-inventory-cleanup-drop-range",
+      "order": "zzz",
+      "setting_type": "runtime-per-user",
+      "default_value": 30,
+      "minimum_value": 0,
+      "maximum_value": 100,
+      "hidden": true
+    },
+    "extra-zoom-zoom-max": 
+    {
+      "type": "int-setting",
+      "name": "extra-zoom-zoom-max",
+      "order": "b",
+      "setting_type": "runtime-per-user",
+      "default_value": 400,
+      "maximum_value": 1600,
+      "minimum_value": 100
+    },
+    "starting-robot-count": 
+    {
+      "type": "int-setting",
+      "name": "starting-robot-count",
+      "setting_type": "runtime-global",
+      "default_value": 50,
+      "minimum_value": 50,
+      "maximum_value": 500,
+      "order": "01"
+    },
+    "faster-robots": 
+    {
+      "type": "int-setting",
+      "name": "faster-robots",
+      "setting_type": "runtime-global",
+      "default_value": 0,
+      "minimum_value": 0,
+      "maximum_value": 6,
+      "order": "02"
+    },
+    "roboport-logistics-radius-value": 
+    {
+      "type": "int-setting",
+      "name": "roboport-logistics-radius-value",
+      "setting_type": "startup",
+      "default_value": -1
+    },
+    "roboport-construction-radius-value": 
+    {
+      "type": "int-setting",
+      "name": "roboport-construction-radius-value",
+      "setting_type": "startup",
+      "default_value": -1
+    },
+    "stack_size": 
+    {
+      "type": "int-setting",
+      "name": "stack_size",
+      "setting_type": "startup",
+      "default_value": 500,
+      "maximum_value": 5000,
+      "minimum_value": 10,
+      "order": "a"
+    },
+    "ad-beacon-area": 
+    {
+      "type": "int-setting",
+      "name": "ad-beacon-area",
+      "setting_type": "startup",
+      "default_value": 3,
+      "minimum_value": 1,
+      "maximum_value": 64,
+      "order": "b-c"
+    },
+    "ad-module-slots": 
+    {
+      "type": "int-setting",
+      "name": "ad-module-slots",
+      "setting_type": "startup",
+      "default_value": 2,
+      "minimum_value": 1,
+      "maximum_value": 40,
+      "order": "b-d"
+    },
+    "aspr-repair-per-batch": 
+    {
+      "type": "int-setting",
+      "name": "aspr-repair-per-batch",
+      "description": "aspr-repair-per-batch",
+      "setting_type": "runtime-global",
+      "default_value": 24,
+      "allowed_values": 
+      [
+        6,
+        12,
+        24,
+        36,
+        48
+      ],
+      "order": "1"
+    },
+    "more_slots": 
+    {
+      "type": "int-setting",
+      "name": "more_slots",
+      "setting_type": "startup",
+      "default_value": 2,
+      "maximum_value": 10,
+      "minimum_value": 0,
+      "order": "1003"
+    },
+    "beacon_de": 
+    {
+      "type": "int-setting",
+      "name": "beacon_de",
+      "setting_type": "startup",
+      "default_value": 2,
+      "maximum_value": 100,
+      "minimum_value": 1,
+      "order": "1004"
+    },
+    "beacon_sad": 
+    {
+      "type": "int-setting",
+      "name": "beacon_sad",
+      "setting_type": "startup",
+      "default_value": 2,
+      "maximum_value": 10,
+      "minimum_value": 1,
+      "order": "1005"
+    },
+    "fish_mod_x": 
+    {
+      "type": "int-setting",
+      "name": "fish_mod_x",
+      "setting_type": "startup",
+      "default_value": 1,
+      "maximum_value": 100,
+      "minimum_value": 1,
+      "order": "1008"
+    },
+    "quality_fix": 
+    {
+      "type": "int-setting",
+      "name": "quality_fix",
+      "setting_type": "startup",
+      "default_value": 10,
+      "maximum_value": 1000,
+      "minimum_value": 1,
+      "order": "1009"
+    },
+    "asteroid-stack-size": 
+    {
+      "type": "int-setting",
+      "name": "asteroid-stack-size",
+      "localised_name": "Asteroid Stack Size",
+      "localised_description": "To get the base stack size use 1",
+      "setting_type": "startup",
+      "minimum_value": 1,
+      "default_value": 50
+    },
+    "visible-planets-planet-pos-x": 
+    {
+      "type": "int-setting",
+      "name": "visible-planets-planet-pos-x",
+      "setting_type": "runtime-global",
+      "default_value": -75,
+      "order": "b[sprite]-c"
+    },
+    "visible-planets-planet-pos-y": 
+    {
+      "type": "int-setting",
+      "name": "visible-planets-planet-pos-y",
+      "setting_type": "runtime-global",
+      "default_value": 20,
+      "order": "b[sprite]-d"
+    },
+    "visible-planets-planet-init-dist": 
+    {
+      "type": "int-setting",
+      "name": "visible-planets-planet-init-dist",
+      "setting_type": "runtime-global",
+      "default_value": 200,
+      "minimum_value": 0,
+      "order": "b[sprite]-e"
+    },
+    "visible-planets-planet-anim-dur": 
+    {
+      "type": "int-setting",
+      "name": "visible-planets-planet-anim-dur",
+      "setting_type": "runtime-global",
+      "default_value": 300,
+      "minimum_value": 1,
+      "order": "b[sprite]-f"
+    },
+    "visible-planets-planet-angle": 
+    {
+      "type": "int-setting",
+      "name": "visible-planets-planet-angle",
+      "setting_type": "runtime-global",
+      "default_value": 0,
+      "minimum_value": 0,
+      "maximum_value": 359,
+      "order": "b[sprite]-g"
+    }
+  },
+  "bool-setting": 
+  {
+    "calcui-clear-on-calc": 
+    {
+      "type": "bool-setting",
+      "default_value": false,
+      "name": "calcui-clear-on-calc",
+      "setting_type": "runtime-per-user"
+    },
+    "calcui-shortcut-close": 
+    {
+      "type": "bool-setting",
+      "default_value": false,
+      "name": "calcui-shortcut-close",
+      "setting_type": "runtime-per-user"
+    },
+    "calcui-nilaus-mode": 
+    {
+      "type": "bool-setting",
+      "default_value": false,
+      "name": "calcui-nilaus-mode",
+      "setting_type": "runtime-per-user"
+    },
+    "calcui-sfx": 
+    {
+      "type": "bool-setting",
+      "default_value": false,
+      "name": "calcui-sfx",
+      "setting_type": "runtime-per-user"
+    },
+    "disable-distribute": 
+    {
+      "type": "bool-setting",
+      "name": "disable-distribute",
+      "setting_type": "runtime-global",
+      "order": "a",
+      "default_value": false
+    },
+    "disable-inventory-cleanup": 
+    {
+      "type": "bool-setting",
+      "name": "disable-inventory-cleanup",
+      "setting_type": "runtime-global",
+      "order": "b",
+      "default_value": false
+    },
+    "info": 
+    {
+      "type": "bool-setting",
+      "name": "info",
+      "setting_type": "runtime-per-user",
+      "order": "zzz",
+      "default_value": true
+    },
+    "enable-ed": 
+    {
+      "type": "bool-setting",
+      "name": "enable-ed",
+      "setting_type": "runtime-per-user",
+      "order": "zzz",
+      "default_value": true,
+      "hidden": true
+    },
+    "take-from-car": 
+    {
+      "type": "bool-setting",
+      "name": "take-from-car",
+      "setting_type": "runtime-per-user",
+      "order": "zzz",
+      "default_value": true,
+      "hidden": true
+    },
+    "cleanup-logistic-request-overflow": 
+    {
+      "type": "bool-setting",
+      "name": "cleanup-logistic-request-overflow",
+      "order": "zzz",
+      "setting_type": "runtime-per-user",
+      "default_value": true,
+      "hidden": true
+    },
+    "drop-trash-to-chests": 
+    {
+      "type": "bool-setting",
+      "name": "drop-trash-to-chests",
+      "order": "zzz",
+      "setting_type": "runtime-per-user",
+      "default_value": true,
+      "hidden": true
+    },
+    "extra-zoom-chart-mode": 
+    {
+      "type": "bool-setting",
+      "name": "extra-zoom-chart-mode",
+      "order": "c",
+      "setting_type": "runtime-per-user",
+      "default_value": false
+    },
+    "disable-crashsite": 
+    {
+      "type": "bool-setting",
+      "name": "disable-crashsite",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "skip-intro": 
+    {
+      "type": "bool-setting",
+      "name": "skip-intro",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "disable-mod-recipes": 
+    {
+      "type": "bool-setting",
+      "name": "disable-mod-recipes",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "only-modify-vanilla-roboport": 
+    {
+      "type": "bool-setting",
+      "name": "only-modify-vanilla-roboport",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "enable-early-construction-robots": 
+    {
+      "type": "bool-setting",
+      "name": "enable-early-construction-robots",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "enable-early-logistic-robots": 
+    {
+      "type": "bool-setting",
+      "name": "enable-early-logistic-robots",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "enable-early-logistic-system": 
+    {
+      "type": "bool-setting",
+      "name": "enable-early-logistic-system",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "enable-quick-start": 
+    {
+      "type": "bool-setting",
+      "name": "enable-quick-start",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "productivity-maximum": 
+    {
+      "type": "bool-setting",
+      "name": "productivity-maximum",
+      "setting_type": "startup",
+      "default_value": false,
+      "order": "a-b"
+    },
+    "Configure-module": 
+    {
+      "type": "bool-setting",
+      "name": "Configure-module",
+      "setting_type": "startup",
+      "default_value": false,
+      "order": "c-a"
+    },
+    "quality-upgrade-planner-fluid": 
+    {
+      "type": "bool-setting",
+      "name": "quality-upgrade-planner-fluid",
+      "setting_type": "runtime-global",
+      "default_value": false
+    },
+    "quality-upgrade-planner-virtual": 
+    {
+      "type": "bool-setting",
+      "name": "quality-upgrade-planner-virtual",
+      "setting_type": "runtime-global",
+      "default_value": false
+    },
+    "rcalc-dismiss-tool-on-selection": 
+    {
+      "type": "bool-setting",
+      "name": "rcalc-dismiss-tool-on-selection",
+      "setting_type": "runtime-per-user",
+      "default_value": false
+    },
+    "rcalc-show-calculation-errors": 
+    {
+      "type": "bool-setting",
+      "name": "rcalc-show-calculation-errors",
+      "setting_type": "runtime-per-user",
+      "default_value": true
+    },
+    "rcalc-show-power-consumption": 
+    {
+      "type": "bool-setting",
+      "name": "rcalc-show-power-consumption",
+      "setting_type": "runtime-per-user",
+      "default_value": false
+    },
+    "rcalc-show-completion-checkboxes": 
+    {
+      "type": "bool-setting",
+      "name": "rcalc-show-completion-checkboxes",
+      "setting_type": "runtime-per-user",
+      "default_value": false
+    },
+    "rcalc-show-intermediate-breakdowns": 
+    {
+      "type": "bool-setting",
+      "name": "rcalc-show-intermediate-breakdowns",
+      "setting_type": "runtime-per-user",
+      "default_value": true
+    },
+    "rcalc-show-pollution": 
+    {
+      "type": "bool-setting",
+      "name": "rcalc-show-pollution",
+      "setting_type": "runtime-per-user",
+      "default_value": false
+    },
+    "statsgui-single-line": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-single-line",
+      "setting_type": "runtime-per-user",
+      "default_value": true,
+      "order": "aa"
+    },
+    "statsgui-adjust-for-fps-ups": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-adjust-for-fps-ups",
+      "setting_type": "runtime-per-user",
+      "default_value": false,
+      "order": "ab"
+    },
+    "statsgui-adjust-for-clock": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-adjust-for-clock",
+      "setting_type": "runtime-per-user",
+      "default_value": false,
+      "order": "ac"
+    },
+    "statsgui-show-playtime-in-days": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-show-playtime-in-days",
+      "setting_type": "runtime-per-user",
+      "default_value": false,
+      "order": "ad"
+    },
+    "statsgui-show-sensor-research": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-show-sensor-research",
+      "setting_type": "runtime-per-user",
+      "default_value": true,
+      "order": "ba"
+    },
+    "statsgui-show-sensor-position": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-show-sensor-position",
+      "setting_type": "runtime-per-user",
+      "default_value": false,
+      "order": "bb"
+    },
+    "statsgui-show-sensor-evolution": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-show-sensor-evolution",
+      "setting_type": "runtime-per-user",
+      "default_value": true,
+      "order": "bc"
+    },
+    "statsgui-show-sensor-pollution": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-show-sensor-pollution",
+      "setting_type": "runtime-per-user",
+      "default_value": false,
+      "order": "bd"
+    },
+    "statsgui-show-sensor-playtime": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-show-sensor-playtime",
+      "setting_type": "runtime-per-user",
+      "default_value": true,
+      "order": "be"
+    },
+    "statsgui-show-sensor-daytime": 
+    {
+      "type": "bool-setting",
+      "name": "statsgui-show-sensor-daytime",
+      "setting_type": "runtime-per-user",
+      "default_value": true,
+      "order": "bf"
+    },
+    "aspr-include-units": 
+    {
+      "type": "bool-setting",
+      "name": "aspr-include-units",
+      "description": "aspr-include-units",
+      "setting_type": "startup",
+      "default_value": false,
+      "order": "3"
+    },
+    "module_all": 
+    {
+      "type": "bool-setting",
+      "name": "module_all",
+      "setting_type": "startup",
+      "default_value": true,
+      "order": "1000"
+    },
+    "unlimit": 
+    {
+      "type": "bool-setting",
+      "name": "unlimit",
+      "setting_type": "startup",
+      "default_value": true,
+      "order": "1001"
+    },
+    "productivity_limit": 
+    {
+      "type": "bool-setting",
+      "name": "productivity_limit",
+      "setting_type": "startup",
+      "default_value": true,
+      "order": "1002"
+    },
+    "Prohibited_devices": 
+    {
+      "type": "bool-setting",
+      "name": "Prohibited_devices",
+      "setting_type": "startup",
+      "default_value": true,
+      "order": "1010"
+    },
+    "mdrn-use-electricity": 
+    {
+      "type": "bool-setting",
+      "name": "mdrn-use-electricity",
+      "order": "sa",
+      "setting_type": "startup",
+      "default_value": true
+    },
+    "mdrn-oplp": 
+    {
+      "type": "bool-setting",
+      "name": "mdrn-oplp",
+      "order": "saa",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "mdrn-enable-chute": 
+    {
+      "type": "bool-setting",
+      "name": "mdrn-enable-chute",
+      "order": "sb",
+      "setting_type": "startup",
+      "default_value": true
+    },
+    "mdrn-double-recipe": 
+    {
+      "type": "bool-setting",
+      "name": "mdrn-double-recipe",
+      "order": "sd",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "mdrn-respect-insert-limits": 
+    {
+      "type": "bool-setting",
+      "name": "mdrn-respect-insert-limits",
+      "order": "sf",
+      "setting_type": "startup",
+      "default_value": true
+    },
+    "mdrn-cheap-stacking": 
+    {
+      "type": "bool-setting",
+      "name": "mdrn-cheap-stacking",
+      "order": "sea",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "mdrn-wait-for-full-stack": 
+    {
+      "type": "bool-setting",
+      "name": "mdrn-wait-for-full-stack",
+      "order": "seb",
+      "setting_type": "startup",
+      "default_value": true
+    },
+    "balanced-seeds-mode": 
+    {
+      "type": "bool-setting",
+      "name": "balanced-seeds-mode",
+      "localised_name": "Balanced Cultivation",
+      "localised_description": "Cultivator outputs are cut to 30% of their original value such that it is harder to replenish the seeds without a full productivity bonus.",
+      "setting_type": "startup",
+      "default_value": true
+    },
+    "cultivators-anywhere": 
+    {
+      "type": "bool-setting",
+      "name": "cultivators-anywhere",
+      "localised_name": "Freeplace Cultivators",
+      "localised_description": "Too many harvestable plants can lead to too many collision masks for cultivator placement. Turn this on before adding those extra mods to save on collision layers. Or if you want to place cultivators anywhere!",
+      "setting_type": "startup",
+      "default_value": false
+    },
+    "visible-planets-regen-renders": 
+    {
+      "type": "bool-setting",
+      "name": "visible-planets-regen-renders",
+      "setting_type": "runtime-global",
+      "default_value": false,
+      "order": "a[main]-a"
+    },
+    "visible-planets-enable-parallax": 
+    {
+      "type": "bool-setting",
+      "name": "visible-planets-enable-parallax",
+      "setting_type": "runtime-global",
+      "default_value": true,
+      "order": "c[parallax]-a"
+    },
+    "visible-planets-disable-mp-parallax": 
+    {
+      "type": "bool-setting",
+      "name": "visible-planets-disable-mp-parallax",
+      "setting_type": "runtime-global",
+      "default_value": true,
+      "order": "c[parallax]-b"
+    },
+    "visible-planets-enable-rotation": 
+    {
+      "type": "bool-setting",
+      "name": "visible-planets-enable-rotation",
+      "setting_type": "runtime-global",
+      "default_value": true,
+      "order": "d[rotation]-a"
+    },
+    "visible-planets-override-show-planets": 
+    {
+      "type": "bool-setting",
+      "name": "visible-planets-override-show-planets",
+      "setting_type": "startup",
+      "default_value": false,
+      "order": "a[general]-a"
+    },
+    "visible-planets-planetslib-compat": 
+    {
+      "type": "bool-setting",
+      "name": "visible-planets-planetslib-compat",
+      "setting_type": "startup",
+      "default_value": true,
+      "order": "b[planetslib]-a"
+    },
+    "visible-planets-enable-blur": 
+    {
+      "type": "bool-setting",
+      "name": "visible-planets-enable-blur",
+      "setting_type": "startup",
+      "default_value": false,
+      "order": "c[blue]-a"
+    }
+  },
+  "string-setting": 
+  {
+    "inventory-cleanup-custom-trash": 
+    {
+      "type": "string-setting",
+      "name": "inventory-cleanup-custom-trash",
+      "order": "zzz",
+      "setting_type": "runtime-per-user",
+      "default_value": "iron-plate:800 copper-plate:600 steel-plate:600 stone-brick:400 artillery-shell:0",
+      "allow_blank": true,
+      "hidden": true
+    },
+    "ignored-entities": 
+    {
+      "type": "string-setting",
+      "name": "ignored-entities",
+      "order": "zzz",
+      "setting_type": "runtime-per-user",
+      "default_value": "",
+      "allow_blank": true,
+      "hidden": true
+    },
+    "queued-tech-setting": 
+    {
+      "type": "string-setting",
+      "allow_blank": true,
+      "name": "queued-tech-setting",
+      "setting_type": "runtime-per-user",
+      "default_value": "",
+      "order": "1"
+    },
+    "blacklisted-tech-setting": 
+    {
+      "type": "string-setting",
+      "allow_blank": true,
+      "name": "blacklisted-tech-setting",
+      "setting_type": "runtime-per-user",
+      "default_value": "",
+      "order": "2"
+    },
+    "Configure-recipe": 
+    {
+      "type": "string-setting",
+      "name": "Configure-recipe",
+      "setting_type": "startup",
+      "default_value": "Not-Enabled",
+      "allowed_values": 
+      [
+        "Not-Enabled",
+        "Enabled-and-all"
+      ],
+      "order": "a-a"
+    },
+    "Configure-beacon": 
+    {
+      "type": "string-setting",
+      "name": "Configure-beacon",
+      "setting_type": "startup",
+      "default_value": "Not-Enabled",
+      "allowed_values": 
+      [
+        "Not-Enabled",
+        "Enabled",
+        "Enabled-and-productivity",
+        "Enabled-and-quality",
+        "Enabled-and-all"
+      ],
+      "order": "b-a"
+    },
+    "ad-change-size": 
+    {
+      "type": "string-setting",
+      "name": "ad-change-size",
+      "setting_type": "startup",
+      "default_value": "Not-Enabled",
+      "allowed_values": 
+      [
+        "Not-Enabled",
+        "Enabled",
+        "Enabled-and-overload"
+      ],
+      "order": "b-e"
+    },
+    "rcalc-default-gui-location": 
+    {
+      "type": "string-setting",
+      "name": "rcalc-default-gui-location",
+      "setting_type": "runtime-per-user",
+      "default_value": "top-left",
+      "allowed_values": 
+      [
+        "top-left",
+        "center"
+      ]
+    },
+    "rcalc-default-timescale": 
+    {
+      "type": "string-setting",
+      "name": "rcalc-default-timescale",
+      "setting_type": "runtime-per-user",
+      "default_value": "per-second",
+      "allowed_values": 
+      [
+        "per-second",
+        "per-minute",
+        "per-hour",
+        "transport-belts",
+        "inserters"
+      ]
+    },
+    "mdrn-unlock-technology": 
+    {
+      "type": "string-setting",
+      "name": "mdrn-unlock-technology",
+      "order": "sc",
+      "setting_type": "startup",
+      "default_value": "separate",
+      "allowed_values": 
+      [
+        "separate",
+        "belt"
+      ]
+    },
+    "mdrn-embiggen-assemblers": 
+    {
+      "type": "string-setting",
+      "name": "mdrn-embiggen-assemblers",
+      "order": "sg",
+      "setting_type": "startup",
+      "default_value": "zero",
+      "allowed_values": 
+      [
+        "zero",
+        "eight",
+        "sixteen"
+      ]
+    },
+    "mdrn-enable-stacking": 
+    {
+      "type": "string-setting",
+      "name": "mdrn-enable-stacking",
+      "order": "se",
+      "setting_type": "startup",
+      "default_value": "stack-tier",
+      "allowed_values": 
+      [
+        "none",
+        "turbo-and-above",
+        "all",
+        "stack-tier"
+      ]
+    },
+    "yapr-starmap-res": 
+    {
+      "type": "string-setting",
+      "name": "yapr-starmap-res",
+      "setting_type": "startup",
+      "default_value": "2K",
+      "allowed_values": 
+      [
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "order": "a"
+    }
+  }
+}
