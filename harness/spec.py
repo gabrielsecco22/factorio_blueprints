@@ -23,8 +23,10 @@ class BuildSpec:
     """
 
     # What kind of build to synthesise. Examples values:
-    #   "smelter_array"  - one row of furnaces with input/output belts.
-    #   "solar_field"    - solar panels + accumulators in canonical ratio.
+    #   "smelter_array"          - one row of furnaces with input/output belts.
+    #   "electric_smelter_array" - smelter_array variant with substation power.
+    #   "solar_field"            - solar panels + accumulators in canonical ratio.
+    #   "green_circuit_block"    - two rows: copper-cable -> electronic-circuit.
     kind: str = "smelter_array"
 
     # The recipe target (used by `smelter_array` etc.).
@@ -62,6 +64,22 @@ class BuildSpec:
     # Solar-field specifics:
     solar_panel_count: Optional[int] = None  # if None, derived from accumulator_count or default.
     accumulator_count: Optional[int] = None
+
+    # Smelter-array fuel feed (only meaningful for burner machines):
+    #   None       - no fuel feed (legacy stone-smelter MVP behaviour).
+    #   "shared"   - one extra burner-inserter per furnace lifts fuel from
+    #                the same input belt (filtered).
+    #   "separate" - a dedicated parallel fuel belt south of the input belt.
+    fuel_feed: Optional[str] = None
+
+    # Power-network choice for electric builds. Used by `electric_smelter_array`.
+    # "substation" (default for that kind), "medium-electric-pole", or
+    # "small-electric-pole" all work; pick whichever covers your footprint.
+    pole_choice: str = "substation"
+
+    # Green-circuit specifics:
+    cable_assembler_count: Optional[int] = None
+    circuit_assembler_count: Optional[int] = None
 
     # Optional human label baked into the blueprint.
     label: Optional[str] = None

@@ -1,0 +1,265 @@
+[
+  {
+    "id": "helmod",
+    "name": "Helmod",
+    "category": "in-game-mod",
+    "subcategory": "factory-planner",
+    "homepage": "https://mods.factorio.com/mod/helmod",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "downloads": 521000,
+    "latest_version": "2.2.13",
+    "factorio_version_range": "0.14 - 2.0",
+    "author": "Helfima",
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=83852", "title": "Helmod vs Factory Planner", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://mods.factorio.com/mod/helmod/discussion/670d35e8ae00d2b44daf36d2", "title": "2.0 / Space Age - Helmod compatibility", "upvotes": null, "source": "mod-portal"},
+      {"url": "https://forums.factorio.com/viewtopic.php?t=130996", "title": "Calculator Mod in Space AGE?", "upvotes": null, "source": "factorio-forums"}
+    ],
+    "summary": "In-game factory planner with matrix solver. Highest downloads of any planner; preferred by users for complex byproduct loops and oil chains.",
+    "community_sentiment": "positive",
+    "notes": "Most-downloaded planning mod (~521K). Updated for 2.0/Space Age. Reputation: powerful but steeper learning curve than Factory Planner; users prefer it for complex situations and 'input-dependent' planning."
+  },
+  {
+    "id": "even-distribution",
+    "name": "Even Distribution",
+    "category": "in-game-mod",
+    "subcategory": "qol-tool",
+    "homepage": "https://mods.factorio.com/mod/even-distribution",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "downloads": 502000,
+    "latest_version": "2.0.2",
+    "factorio_version_range": "0.15 - 2.0",
+    "author": "321freddy",
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=122677", "title": "Include 'Even Distribution' and 'Rate Calculator' mods in base game", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://forums.factorio.com/viewtopic.php?t=114682", "title": "What mods are you using - and why?", "upvotes": null, "source": "factorio-forums"}
+    ],
+    "summary": "Ctrl+drag spreads stacks evenly across machines/chests; Shift+C cleans inventory. Perennially in 'must-have QoL' lists.",
+    "community_sentiment": "positive",
+    "notes": "Frequently mentioned in r/factorio 'best QoL mods' threads. ~502K downloads. Forum threads have proposed bundling it into base game alongside Rate Calculator."
+  },
+  {
+    "id": "rate-calculator",
+    "name": "Rate Calculator",
+    "category": "in-game-mod",
+    "subcategory": "calculator",
+    "homepage": "https://mods.factorio.com/mod/RateCalculator",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "downloads": 400000,
+    "latest_version": "3.3.8",
+    "factorio_version_range": "0.18 - 2.0",
+    "author": "raiguard",
+    "popular_threads": [
+      {"url": "https://steamcommunity.com/app/427520/discussions/1/4201364524144685002/", "title": "Does anyone know a good rate calculator?", "upvotes": null, "source": "steam-discussions"},
+      {"url": "https://forums.factorio.com/viewtopic.php?t=130996", "title": "Calculator Mod in Space AGE?", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://forums.factorio.com/viewtopic.php?t=122677", "title": "Include Even Distribution and Rate Calculator in base game", "upvotes": null, "source": "factorio-forums"}
+    ],
+    "summary": "Drag-select tool that reports max production/consumption rate for the chosen machines. No upfront recipe modeling required.",
+    "community_sentiment": "positive",
+    "notes": "Maintained by raiguard, a Wube employee. Universally recommended in 2.0/Space Age threads as the easiest way to validate ratios in-place. ~400K downloads."
+  },
+  {
+    "id": "factory-planner",
+    "name": "Factory Planner",
+    "category": "in-game-mod",
+    "subcategory": "factory-planner",
+    "homepage": "https://mods.factorio.com/mod/factoryplanner",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "downloads": 317000,
+    "latest_version": "2.0.50",
+    "factorio_version_range": "0.17 - 2.0",
+    "author": "Therenas",
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=83852", "title": "Helmod vs Factory Planner", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://forums.factorio.com/viewtopic.php?t=105925", "title": "Questions about Helmod or Factory Planner", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://steamcommunity.com/app/427520/discussions/1/560260115063736376/", "title": "Factory Planner (or Helmod) subfloor help", "upvotes": null, "source": "steam-discussions"}
+    ],
+    "summary": "Cleaner UI alternative to Helmod for in-game production planning. Dynamically adjusts UI when Space Age is enabled.",
+    "community_sentiment": "positive",
+    "notes": "Created explicitly because Helmod was 'difficult to learn'. Active 2.0 maintenance (latest release 20 days before research). Known limitation: does not handle fluids of different temperatures correctly."
+  },
+  {
+    "id": "recipe-book",
+    "name": "Recipe Book",
+    "category": "in-game-mod",
+    "subcategory": "reference",
+    "homepage": "https://mods.factorio.com/mod/RecipeBook",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "downloads": 228000,
+    "latest_version": "4.0.8",
+    "factorio_version_range": "0.18 - 2.0",
+    "author": "raiguard",
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=81595", "title": "[0.18+] Recipe Book", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://www.youtube.com/watch?v=bKiDL1dwqr8", "title": "Factorio Mod Spotlight - Recipe Book", "upvotes": null, "source": "youtube"}
+    ],
+    "summary": "Compendium of recipes/materials/machines with advanced filtering. Modern successor to FNEI; pre-computes data on save load.",
+    "community_sentiment": "positive",
+    "notes": "Generally seen as the modern replacement for FNEI; some SeaBlock users prefer FNEI's search ergonomics. Recipe Book pre-calculates data at load (slower load, faster runtime)."
+  },
+  {
+    "id": "bottleneck-lite",
+    "name": "Bottleneck Lite",
+    "category": "in-game-mod",
+    "subcategory": "qol-visualization",
+    "homepage": "https://mods.factorio.com/mod/BottleneckLite",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "downloads": 211000,
+    "latest_version": "1.3.4",
+    "factorio_version_range": "1.1 - 2.0",
+    "author": "raiguard",
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=114682", "title": "What mods are you using - and why?", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://steamcommunity.com/app/427520/discussions/0/4634861089657501949/", "title": "Suggested Mods for 2.0 coming from 1.x", "upvotes": null, "source": "steam-discussions"}
+    ],
+    "summary": "Adds working/idle indicator dots to assemblers and drills. Zero runtime overhead via working_visualisations.",
+    "community_sentiment": "positive",
+    "notes": "Considered the de-facto successor to the original Bottleneck mod for 2.0; community recommends it specifically because it scales without performance impact on large factories."
+  },
+  {
+    "id": "factoriobin",
+    "name": "factoriobin.com",
+    "category": "string-paste",
+    "homepage": "https://factoriobin.com",
+    "open_source": false,
+    "supports_2_0": true,
+    "supports_space_age": null,
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=98720", "title": "Introducing FactorioBin - the fastest, easiest way to share your blueprint strings", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://factoriobin.com/about", "title": "About - FactorioBin", "upvotes": null, "source": "official"}
+    ],
+    "summary": "Pastebin-style site purpose-built for blueprint strings. Renders a basic preview from the embedded icons; no search, no accounts.",
+    "community_sentiment": "positive",
+    "notes": "Recommended in r/factorio specifically as a Pastebin replacement (Pastebin retroactively deletes blueprints). Author keeps scope deliberately small. No 2.0/Space Age compatibility note on site, but blueprint strings still work."
+  },
+  {
+    "id": "factorio-school",
+    "name": "factorio.school",
+    "category": "string-paste",
+    "homepage": "https://www.factorio.school/",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=61400", "title": "Top blueprint library suggestion on the Factorio subreddit", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://forums.factorio.com/viewtopic.php?t=97495", "title": "Factorio blueprints website", "upvotes": null, "source": "factorio-forums"}
+    ],
+    "summary": "Successor to Factorio Prints with tagged search, books, and curated collections. Cited as 'the most feature-rich' sharing site.",
+    "community_sentiment": "positive",
+    "notes": "Reddit discussions consistently call it 'School wins on features'. Active hosting of Space Age content (DocJade's AutoMall, Nilaus books)."
+  },
+  {
+    "id": "factorioprints",
+    "name": "factorioprints.com",
+    "category": "string-paste",
+    "homepage": "https://factorioprints.com/",
+    "open_source": true,
+    "supports_2_0": null,
+    "supports_space_age": null,
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=61400", "title": "Top blueprint library suggestion on the Factorio subreddit", "upvotes": null, "source": "factorio-forums"}
+    ],
+    "summary": "Original community blueprint repository. Largely superseded by factorio.school (same author lineage); referenced as the historical archive.",
+    "community_sentiment": "mixed",
+    "notes": "Multiple comparisons describe it as 'basically discontinued' or 'old-work archive vibes' versus factorio.school. Still up and accessible; community defaults to school for new uploads."
+  },
+  {
+    "id": "factoriocodex",
+    "name": "Factorio Codex (web)",
+    "category": "string-paste",
+    "homepage": "https://www.factoriocodex.com/",
+    "open_source": false,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "popular_threads": [
+      {"url": "https://www.factoriocodex.com/blueprints/244", "title": "Space Age Blueprints - Factorio Codex", "upvotes": null, "source": "official"},
+      {"url": "https://www.factoriocodex.com/blueprints/141", "title": "Space Age Mall + Early Game Military Mall", "upvotes": null, "source": "official"}
+    ],
+    "summary": "Newer blueprint database with built-in factory calculator and structure-view rendering rather than just strings. Aimed at the 2.0 era.",
+    "community_sentiment": "positive",
+    "notes": "Comparisons describe it as 'the new search experience of the 2.0 era'. Smaller library than school/prints but actively curated for Space Age. Note: in-game mod by the same name exists, separate project."
+  },
+  {
+    "id": "blueprintbot-discord",
+    "name": "BlueprintBot (Discord)",
+    "category": "discord-bot",
+    "homepage": "https://top.gg/bot/310607046020169729",
+    "source_repo": "https://github.com/demodude4u/Factorio-FBSR",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=130109", "title": "Made a Discord bot for Factorio Servers", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://deepwiki.com/demodude4u/Factorio-FBSR/5.1-discord-bot-integration", "title": "Discord Bot Integration | Factorio-FBSR", "upvotes": null, "source": "deepwiki"}
+    ],
+    "summary": "Discord bot that renders blueprint strings to images via /blueprint and /book commands. Backed by the FBSR Java renderer.",
+    "community_sentiment": "positive",
+    "notes": "Standard tool in Factorio Discord servers. Powered by Factorio-FBSR (open source); the same engine drives reddit u/BlueprintBot mentions historically."
+  },
+  {
+    "id": "production-calculator-gsheet",
+    "name": "Production Calculator (Google Sheets, by Lupoviridae)",
+    "category": "spreadsheet",
+    "homepage": "https://forums.factorio.com/viewtopic.php?t=27467",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=27467", "title": "Production Calculator Google Sheet [2.0 Space Age & Vanilla]", "upvotes": null, "source": "factorio-forums"},
+      {"url": "https://forums.factorio.com/viewtopic.php?p=529186", "title": "Production Calculator Google Sheet - Page 3", "upvotes": null, "source": "factorio-forums"}
+    ],
+    "summary": "Google Sheet that produces ratios, machine counts, belt/inserter counts, and oil-cracking balances. Has explicit 2.0 and Space Age sheets.",
+    "community_sentiment": "positive",
+    "notes": "One of the few spreadsheet calculators actively maintained for 2.0. Quality and new beacon mechanics still pending in the sheet at last update."
+  },
+  {
+    "id": "factorio-cheat-sheet",
+    "name": "Factorio Cheat Sheet",
+    "category": "reference-web",
+    "homepage": "https://factoriocheatsheet.com/",
+    "source_repo": "https://github.com/factoriocheatsheet/factoriocheatsheet.github.io",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "popular_threads": [
+      {"url": "https://forums.factorio.com/viewforum.php?f=134", "title": "Cheatsheets / Calculators / Viewers (forum subforum)", "upvotes": null, "source": "factorio-forums"}
+    ],
+    "summary": "Single-page web reference: smelting columns, oil ratios, beacon math, train signal cheat sheet. Frequently linked when newcomers ask 'what ratios should I use?'.",
+    "community_sentiment": "positive",
+    "notes": "Not a calculator per se; a curated cheat sheet. Treated as canonical link in r/factorio answers about ratios."
+  },
+  {
+    "id": "even-pickier-dollies",
+    "name": "Even Pickier Dollies",
+    "category": "in-game-mod",
+    "subcategory": "qol-tool",
+    "homepage": "https://mods.factorio.com/mod/even-pickier-dollies",
+    "source_repo": "https://github.com/hgschmie/factorio-even-pickier-dollies",
+    "open_source": true,
+    "supports_2_0": true,
+    "supports_space_age": true,
+    "downloads": 29500,
+    "latest_version": "2.7.3",
+    "factorio_version_range": "2.0",
+    "author": "hgschmie",
+    "popular_threads": [
+      {"url": "https://mods.factorio.com/mod/PickerDollies/discussion/6714aedd88b0b17a082d52eb", "title": "2.0 version? - Picker Dollies discussion", "upvotes": null, "source": "mod-portal"},
+      {"url": "https://steamcommunity.com/app/427520/discussions/0/4634861089657501949/", "title": "Suggested Mods for 2.0 coming from 1.x", "upvotes": null, "source": "steam-discussions"}
+    ],
+    "summary": "Nudge placed entities one tile at a time without losing wires/settings. Fork of Picker Dollies maintained for 2.0 after the original lapsed.",
+    "community_sentiment": "positive",
+    "notes": "Original Picker Dollies stalled on 2.0 update; community migrated to Even Pickier Dollies, a from-scratch rewrite. Useful while building blueprints by hand."
+  }
+]

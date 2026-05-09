@@ -13,6 +13,7 @@ from typing import Any, Optional
 
 from harness import catalog, encode, layout, plan, validate
 from harness.layout import PlacedEntity
+from harness.rates import rates_for_plan
 from harness.spec import BuildSpec
 
 
@@ -44,7 +45,7 @@ def _make_icons(spec: BuildSpec, plan_obj: plan.ProductionPlan) -> list[dict[str
     """Pick up to four signal icons from the plan's outputs / cells."""
     icons: list[dict[str, Any]] = []
     used: set[str] = set()
-    if spec.kind == "smelter_array":
+    if spec.kind in ("smelter_array", "electric_smelter_array"):
         if spec.target and spec.target not in used:
             icons.append({"signal": {"type": "item", "name": spec.target}, "index": len(icons) + 1})
             used.add(spec.target)
@@ -55,23 +56,35 @@ def _make_icons(spec: BuildSpec, plan_obj: plan.ProductionPlan) -> list[dict[str
     elif spec.kind == "solar_field":
         icons.append({"signal": {"type": "item", "name": "solar-panel"}, "index": 1})
         icons.append({"signal": {"type": "item", "name": "accumulator"}, "index": 2})
+    elif spec.kind == "green_circuit_block":
+        icons.append({"signal": {"type": "item", "name": "electronic-circuit"}, "index": 1})
+        icons.append({"signal": {"type": "item", "name": "copper-cable"}, "index": 2})
     return icons or [{"signal": {"type": "item", "name": "blueprint"}, "index": 1}]
 
 
 def _make_label(spec: BuildSpec, plan_obj: plan.ProductionPlan) -> str:
     if spec.label:
         return spec.label
-    if spec.kind == "smelter_array":
+    if spec.kind in ("smelter_array", "electric_smelter_array"):
         cell = plan_obj.cells[0]
         return f"{cell.count}x {cell.machine} -> {spec.target} ({cell.rate_total:.2f}/s)"
     if spec.kind == "solar_field":
         n_panels = next(c.count for c in plan_obj.cells if c.machine == "solar-panel")
         n_accs = next(c.count for c in plan_obj.cells if c.machine == "accumulator")
         return f"Solar field: {n_panels} panels + {n_accs} accumulators"
+    if spec.kind == "green_circuit_block":
+        n_cable = next(c.count for c in plan_obj.cells if c.recipe == "copper-cable")
+        n_circuit = next(c.count for c in plan_obj.cells if c.recipe == "electronic-circuit")
+        return f"Green circuit block: {n_cable} cable + {n_circuit} circuit assemblers"
     return "Synthesised blueprint"
 
 
-def _make_report(spec: BuildSpec, plan_obj: plan.ProductionPlan, layout_obj: layout.LayoutResult) -> str:
+def _make_report(
+    spec: BuildSpec,
+    plan_obj: plan.ProductionPlan,
+    layout_obj: layout.LayoutResult,
+    rates_section: str = "",
+) -> str:
     lines: list[str] = []
     lines.append(f"# Synthesis report: {spec.kind}")
     lines.append("")
@@ -108,6 +121,9 @@ def _make_report(spec: BuildSpec, plan_obj: plan.ProductionPlan, layout_obj: lay
         lines.append("## Layout warnings")
         for w in layout_obj.warnings:
             lines.append(f"- {w}")
+    if rates_section:
+        lines.append("")
+        lines.append(rates_section)
     return "\n".join(lines)
 
 
@@ -115,6 +131,22 @@ def synthesize(spec: BuildSpec) -> SynthesisResult:
     """Drive the spec -> blueprint pipeline end-to-end."""
     plan_obj = plan.plan(spec)
     layout_obj = layout.layout(plan_obj, spec)
+
+    # Rate-calc pass (best effort: never fail synthesis on a rate hiccup).
+    try:
+        rates = rates_for_plan(plan_obj, spec)
+        rates_md = rates.report
+        # Optional shortfall assertion when caller specified a target rate.
+        if (
+            getattr(spec, "output_rate_per_sec", None) is not None
+            and spec.target is not None
+        ):
+            try:
+                rates.assert_meets(spec.target, float(spec.output_rate_per_sec), tolerance=1e-3)
+            except AssertionError as e:
+                rates_md += f"\n\n**SHORTFALL**: {e}"
+    except Exception as e:  # pragma: no cover - defensive
+        rates_md = f"## Rate calculator\n\n(skipped: {e})"
 
     # Build the blueprint JSON object.
     bp_entities = [
@@ -151,6 +183,6 @@ def synthesize(spec: BuildSpec) -> SynthesisResult:
         blueprint_object=blueprint_obj,
         entity_count=len(bp_entities),
         warnings=plan_obj.warnings + layout_obj.warnings + report.warnings,
-        report=_make_report(spec, plan_obj, layout_obj),
+        report=_make_report(spec, plan_obj, layout_obj, rates_section=rates_md),
         plan_warnings=plan_obj.warnings,
     )

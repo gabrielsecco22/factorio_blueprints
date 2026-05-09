@@ -1,0 +1,72 @@
+{
+  "fbe": {
+    "tool_name": "Factorio Blueprint Editor (teoxoy)",
+    "homepage": "https://fbe.teoxoy.com/",
+    "sentiment": "mixed",
+    "summary": "Still cited as the most polished browser-based blueprint editor, but community consistently flags that it has not been updated for the Space Age DLC. Pre-2.0 entities render correctly; new 2.0/Space Age prototypes do not.",
+    "threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=59156", "title": "Factorio Blueprint Editor (forum thread)", "source": "factorio-forums"},
+      {"url": "https://github.com/teoxoy/factorio-blueprint-editor", "title": "teoxoy/factorio-blueprint-editor (GitHub)", "source": "github"}
+    ],
+    "criticisms": [
+      "Not updated for Space Age DLC (as of 2025)",
+      "Domain migrated; some bookmarks point to dead teoxoy.github.io URL"
+    ],
+    "praise": [
+      "Imports from blueprint strings, pastebin, factorioprints, factorio.school, gist, gitlab, google docs",
+      "In-browser editing with the same controls as in-game"
+    ]
+  },
+  "factoriolab": {
+    "tool_name": "FactorioLab",
+    "homepage": "https://factoriolab.github.io/",
+    "sentiment": "positive",
+    "summary": "Treated as the modern successor to KirkMcDonald's calculator. Multi-game (Factorio, Dyson Sphere Program, Satisfactory). Active development, quoted as giving 'same results' as KirkMcDonald within rounding.",
+    "threads": [
+      {"url": "https://forums.factorio.com/viewtopic.php?t=84931", "title": "Factorio Lab (forum thread)", "source": "factorio-forums"},
+      {"url": "https://github.com/factoriolab/factoriolab", "title": "factoriolab/factoriolab (GitHub)", "source": "github"},
+      {"url": "https://steamcommunity.com/app/427520/discussions/0/3880470997339314051/", "title": "Question about ratios - factoriolab 'extension'", "source": "steam-discussions"}
+    ],
+    "criticisms": [
+      "Some users still find KirkMcDonald's UI faster for quick lookups"
+    ],
+    "praise": [
+      "Active development",
+      "Replaces KirkMcDonald with broader game coverage",
+      "Same numeric output as KirkMcDonald given same settings"
+    ]
+  },
+  "kirkmcdonald": {
+    "tool_name": "KirkMcDonald Factorio Calculator",
+    "homepage": "https://kirkmcdonald.github.io/",
+    "sentiment": "positive-legacy",
+    "summary": "Long-standing reference calculator. Community trusts the math ('never had a problem with it being wrong') but increasingly redirects newcomers to FactorioLab for active 2.0/Space Age coverage.",
+    "threads": [
+      {"url": "https://github.com/KirkMcDonald/kirkmcdonald.github.io", "title": "KirkMcDonald/kirkmcdonald.github.io (GitHub)", "source": "github"},
+      {"url": "https://forums.factorio.com/viewtopic.php?t=71383", "title": "Calculating ratios", "source": "factorio-forums"},
+      {"url": "https://forums.factorio.com/viewtopic.php?t=69422", "title": "Anyone knows a calculation tool that is actually correct and working?", "source": "factorio-forums"}
+    ],
+    "criticisms": [
+      "Less actively maintained than FactorioLab",
+      "Coverage of Space Age content lags behind FactorioLab"
+    ],
+    "praise": [
+      "Numerically reliable",
+      "Minimal UI; fast for vanilla calculations"
+    ]
+  },
+  "factorio-draftsman": {
+    "tool_name": "factorio-draftsman (Python)",
+    "homepage": "https://github.com/redruin1/factorio-draftsman",
+    "sentiment": "niche-positive",
+    "summary": "No high-volume r/factorio discussion surfaced; the audience is developers building external tools, not end-user players. Mentioned in adjacent contexts (FBSR ecosystem, blueprint generation scripts).",
+    "threads": [],
+    "criticisms": [
+      "Targets programmers, not in-game players, so largely absent from r/factorio recommendation threads"
+    ],
+    "praise": [
+      "Used by other community projects to programmatically build/validate blueprint strings"
+    ],
+    "annotation": "no community discussion found in r/factorio search results; sentiment inferred from adjacent tooling references"
+  }
+}

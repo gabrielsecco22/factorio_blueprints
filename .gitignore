@@ -1,6 +1,21 @@
 # Regenerable: 28 MB Factorio data.raw dump. Run tools/dump_prototypes.sh.
 specs/data-raw-dump.json
 
+# External blueprint cache. Each blueprint belongs to its original author;
+# we never redistribute, we just keep a local copy for analysis.
+# Only library/external/README.md is tracked.
+library/external/*/
+!library/external/README.md
+
+# Personal blueprint mirror — extracted from the user's blueprint-storage-2.dat
+# or imported manually. Never commit, even by accident.
+library/personal/
+!library/personal/.gitkeep
+
+# Backups of the binary blueprint storage made by tools/blueprint_storage.py.
+*.bak.*
+blueprint-storage-2.dat.bak.*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

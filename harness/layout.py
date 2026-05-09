@@ -28,11 +28,15 @@ from harness import catalog
 from harness.plan import ProductionCell, ProductionPlan
 from harness.spec import BuildSpec
 
-# 16-way direction enum
+# 16-way direction enum (FFF-378 unification).
 DIR_N = 0
+DIR_NE = 2
 DIR_E = 4
+DIR_SE = 6
 DIR_S = 8
+DIR_SW = 10
 DIR_W = 12
+DIR_NW = 14
 
 
 @dataclass
@@ -162,6 +166,27 @@ class LayoutError(ValueError):
 # v2.
 
 def layout_smelter_array(plan: ProductionPlan, spec: BuildSpec) -> LayoutResult:
+    """Generic smelter-array layout for stone, steel, and electric furnaces.
+
+    Geometry (rows running east):
+        y=-1: output belt
+        y= 0: output inserter row (one per furnace, DIR_N)
+        y= 1..1+fh-1: furnace row (square footprint, packed contiguously)
+        y= input_inserter_y: input inserter row (DIR_N)
+        y= input_belt_y: input belt
+        y= fuel_belt_y (optional): dedicated fuel belt + filtered inserter row
+
+    Fuel-feed mode (only meaningful for burner furnaces; ignored otherwise):
+        - None (default): no fuel feed; user must supply fuel manually.
+        - "shared": one extra burner-inserter per furnace at column x+1
+          of the furnace, picking up from the SAME input belt with a coal
+          filter. Requires fw >= 2.
+        - "separate": adds a parallel fuel belt south of the input belt.
+          Each furnace gets a long-handed-inserter (still burner-fueled
+          if appropriate) reaching across the input belt to the fuel
+          belt. Requires fw >= 2 to keep ore inserter and fuel inserter
+          from colliding.
+    """
     if len(plan.cells) != 1:
         raise LayoutError("smelter_array layout expects exactly one cell")
     cell = plan.cells[0]
@@ -171,65 +196,118 @@ def layout_smelter_array(plan: ProductionPlan, spec: BuildSpec) -> LayoutResult:
         raise LayoutError("smelter_array assumes a square machine footprint")
     fw = machine_fp[0]
     fh = machine_fp[1]
-    # Spacing: machines are placed contiguously side-by-side.
     layout = LayoutResult()
 
     belt_name = spec.belt_tier
     inserter_name = spec.inserter_tier
 
-    # Geometry rows (y values, top-down).
-    # The output belt sits one tile above the inserter; the inserter sits
-    # one tile above the furnace. For 2x2 furnaces (h=2) this gives:
-    #   y=-1: output belt
-    #   y= 0: top-side inserter (drops onto furnace top tile? no, picks
-    #          up from furnace and drops on belt. So inserter at y=0
-    #          picks up at y=1 (furnace) and drops at y=-1 (belt).)
-    # Each inserter occupies y=0 and y = fh+1; the inserter's tile is
-    # adjacent to the belt and adjacent to the furnace.
+    machines = catalog.machines()
+    machine_proto = machines[cell.machine]
+    energy_source = machine_proto.get("energy_source") or {}
+    is_burner = energy_source.get("type") == "burner"
+    fuel_feed = spec.fuel_feed
+    if not is_burner:
+        fuel_feed = None  # silently disable for electric furnaces
+
     output_belt_y = -1
     output_inserter_y = 0
     machine_top_y = 1
-    machine_bot_y = machine_top_y + fh - 1
     input_inserter_y = machine_top_y + fh
     input_belt_y = input_inserter_y + 1
+    fuel_belt_y = input_belt_y + 2  # leaves a row for the long-handed fuel inserter
 
-    # x layout: machines side-by-side starting at x=0.
-    # We add one extra belt tile on each end so the belt extends past the
-    # furnaces, which makes pasting in-game tidier.
     total_width = n * fw
 
-    # Top output belt (flows east -> direction E). Span [0, total_width).
+    # Output belt.
     for x in range(total_width):
         layout.place(belt_name, (x, output_belt_y), direction=DIR_E)
 
-    # For each furnace: place inserter (drop onto belt, facing N), then furnace,
-    # then bottom inserter (drop onto furnace, facing N from belt), then bottom belt.
     for i in range(n):
         x = i * fw
-        # Furnaces are placed with NW corner at (x, machine_top_y).
-        machine_extra: dict[str, Any] = {}
-        # Burner furnaces don't need a recipe; furnaces auto-pick by ingredient.
         layout.place(cell.machine, (x, machine_top_y))
 
-        # Output inserter centered above the furnace (x_center = x + fw/2 - 0.5
-        # for 2x2 -> x+0). For 1-wide inserter we want the column under the
-        # belt that aligns with the furnace center column. The 2x2 furnace
-        # spans columns [x, x+1]; we put the inserter at column x (left of
-        # center -- both columns work). Direction N = drops at y_center-1.
-        ins_x = x + fw // 2  # center-ish column
-        # Output inserter: pickup from furnace (south side of inserter),
-        # drop on output belt (north side). Direction N means inserter's
-        # output is at y-1, input is at y+1, with the inserter at output_inserter_y.
-        layout.place(inserter_name, (ins_x, output_inserter_y), direction=DIR_N)
+        # Choose inserter columns:
+        # - Output inserter at the centre-left column of the furnace.
+        # - Input (ore) inserter same column.
+        # - Fuel inserter (if fuel_feed is set) at centre-right column.
+        out_col = x + fw // 2
+        in_col = out_col
+        layout.place(inserter_name, (out_col, output_inserter_y), direction=DIR_N)
+        layout.place(inserter_name, (in_col, input_inserter_y), direction=DIR_N)
 
-        # Input inserter: pickup from belt (south side, at y=input_belt_y),
-        # drop on furnace (north side, at y=machine_bot_y). Direction N
-        # gives drop=y-1, pickup=y+1. Inserter sits at y=input_inserter_y.
-        layout.place(inserter_name, (ins_x, input_inserter_y), direction=DIR_N)
+        if fuel_feed == "shared":
+            if fw < 2:
+                raise LayoutError("shared fuel feed requires furnace width >= 2")
+            fuel_col = x + (fw - 1)  # right-most column of the furnace
+            if fuel_col == in_col:
+                fuel_col = x  # pick the other side
+            from harness import wiring
+            wiring.place_filtered_inserter(
+                layout,
+                inserter_name="burner-inserter",
+                nw_tile=(fuel_col, input_inserter_y),
+                direction=DIR_N,
+                filter_item=spec.fuel,
+            )
+        elif fuel_feed == "separate":
+            if fw < 2:
+                raise LayoutError("separate fuel feed requires furnace width >= 2")
+            fuel_col = x + (fw - 1)
+            if fuel_col == in_col:
+                fuel_col = x
+            # Long-handed inserter at fuel_belt_y - 1 (i.e. just above the
+            # fuel belt). Reaches 2 tiles north into the furnace bottom row.
+            from harness import wiring
+            long_y = fuel_belt_y - 1
+            wiring.place_filtered_inserter(
+                layout,
+                inserter_name="long-handed-inserter",
+                nw_tile=(fuel_col, long_y),
+                direction=DIR_N,
+                filter_item=spec.fuel,
+            )
 
-    # Bottom input belt (flows east). Span [0, total_width).
+    # Input belt.
     for x in range(total_width):
         layout.place(belt_name, (x, input_belt_y), direction=DIR_E)
+
+    # Fuel belt (only for "separate" feed).
+    if fuel_feed == "separate":
+        for x in range(total_width):
+            layout.place(belt_name, (x, fuel_belt_y), direction=DIR_E)
+
+    # Power coverage (electric_smelter_array path).
+    if spec.kind == "electric_smelter_array":
+        from harness import power
+        pole_name = spec.pole_choice or "substation"
+        pole_w, _ = catalog.footprint(pole_name)
+        pole_proto = catalog.poles()[pole_name]
+        supply_side = float(pole_proto["supply_area_square_tiles"])
+        # Place one row of poles south of the input belt with column spacing
+        # equal to supply_side (each pole's coverage diameter). The first
+        # pole sits at x = max(0, (supply_side - pole_w) / 2 - 0.5) so its
+        # supply area covers x=0.
+        pole_y = input_belt_y + 2
+        # Center spacing = supply_side, so NW spacing = supply_side as well.
+        first_x = max(0, int(supply_side // 2 - pole_w))
+        # Walk east placing poles until coverage reaches total_width.
+        x = first_x
+        while True:
+            tile = (x, pole_y)
+            if tile not in layout.occupied:
+                layout.place(pole_name, tile)
+            # Pole center x:
+            center_x = x + (pole_w - 1) / 2.0
+            coverage_east = center_x + supply_side / 2.0
+            if coverage_east >= total_width - 0.5:
+                break
+            x += int(supply_side)
+        # Sanity: also make sure the array's vertical extent is covered.
+        # Pole row at pole_y has center y = pole_y + (pole_h-1)/2; its
+        # north coverage reaches pole_center_y - supply_side/2. For
+        # output_belt_y = -1 with substation supply 18 we need
+        # center_y - 9 <= -1 -> center_y <= 8. pole_y + 0.5 <= 8 -> pole_y <= 7.5.
+        # input_belt_y + 2 = 5+2 = 7 for 3x3 furnaces. ✓
 
     return layout
 
@@ -434,9 +512,127 @@ def layout_solar_field(plan: ProductionPlan, spec: BuildSpec) -> LayoutResult:
 # Top-level
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Green circuit block
+# ---------------------------------------------------------------------------
+#
+# Two assembler rows sharing a copper-cable middle belt:
+#
+#       y=-2: iron-plate input belt (east)
+#       y=-1: circuit output belt (east)
+#       y= 0: per circuit assembler:
+#             - long-handed-inserter at column x   (DIR_S): iron belt -> assembler
+#             - inserter at column x+2             (DIR_N): assembler -> output belt
+#       y= 1..3: circuit assembler row (3x3 each, packed)
+#       y= 4: per circuit assembler: fast-inserter at column x+1 (DIR_N)
+#       y= 5: copper-cable middle belt (east)
+#       y= 6: per cable assembler: fast-inserter at column x+1 (DIR_N)
+#       y= 7..9: cable assembler row (3x3 each, packed)
+#       y=10: per cable assembler: inserter at column x+1 (DIR_N)
+#       y=11: copper-plate input belt (east)
+#
+# Power: substations at the four corners of the bounding rectangle (NW
+# (0,-4), (W-2,-4), (0,12), (W-2,12)) supply the entire block.
+
+def layout_green_circuit_block(plan: ProductionPlan, spec: BuildSpec) -> LayoutResult:
+    cable_cell = next((c for c in plan.cells if c.recipe == "copper-cable"), None)
+    circuit_cell = next((c for c in plan.cells if c.recipe == "electronic-circuit"), None)
+    if cable_cell is None or circuit_cell is None:
+        raise LayoutError("green_circuit_block plan must contain cable and circuit cells")
+
+    asm = cable_cell.machine
+    asm_fp = catalog.footprint(asm)
+    if asm_fp != (3, 3):
+        raise LayoutError(f"green_circuit_block expects 3x3 assemblers, got {asm_fp} for {asm}")
+    AW = 3
+
+    n_cable = cable_cell.count
+    n_circuit = circuit_cell.count
+
+    layout = LayoutResult()
+    belt_name = spec.belt_tier
+    inserter_name = spec.inserter_tier  # plain inserter for input/output
+
+    iron_belt_y = -2
+    circuit_out_belt_y = -1
+    circuit_top_y = 1            # circuit row spans y=1..3
+    cable_inserter_top_y = 4
+    middle_belt_y = 5
+    cable_inserter_bot_y = 6
+    cable_top_y = 7              # cable row spans y=7..9
+    copper_inserter_y = 10
+    copper_belt_y = 11
+
+    width = max(n_cable, n_circuit) * AW
+
+    # Belts (each spans the full bounding width so the layout is rectangular).
+    for x in range(width):
+        layout.place(belt_name, (x, iron_belt_y), direction=DIR_E)
+        layout.place(belt_name, (x, circuit_out_belt_y), direction=DIR_E)
+        layout.place(belt_name, (x, middle_belt_y), direction=DIR_E)
+        layout.place(belt_name, (x, copper_belt_y), direction=DIR_E)
+
+    # Circuit assembler row.
+    circuit_recipe_extra = {"recipe": "electronic-circuit"}
+    for i in range(n_circuit):
+        x = i * AW
+        layout.place(asm, (x, circuit_top_y), extra=dict(circuit_recipe_extra))
+        # Iron-plate input via long-handed-inserter at column x (drops at y=2).
+        layout.place(
+            "long-handed-inserter",
+            (x, 0),
+            direction=DIR_S,
+        )
+        # Circuit output via plain inserter at column x+2 (DIR_N).
+        layout.place(inserter_name, (x + 2, 0), direction=DIR_N)
+        # Cable input via fast-inserter at column x+1 (DIR_N from middle belt).
+        layout.place("fast-inserter", (x + 1, cable_inserter_top_y), direction=DIR_N)
+
+    # Cable assembler row.
+    cable_recipe_extra = {"recipe": "copper-cable"}
+    for i in range(n_cable):
+        x = i * AW
+        layout.place(asm, (x, cable_top_y), extra=dict(cable_recipe_extra))
+        # Cable output via fast-inserter at column x+1 (DIR_N: pickup from
+        # cable assembler at y=7, drop on middle belt at y=5).
+        layout.place("fast-inserter", (x + 1, cable_inserter_bot_y), direction=DIR_N)
+        # Copper-plate input via plain inserter at column x+1 (DIR_N: pickup
+        # from copper belt at y=11, drop into cable assembler at y=9).
+        layout.place(inserter_name, (x + 1, copper_inserter_y), direction=DIR_N)
+
+    # Power. Place substations at the four corners. With supply 18x18 they
+    # cover the whole 14-tile-tall block.
+    pole_name = spec.pole_choice or "substation"
+    pole_w, pole_h = catalog.footprint(pole_name)
+    if pole_name != "substation":
+        # For non-substation poles the corner-only layout will not cover
+        # the full block; fall back to a regular grid via power.cover_rect.
+        from harness import power
+        power.cover_rect_with_poles(
+            layout,
+            pole=pole_name,
+            nw_tile=(0, iron_belt_y - 2),
+            width=width,
+            height=copper_belt_y + 2 - (iron_belt_y - 2),
+            step=int(catalog.poles()[pole_name]["supply_area_square_tiles"]),
+        )
+    else:
+        # Corners outside the bbox so they don't collide with belts.
+        north_y = iron_belt_y - 2  # y = -4
+        south_y = copper_belt_y + 1  # y = 12
+        east_x = max(0, width - pole_w)
+        for nw in [(0, north_y), (east_x, north_y), (0, south_y), (east_x, south_y)]:
+            if nw not in layout.occupied:
+                layout.place(pole_name, nw)
+
+    return layout
+
+
 def layout(plan: ProductionPlan, spec: BuildSpec) -> LayoutResult:
-    if spec.kind == "smelter_array":
+    if spec.kind == "smelter_array" or spec.kind == "electric_smelter_array":
         return layout_smelter_array(plan, spec)
     if spec.kind == "solar_field":
         return layout_solar_field(plan, spec)
+    if spec.kind == "green_circuit_block":
+        return layout_green_circuit_block(plan, spec)
     raise LayoutError(f"unknown spec.kind {spec.kind!r}")

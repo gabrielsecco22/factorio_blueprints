@@ -126,12 +126,9 @@ def check_inserter_reach(layout: LayoutResult, report: ValidationReport) -> None
 
     for ins in insert_entities:
         proto = catalog.inserters()[ins.name]
-        pickup_d = float(proto.get("pickup_distance_tiles", 1.0))
-        drop_d = float(proto.get("insert_distance_tiles", 1.0))
-        if abs(pickup_d - 1.0) > 0.5 or abs(drop_d - 1.5) > 0.5:
-            # MVP supports plain 1-tile inserters; long-handed (2-tile) work
-            # too, but we don't lay them out in the MVP.
-            pass
+        # Round to nearest integer tile reach (e.g. 1.0 -> 1, 1.2 -> 1, 2.0 -> 2).
+        pickup_reach = max(1, int(round(float(proto.get("pickup_distance_tiles", 1.0)))))
+        drop_reach = max(1, int(round(float(proto.get("insert_distance_tiles", 1.0)))))
         if ins.direction not in _DIR_VEC:
             report.errors.append(
                 f"inserter {ins.entity_number} has non-cardinal direction {ins.direction}"
@@ -139,11 +136,10 @@ def check_inserter_reach(layout: LayoutResult, report: ValidationReport) -> None
             continue
         dx, dy = _DIR_VEC[ins.direction]
         x, y = ins.nw_tile
-        # Drop tile is one tile in the inserter's direction (the inserter
-        # *faces* its drop side per Factorio convention).
-        drop_tile = (x + dx, y + dy)
-        # Pickup tile is one tile opposite.
-        pickup_tile = (x - dx, y - dy)
+        # Drop tile is `drop_reach` tiles in the inserter's facing direction.
+        drop_tile = (x + dx * drop_reach, y + dy * drop_reach)
+        # Pickup tile is `pickup_reach` tiles opposite.
+        pickup_tile = (x - dx * pickup_reach, y - dy * pickup_reach)
 
         drop_target = occupancy.get(drop_tile)
         pickup_target = occupancy.get(pickup_tile)

@@ -217,10 +217,83 @@ def plan_solar_field(spec: BuildSpec) -> ProductionPlan:
     return plan
 
 
+def plan_green_circuit_block(spec: BuildSpec) -> ProductionPlan:
+    """Two-cell plan: copper-cable assemblers feeding electronic-circuit assemblers.
+
+    Default counts: 4 cable assemblers + 6 circuit assemblers, which gives a
+    rough 2:3 ratio matching the recipe (each circuit needs 3 cable; 1 cable
+    assembler outputs 2 cable per 0.5s = 4/s; 1 circuit assembler consumes
+    3 cable per 0.5s / speed=0.5 = 3 cable/s; balanced ratio is 1.5:2 ~ 3:4
+    cable:circuit, so 4:6 cable:circuit = 2:3 has spare cable headroom).
+    """
+    cable_count = spec.cable_assembler_count
+    circuit_count = spec.circuit_assembler_count
+    if cable_count is None and circuit_count is None:
+        cable_count = 4
+        circuit_count = 6
+    elif cable_count is None:
+        cable_count = max(1, (circuit_count * 2 + 2) // 3)
+    elif circuit_count is None:
+        circuit_count = max(1, (cable_count * 3 + 1) // 2)
+
+    if cable_count <= 0 or circuit_count <= 0:
+        raise PlanError("green_circuit_block needs positive assembler counts")
+
+    recipes = catalog.recipes()
+    machines = catalog.machines()
+    cable_recipe = recipes["copper-cable"]
+    circuit_recipe = recipes["electronic-circuit"]
+    machine_name = spec.machine_choice or "assembling-machine-1"
+    if machine_name not in machines:
+        raise PlanError(f"unknown machine {machine_name!r}")
+    machine = machines[machine_name]
+
+    cable_rate = _machine_rate_per_sec(machine, cable_recipe, "copper-cable", spec.use_modded)
+    circuit_rate = _machine_rate_per_sec(machine, circuit_recipe, "electronic-circuit", spec.use_modded)
+
+    plan = ProductionPlan()
+
+    plan.cells.append(ProductionCell(
+        recipe="copper-cable",
+        machine=machine_name,
+        count=cable_count,
+        rate_per_machine=cable_rate,
+        rate_total=cable_rate * cable_count,
+        inputs=[(ing["name"], cable_rate * cable_count * float(ing["amount"]))
+                for ing in cable_recipe["ingredients"] if ing.get("type", "item") == "item"],
+        outputs=[(r["name"], cable_rate * cable_count * float(r["amount"]))
+                 for r in cable_recipe["results"] if r.get("type", "item") == "item"],
+    ))
+    plan.cells.append(ProductionCell(
+        recipe="electronic-circuit",
+        machine=machine_name,
+        count=circuit_count,
+        rate_per_machine=circuit_rate,
+        rate_total=circuit_rate * circuit_count,
+        inputs=[(ing["name"], circuit_rate * circuit_count * float(ing["amount"]))
+                for ing in circuit_recipe["ingredients"] if ing.get("type", "item") == "item"],
+        outputs=[(r["name"], circuit_rate * circuit_count * float(r["amount"]))
+                 for r in circuit_recipe["results"] if r.get("type", "item") == "item"],
+    ))
+
+    # Sanity check on cable supply: cable production should meet circuit demand.
+    cable_supply = cable_rate * cable_count * 2.0  # 2 cable per craft
+    cable_demand = circuit_rate * circuit_count * 3.0  # 3 cable per circuit
+    if cable_supply < cable_demand - 1e-6:
+        plan.warnings.append(
+            f"cable supply {cable_supply:.2f}/s < circuit demand {cable_demand:.2f}/s; "
+            "circuits will starve"
+        )
+
+    return plan
+
+
 def plan(spec: BuildSpec) -> ProductionPlan:
     """Top-level dispatch."""
-    if spec.kind == "smelter_array":
+    if spec.kind == "smelter_array" or spec.kind == "electric_smelter_array":
         return plan_smelter_array(spec)
     if spec.kind == "solar_field":
         return plan_solar_field(spec)
+    if spec.kind == "green_circuit_block":
+        return plan_green_circuit_block(spec)
     raise PlanError(f"unknown spec.kind {spec.kind!r}")

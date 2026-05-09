@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Factorio Blueprint Tools Catalog</title>
+  <meta name="description" content="A curated catalog of modern Factorio blueprint drawing, visualization, and calculation tools.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Factorio Blueprint Tools Catalog</h1>
+      <p class="tagline">A curated, install-aware index of modern Factorio blueprint editors, calculators, renderers, and helper mods.</p>
+      <p class="links">
+        <a href="https://github.com/gabrielsecco22/factorio_blueprints" target="_blank" rel="noopener">View source on GitHub</a>
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="banner" class="banner" hidden></div>
+
+    <section class="filters" aria-label="Filters">
+      <fieldset class="filter-group">
+        <legend>Category</legend>
+        <div class="chips" data-filter="category">
+          <button type="button" class="chip" data-value="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-value="visual-editor">Visual editor</button>
+          <button type="button" class="chip" data-value="calculator">Calculator</button>
+          <button type="button" class="chip" data-value="string-paste">String paste</button>
+          <button type="button" class="chip" data-value="renderer">Renderer</button>
+          <button type="button" class="chip" data-value="in-game-mod">In-game mod</button>
+          <button type="button" class="chip" data-value="library">Library</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="filter-group">
+        <legend>Compatibility</legend>
+        <div class="chips" data-filter="flags">
+          <button type="button" class="chip" data-value="ready_2_0" aria-pressed="false">2.0 ready</button>
+          <button type="button" class="chip" data-value="space_age" aria-pressed="false">Space Age ready</button>
+          <button type="button" class="chip" data-value="open_source" aria-pressed="false">Open source</button>
+        </div>
+      </fieldset>
+
+      <div class="filter-summary">
+        <span id="result-count">0</span> tools shown.
+        <button type="button" id="reset-filters" class="link-button">Reset filters</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="oss-heading">
+      <h2 id="oss-heading" class="section-heading">Open Source</h2>
+      <div id="oss-grid" class="card-grid"></div>
+      <p id="oss-empty" class="empty" hidden>No open-source tools match these filters.</p>
+    </section>
+
+    <section aria-labelledby="community-heading">
+      <h2 id="community-heading" class="section-heading">Community Recommendations</h2>
+      <div id="community-grid" class="card-grid"></div>
+      <p id="community-empty" class="empty" hidden>No community tools match these filters.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Catalog assembled from public sources. Contribute new tools by editing
+        <a href="https://github.com/gabrielsecco22/factorio_blueprints/tree/main/webpage/data" target="_blank" rel="noopener">webpage/data/*.json</a>.
+      </p>
+      <p>
+        Source notes:
+        <a href="data/oss_tools.notes.md" target="_blank" rel="noopener">OSS notes</a>
+        &middot;
+        <a href="data/community_tools.notes.md" target="_blank" rel="noopener">Community notes</a>
+      </p>
+      <p class="muted">Data last refreshed: <span id="last-refreshed">unknown</span></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
