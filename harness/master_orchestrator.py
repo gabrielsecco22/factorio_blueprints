@@ -547,7 +547,21 @@ def _cmd_inspect(args: argparse.Namespace) -> int:
     raw = args.target
     bp_string = _resolve_blueprint_input(raw)
     report = mod_compat.inspect_blueprint(bp_string)
-    sys.stdout.write(report.render() + "\n")
+    if getattr(args, "json", False):
+        import dataclasses as _dc
+        import json as _json
+
+        def _json_safe(o):
+            if isinstance(o, set):
+                return sorted(o)
+            if _dc.is_dataclass(o):
+                return _dc.asdict(o)
+            return str(o)
+
+        sys.stdout.write(_json.dumps(_dc.asdict(report), indent=2,
+                                     default=_json_safe) + "\n")
+    else:
+        sys.stdout.write(report.render() + "\n")
     return 0
 
 
@@ -594,6 +608,8 @@ def _build_parser() -> argparse.ArgumentParser:
 
     insp = sub.add_parser("inspect", help="inspect mod requirements of a blueprint")
     insp.add_argument("target", help="blueprint string OR path to a .bp/.txt file")
+    insp.add_argument("--json", action="store_true",
+                      help="emit machine-readable JSON instead of the text render")
     insp.set_defaults(func=_cmd_inspect)
 
     mas = sub.add_parser("master", help="run the generator-validator loop")

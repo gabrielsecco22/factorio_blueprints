@@ -60,6 +60,33 @@ TEST_CASES = [
         ("inspect", "python3 -m harness.master_orchestrator inspect "
                     "$(ls library/external/factoriobin/*.bp 2>/dev/null | head -1)"),
     ]),
+    # === Matrix v2: added 2026-05-09 after rotation 1 reached steady state ===
+    ("render_real_factorio_school_blueprint", [
+        # The factorio.school blueprint is a single blueprint (not a book), so
+        # the renderer should consume it directly rather than refusing.
+        ("render: structural summary",
+         "python3 tools/render_blueprint.py --json "
+         "$(ls library/external/factorio_school/*.bp 2>/dev/null | head -1)"),
+        ("render: ASCII grid (first 80 cols)",
+         "python3 tools/render_blueprint.py --max-width 80 --grid-only "
+         "$(ls library/external/factorio_school/*.bp 2>/dev/null | head -1)"),
+    ]),
+    ("quality_legendary_iron_plate", [
+        # Exercise quality multipliers via the rate calculator. A legendary
+        # stone-furnace runs at base_speed * 2.5 = 5 plates / (3.2/2.5)s.
+        ("calculator: legendary stone-furnace",
+         ["python3", "tools/rate_cli.py", "compute",
+          "--recipe", "iron-plate",
+          "--machine", "stone-furnace",
+          "--machine-quality", "legendary",
+          "--count", "1"]),
+        ("calculator: 3-furnace compare (--machine is repeatable)",
+         ["python3", "tools/rate_cli.py", "compare",
+          "--recipe", "iron-plate",
+          "--machine", "stone-furnace",
+          "--machine", "steel-furnace",
+          "--machine", "electric-furnace"]),
+    ]),
 ]
 
 
@@ -82,13 +109,36 @@ def _run(cmd) -> tuple[int, str]:
         return 127, f"[command not found: {e}]"
 
 
-def _render_first_blueprint(text: str) -> tuple[int, str]:
-    """Find a blueprint string in the text and render it."""
+def _render_first_blueprint(text: str, command_str: str = "") -> tuple[int, str]:
+    """Find a blueprint string in the text and render it.
+
+    Order of precedence:
+      1. blueprint string emitted by the previous command (`0e...` line)
+      2. inspect-case fallback: re-run the same `$(...)` shell expression
+         as render_blueprint's argument, so it reads the `.bp` file directly
+    """
     for line in text.splitlines():
         line = line.strip()
         if line.startswith("0e") and len(line) > 100:
             return _run(["python3", "tools/render_blueprint.py", "--json", line])
-    return 0, "[no blueprint string found in output to render]"
+
+    if isinstance(command_str, str) and "$(" in command_str and ".bp" in command_str:
+        # Extract the `$(...)` substring verbatim and let the shell re-expand
+        # it for the renderer. Same expression -> same file.
+        start = command_str.index("$(")
+        depth = 0
+        end = start
+        for i, ch in enumerate(command_str[start:], start):
+            if ch == "(":
+                depth += 1
+            elif ch == ")":
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+        shell_expr = command_str[start:end]
+        return _run(f"python3 tools/render_blueprint.py --json {shell_expr}")
+    return 0, "[no blueprint string or file path found to render]"
 
 
 def main() -> int:
@@ -126,9 +176,13 @@ def main() -> int:
             "",
         ]
 
-    # Visual reviewer step: render any blueprint we produced
+    # Visual reviewer step: render any blueprint we produced. For inspect
+    # cases we pass the original shell command so the fallback can re-expand
+    # the `$(ls ...)` to the actual .bp file path.
     combined = "\n".join(captured_outputs)
-    rc, render_out = _render_first_blueprint(combined)
+    last_cmd = commands[-1][1] if commands else ""
+    cmd_for_render = last_cmd if isinstance(last_cmd, str) else ""
+    rc, render_out = _render_first_blueprint(combined, cmd_for_render)
     report += [
         f"## visual reviewer: render_blueprint --json (exit {rc})",
         "",
@@ -138,14 +192,23 @@ def main() -> int:
         "",
     ]
 
-    # Quick verdict heuristic
-    failures = [o for o in captured_outputs if "FAIL" in o or "error" in o.lower()
-                or "shortfall" in o.lower()]
-    verdict = "PASS"
-    if failures:
-        verdict = "WARN"
-    if "[timeout" in combined:
+    # Verdict heuristic. Include the renderer's output too -- a render error
+    # used to slip past because we only inspected captured_outputs.
+    all_text = combined + "\n" + render_out
+    bad_signals = ("FAIL", "error", "shortfall", "Traceback", "ValueError",
+                   "ModuleNotFoundError", "[stderr]")
+    failed = any(sig.lower() in all_text.lower() for sig in bad_signals)
+    verdict = "WARN" if failed else "PASS"
+    # Render error on an inspect case where the input was a known book is
+    # expected behavior, not a defect: the inventory marks books as
+    # envelope-only / kind=blueprint-book and the renderer refuses them.
+    if ("inspect" in label
+            and "blueprint-book not supported" in render_out):
+        verdict = "PASS"
+    if "[timeout" in all_text:
         verdict = "FAIL"
+    if rc != 0 and "blueprint-book not supported" not in render_out:
+        verdict = "WARN" if verdict == "PASS" else verdict
     report += [
         f"## verdict: {verdict}",
         "",

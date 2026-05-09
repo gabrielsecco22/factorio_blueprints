@@ -1,7 +1,16 @@
 {
-  "iteration": 2,
+  "iteration": 11,
   "cases_done": [
     "green_circuit_block_5ps_vanilla",
-    "intentionally_impossible_spec"
+    "intentionally_impossible_spec",
+    "steel_smelter_array_run_only",
+    "solar_field_run_only",
+    "inspect_real_user_blueprint_factorio_school",
+    "inspect_real_user_blueprint_factoriobin",
+    "green_circuit_block_5ps_vanilla",
+    "quality_legendary_iron_plate",
+    "green_circuit_block_5ps_vanilla",
+    "intentionally_impossible_spec",
+    "steel_smelter_array_run_only"
   ]
 }
