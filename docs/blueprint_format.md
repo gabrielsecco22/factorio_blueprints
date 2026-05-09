@@ -281,29 +281,40 @@ For **arithmetic/decider/selector combinators**, the body is `arithmetic_conditi
 
 ## 5. Direction enum
 
-Two enums coexist in 2.0.
+> [corrected 2026-05-09: 2.0 unified the direction enum (Friday Facts #378). All
+> entities — belts, inserters, assemblers, rails, etc. — serialize using a single
+> 16-direction scheme in blueprints. The pre-2.0 8-way enum (E=2) is the OLD
+> Lua API value; the blueprint *file* format always uses the 16-way values
+> below. East-facing belts are `direction: 4`, not `direction: 2`.]
 
-### 5.1 8-direction (most entities)
-
-```
-N=0  NE=1  E=2  SE=3  S=4  SW=5  W=6  NW=7
-```
-
-Used by belts, inserters, assemblers (rotation), pumps, gates, walls, splitters, underground belts, etc. Diagonals (1, 3, 5, 7) are valid for inserters and pumps but not for belts.
-
-### 5.2 16-direction (rails, 2.0)
+### 5.1 Unified 16-direction enum (all entities, 2.0+)
 
 ```
-N=0  NNE=1  NE=2  ENE=3  E=4  ESE=5  SE=6  SSE=7
-S=8  SSW=9  SW=10 WSW=11 W=12 WNW=13 NW=14 NNW=15
+N=0    NNE=1   NE=2    ENE=3   E=4    ESE=5   SE=6    SSE=7
+S=8    SSW=9   SW=10   WSW=11  W=12   WNW=13  NW=14   NNW=15
 ```
 
-Used by:
-- `straight-rail`, `half-diagonal-rail`, `curved-rail-a`, `curved-rail-b` (Space Age elevated rails: `elevated-straight-rail`, `elevated-half-diagonal-rail`, `elevated-curved-rail-a`, `elevated-curved-rail-b`)
+The cardinal-only mapping `{N: 0, E: 4, S: 8, W: 12}` covers belts, undergrounds,
+splitters, assemblers, furnaces, mining drills, pumps, gates, walls, chests,
+silos, and almost every non-rail entity. The diagonal values `{NE: 2, SE: 6,
+SW: 10, NW: 14}` are used by inserters, pumps, and other entities that accept
+diagonal placement.
+
+The fine-grained intermediate values (1, 3, 5, 7, 9, 11, 13, 15) are only used
+by 2.0 rail prototypes:
+
+- `straight-rail`, `half-diagonal-rail`, `curved-rail-a`, `curved-rail-b`
+- Space Age elevated rails: `elevated-straight-rail`, `elevated-half-diagonal-rail`, `elevated-curved-rail-a`, `elevated-curved-rail-b`
 - `rail-ramp`, `rail-support`
-- Rolling stock orientation snap (the entity uses `orientation` as the canonical field, but `direction` is also serialised in 16-way for placement ghosts).
+- Rolling stock orientation snap (the entity uses `orientation` as canonical, but `direction` is also serialised in 16-way for placement ghosts).
 
-The two enums are NOT compatible: `direction: 2` means E for a belt and NE for a rail. Pick the right one based on `name` against the prototype dump. Saved blueprints elide `direction` when it equals `0`.
+Saved blueprints elide `direction` when it equals `0`.
+
+### 5.2 Mapping from the old 8-way enum
+
+If you have legacy code or pre-2.0 blueprint data, double the value to convert:
+old `direction × 2` = new `direction`. Example: an east-facing belt was `2` in
+1.x, is `4` in 2.0+.
 
 ---
 

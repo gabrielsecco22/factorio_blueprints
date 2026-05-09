@@ -22,3 +22,11 @@ each spec scoped to a single system; cross-link rather than duplicate.
 Numbers in these docs must trace back to `../specs/data-raw-dump.json`
 (or `../specs/mod-settings-dump.json` for tunables). When in doubt, prefer
 the dump over the wiki.
+
+## Synthesis harness
+
+The `harness/` directory at the repo root consumes these specs to
+synthesize valid blueprint strings from a `BuildSpec`. See
+`../harness/README.md` for the architecture and `../harness/examples/`
+for runnable builds (smelter array, solar field). Each docs file
+above is the long-form reference behind one of the harness stages.
