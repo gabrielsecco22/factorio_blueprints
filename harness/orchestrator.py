@@ -45,7 +45,7 @@ def _make_icons(spec: BuildSpec, plan_obj: plan.ProductionPlan) -> list[dict[str
     """Pick up to four signal icons from the plan's outputs / cells."""
     icons: list[dict[str, Any]] = []
     used: set[str] = set()
-    if spec.kind in ("smelter_array", "electric_smelter_array"):
+    if spec.kind in ("smelter_array", "electric_smelter_array", "beacon_smelter_array"):
         if spec.target and spec.target not in used:
             icons.append({"signal": {"type": "item", "name": spec.target}, "index": len(icons) + 1})
             used.add(spec.target)
@@ -53,6 +53,9 @@ def _make_icons(spec: BuildSpec, plan_obj: plan.ProductionPlan) -> list[dict[str
             if cell.machine not in used and len(icons) < 4:
                 icons.append({"signal": {"type": "item", "name": cell.machine}, "index": len(icons) + 1})
                 used.add(cell.machine)
+        if spec.kind == "beacon_smelter_array" and "beacon" not in used and len(icons) < 4:
+            icons.append({"signal": {"type": "item", "name": "beacon"}, "index": len(icons) + 1})
+            used.add("beacon")
     elif spec.kind == "solar_field":
         icons.append({"signal": {"type": "item", "name": "solar-panel"}, "index": 1})
         icons.append({"signal": {"type": "item", "name": "accumulator"}, "index": 2})
@@ -68,6 +71,12 @@ def _make_label(spec: BuildSpec, plan_obj: plan.ProductionPlan) -> str:
     if spec.kind in ("smelter_array", "electric_smelter_array"):
         cell = plan_obj.cells[0]
         return f"{cell.count}x {cell.machine} -> {spec.target} ({cell.rate_total:.2f}/s)"
+    if spec.kind == "beacon_smelter_array":
+        cell = plan_obj.cells[0]
+        return (
+            f"{cell.count}x {cell.machine} (beaconed) -> {spec.target} "
+            f"({cell.rate_total:.2f}/s)"
+        )
     if spec.kind == "solar_field":
         n_panels = next(c.count for c in plan_obj.cells if c.machine == "solar-panel")
         n_accs = next(c.count for c in plan_obj.cells if c.machine == "accumulator")
@@ -121,6 +130,24 @@ def _make_report(
         lines.append("## Layout warnings")
         for w in layout_obj.warnings:
             lines.append(f"- {w}")
+    if spec.kind == "beacon_smelter_array":
+        from harness.layout import _compute_beacon_coverage_counts
+        cell = plan_obj.cells[0]
+        fp = catalog.footprint(cell.machine)
+        # Furnace row begins at y=0 in our layout (see layout_beacon_smelter_array).
+        coverage = _compute_beacon_coverage_counts(layout_obj, cell.count, fp[0], 0)
+        lines.append("")
+        lines.append("## Beacon coverage per machine")
+        lines.append("")
+        lines.append("| machine # | beacons covering it |")
+        lines.append("| ---: | ---: |")
+        for i, c in enumerate(coverage):
+            lines.append(f"| {i} | {c} |")
+        if coverage:
+            avg = sum(coverage) / len(coverage)
+            lines.append("")
+            lines.append(f"- average beacons / machine: {avg:.2f}")
+            lines.append(f"- min / max: {min(coverage)} / {max(coverage)}")
     if rates_section:
         lines.append("")
         lines.append(rates_section)

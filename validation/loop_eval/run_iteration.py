@@ -71,6 +71,40 @@ TEST_CASES = [
          "python3 tools/render_blueprint.py --max-width 80 --grid-only "
          "$(ls library/external/factorio_school/*.bp 2>/dev/null | head -1)"),
     ]),
+    # Each of these runs the full reviewer chain (inspect + render structural
+    # summary + render ASCII grid first 80 cols) on a real-world scraped
+    # blueprint, so the loop sees genuine entity variety without needing the
+    # visual-validator subagent every iteration. Books are tolerated -- the
+    # renderer's `blueprint-book not supported` error is not a failure.
+    ("real_blueprint_factorio_school_full", [
+        ("inspect mod attribution",
+         "python3 -m harness.master_orchestrator inspect "
+         "library/external/factorio_school/-OsBJMo7P-2oKxsEc3oB.bp"),
+        ("render structural summary",
+         "python3 tools/render_blueprint.py --json "
+         "library/external/factorio_school/-OsBJMo7P-2oKxsEc3oB.bp"),
+        ("render ASCII grid (first 80 cols)",
+         "python3 tools/render_blueprint.py --max-width 80 --grid-only "
+         "library/external/factorio_school/-OsBJMo7P-2oKxsEc3oB.bp"),
+    ]),
+    ("real_blueprint_factorioprints_full", [
+        ("inspect mod attribution",
+         "python3 -m harness.master_orchestrator inspect "
+         "library/external/factorioprints/-OsBpTa4QO8SyAlvD8m2.bp"),
+        ("render structural summary",
+         "python3 tools/render_blueprint.py --json "
+         "library/external/factorioprints/-OsBpTa4QO8SyAlvD8m2.bp"),
+    ]),
+    ("real_blueprint_factoriobin_full", [
+        ("inspect mod attribution (book; reveals legacy entity names)",
+         "python3 -m harness.master_orchestrator inspect "
+         "library/external/factoriobin/demo.bp"),
+        # Book renders are expected to error -- the verdict heuristic special-
+        # cases this so it doesn't produce a false WARN.
+        ("render structural summary (book; renderer will refuse)",
+         "python3 tools/render_blueprint.py --json "
+         "library/external/factoriobin/demo.bp"),
+    ]),
     ("quality_legendary_iron_plate", [
         # Exercise quality multipliers via the rate calculator. A legendary
         # stone-furnace runs at base_speed * 2.5 = 5 plates / (3.2/2.5)s.

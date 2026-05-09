@@ -140,6 +140,25 @@ The visual-validator agent flagged that `master_orchestrator inspect
 Iter 10 itself ran `intentionally_impossible_spec` (rotation 2) -> WARN
 as designed; it's an intentional negative case.
 
+## Matrix v3 (added after iter 12)
+
+Three new rotating cases cover the full chain (inspect + render structural
++ render ASCII grid where applicable) on each scraped external blueprint:
+
+- `real_blueprint_factorio_school_full` — Vulcanus foundry (15 beacons,
+  3 foundries, 2 EM-plants); base+space-age; bbox 17x25 (negative x).
+- `real_blueprint_factorioprints_full` — mall fragment with
+  `active-provider-chest` x2 + 11 arithmetic-combinators; base only;
+  bbox 17x11 (positive coords).
+- `real_blueprint_factoriobin_full` — book (renderer expected to refuse);
+  legacy `logistic-chest-passive-provider` / `logistic-chest-requester`
+  surface as unknown_entities; the verdict heuristic special-cases the
+  book-not-supported error so it doesn't false-WARN.
+
+The matrix is now 11 cases. Beacon planner is being built in parallel
+by a sub-agent; will produce the harness's first beacon-aware blueprint
+when done.
+
 ## Architectural follow-ups discovered
 
 - `master_orchestrator inspect` calls "Unknown entities" but does NOT

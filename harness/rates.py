@@ -119,11 +119,23 @@ def rates_for_plan(plan: ProductionPlan, spec: Optional[BuildSpec] = None) -> Ra
         if cell.recipe in {"solar-power", "storage"} or cell.recipe.startswith("solar"):
             continue
         try:
+            modules = [(m, quality) for m in getattr(cell, "machine_modules", [])]
+            beacons = [
+                Beacon(
+                    name=name,
+                    quality=quality,
+                    count=cnt,
+                    modules=[(m, quality) for m in mods],
+                )
+                for (name, cnt, mods) in getattr(cell, "beacons", [])
+            ]
             inp = RateInput(
                 recipe=cell.recipe,
                 machine=cell.machine,
                 machine_quality=quality,
                 machine_count=cell.count,
+                modules=modules,
+                beacons=beacons,
                 use_modded=use_modded,
                 research_levels=research_levels,
             )

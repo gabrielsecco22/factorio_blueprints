@@ -628,9 +628,211 @@ def layout_green_circuit_block(plan: ProductionPlan, spec: BuildSpec) -> LayoutR
     return layout
 
 
+# ---------------------------------------------------------------------------
+# Beacon smelter array
+# ---------------------------------------------------------------------------
+#
+# Layout (12 electric-furnaces in a row, vanilla beacons N + S):
+#
+#   y=-7..-6 : substation row N        (2x2 each, supply 18x18, covers everything north of furnaces)
+#   y=-5..-3 : beacon row N            (3x3 each, packed; each supplies a 9x9 area
+#                                       reaching y=-8..0 -> just touches furnace top tile y=0)
+#   y=-2     : output belt             (1 tile per furnace col, all DIR_E)
+#   y=-1     : output inserter row     (one inserter per furnace, DIR_N)
+#   y= 0..2  : 12 electric-furnaces    (3x3 each, packed; total width = 36 tiles)
+#   y= 3     : input inserter row      (one inserter per furnace, DIR_N -- picks from belt south)
+#   y= 4     : input belt              (1 tile per furnace col, all DIR_E)
+#   y= 5..7  : beacon row S            (3x3 each, packed; supply reaches y=2..10 -> touches furnace bottom)
+#   y= 8..9  : substation row S        (2x2 each, supply 18x18, covers everything south)
+#
+# Per-machine beacon coverage (vanilla beacon, supply_area_distance=3,
+# 3x3 footprint):
+#   - A beacon at NW=(bx, -5) covers tiles (bx..bx+2, -5..-3) and supplies
+#     x in [bx-3, bx+5], y in [-8, 0]. Furnace at NW=(fx, 0) holds tiles
+#     (fx..fx+2, 0..2). Their supply intersects the furnace tile set iff
+#     bx in [fx-5, fx+5], i.e. up to 4 beacons span that range when packed
+#     every 3 tiles. The 4 beacons in N + 4 in S = 8 beacons / inner machine.
+#   - For end furnaces (leftmost / rightmost) the count drops to 5-6 because
+#     the symmetric overlap is truncated at the array edge.
+#
+# So beacons_per_machine is 8 for inner furnaces and 5-6 for edge furnaces.
+# We report the per-machine count back via plan.warnings so the user can
+# see what they actually got.
+
+def layout_beacon_smelter_array(plan: ProductionPlan, spec: BuildSpec) -> LayoutResult:
+    if len(plan.cells) != 1:
+        raise LayoutError("beacon_smelter_array layout expects exactly one cell")
+    cell = plan.cells[0]
+    n = cell.count
+    machine_fp = catalog.footprint(cell.machine)
+    if machine_fp != (3, 3):
+        raise LayoutError(
+            f"beacon_smelter_array assumes a 3x3 machine, got {machine_fp} for {cell.machine}"
+        )
+    fw = fh = 3
+    layout = LayoutResult()
+
+    belt_name = spec.belt_tier
+    inserter_name = spec.inserter_tier
+
+    # Geometry constants (see header comment).
+    output_belt_y = -2
+    output_inserter_y = -1
+    machine_top_y = 0
+    input_inserter_y = machine_top_y + fh   # 3
+    input_belt_y = input_inserter_y + 1     # 4
+    beacon_n_top_y = -5                     # NW y for beacon row N (y=-5..-3)
+    beacon_s_top_y = input_belt_y + 1       # 5 (NW y for beacon row S; footprint y=5..7)
+    substation_n_top_y = beacon_n_top_y - 2  # -7 (footprint y=-7..-6)
+    substation_s_top_y = beacon_s_top_y + 3  # 8 (footprint y=8..9)
+
+    total_width = n * fw
+
+    # Output belt + output inserters + furnaces + input inserters + input belt.
+    for x in range(total_width):
+        layout.place(belt_name, (x, output_belt_y), direction=DIR_E)
+        layout.place(belt_name, (x, input_belt_y), direction=DIR_E)
+
+    # Furnace items (modules) request: emit blueprint `items` if cell carries any.
+    items_request: Optional[list[dict[str, Any]]] = None
+    if cell.machine_modules:
+        # Use compact in_inventory layout: all modules go to inventory_id=0 (fuel/module).
+        # The module slot inventory id for furnaces/assemblers/EM-plants is 4
+        # (furnace_modules) per data.raw, but Factorio accepts the more lenient
+        # legacy { module_name: count } dict form. We emit the verbose form to
+        # stay schema-clean.
+        from collections import Counter
+        mod_counts = Counter(cell.machine_modules)
+        items_request = []
+        for mname, mcount in sorted(mod_counts.items()):
+            items_request.append(
+                {
+                    "id": {"name": mname, "quality": spec.quality},
+                    "items": {"in_inventory": [
+                        {"inventory": 4, "stack": s, "count": 1}
+                        for s in range(mcount)
+                    ]},
+                }
+            )
+
+    for i in range(n):
+        x = i * fw
+        extra: dict[str, Any] = {}
+        if items_request is not None:
+            extra["items"] = items_request
+        layout.place(cell.machine, (x, machine_top_y), extra=extra)
+        out_col = x + fw // 2
+        in_col = out_col
+        layout.place(inserter_name, (out_col, output_inserter_y), direction=DIR_N)
+        layout.place(inserter_name, (in_col, input_inserter_y), direction=DIR_N)
+
+    # Beacon rows. Pack beacons every 3 tiles along the furnace row.
+    beacon_items_request: Optional[list[dict[str, Any]]] = None
+    if cell.beacons:
+        # Use the first (and only) beacon group for module population.
+        bname, bcount, bmods = cell.beacons[0]
+        if bmods:
+            from collections import Counter
+            bmod_counts = Counter(bmods)
+            beacon_items_request = []
+            for mname, mcount in sorted(bmod_counts.items()):
+                beacon_items_request.append(
+                    {
+                        "id": {"name": mname, "quality": spec.quality},
+                        "items": {"in_inventory": [
+                            {"inventory": 1, "stack": s, "count": 1}
+                            for s in range(mcount)
+                        ]},
+                    }
+                )
+
+    beacon_count_total = 0
+    for bx in range(0, total_width, 3):
+        for by in (beacon_n_top_y, beacon_s_top_y):
+            extra = {}
+            if beacon_items_request is not None:
+                extra["items"] = beacon_items_request
+            layout.place("beacon", (bx, by), extra=extra)
+            beacon_count_total += 1
+
+    # Compute realised per-machine beacon count and append a plan warning.
+    coverage_counts = _compute_beacon_coverage_counts(layout, n, fw, machine_top_y)
+    coverage_table = " ".join(f"f{i}={c}" for i, c in enumerate(coverage_counts))
+    plan.warnings.append(
+        f"beacon coverage per machine: {coverage_table} "
+        f"(total beacons placed: {beacon_count_total})"
+    )
+
+    # Power: substations north and south. With 18x18 supply we need
+    # ceil(total_width / 18) substations per row, plus a margin of 1.
+    # Place at NW x = i * 18 + offset such that center x covers [0..total_width-1].
+    sub_step = 18
+    sub_w, sub_h = catalog.footprint("substation")
+    n_subs_per_row = max(1, (total_width + sub_step - 1) // sub_step + 1)
+    # Distribute roughly evenly across the row.
+    if n_subs_per_row == 1:
+        sub_xs = [max(0, total_width // 2 - sub_w // 2)]
+    else:
+        # Spread across [0 .. total_width - sub_w].
+        spacing = (total_width - sub_w) / (n_subs_per_row - 1) if n_subs_per_row > 1 else 0
+        sub_xs = [int(round(i * spacing)) for i in range(n_subs_per_row)]
+    for sx in sub_xs:
+        for sy in (substation_n_top_y, substation_s_top_y):
+            tile = (sx, sy)
+            # Skip if collision (shouldn't happen given geometry but be safe).
+            collide = False
+            for dx in range(sub_w):
+                for dy in range(sub_h):
+                    if (sx + dx, sy + dy) in layout.occupied:
+                        collide = True
+                        break
+                if collide:
+                    break
+            if not collide:
+                layout.place("substation", tile)
+
+    return layout
+
+
+def _compute_beacon_coverage_counts(
+    layout: LayoutResult, n_machines: int, fw: int, machine_top_y: int
+) -> list[int]:
+    """For each machine, count how many beacons in the layout supply it.
+
+    A beacon affects a machine if the beacon's supply area (footprint
+    expanded by `supply_area_distance` tiles on each side) shares at
+    least one tile with the machine's footprint.
+    """
+    beacons = catalog.beacons()
+    beacon_protos = {e.name: beacons[e.name] for e in layout.entities if e.name in beacons}
+    beacon_entities = [e for e in layout.entities if e.name in beacons]
+    counts: list[int] = []
+    for i in range(n_machines):
+        fx = i * fw
+        fy = machine_top_y
+        f_tiles = {(fx + dx, fy + dy) for dx in range(fw) for dy in range(fw)}
+        c = 0
+        for be in beacon_entities:
+            proto = beacon_protos[be.name]
+            sad = int(proto.get("supply_area_distance") or 0)
+            bx, by = be.nw_tile
+            bw, bh = be.footprint
+            # Supply rect: [bx-sad, bx+bw-1+sad] x [by-sad, by+bh-1+sad]
+            if any(
+                (bx - sad) <= tx <= (bx + bw - 1 + sad)
+                and (by - sad) <= ty <= (by + bh - 1 + sad)
+                for (tx, ty) in f_tiles
+            ):
+                c += 1
+        counts.append(c)
+    return counts
+
+
 def layout(plan: ProductionPlan, spec: BuildSpec) -> LayoutResult:
     if spec.kind == "smelter_array" or spec.kind == "electric_smelter_array":
         return layout_smelter_array(plan, spec)
+    if spec.kind == "beacon_smelter_array":
+        return layout_beacon_smelter_array(plan, spec)
     if spec.kind == "solar_field":
         return layout_solar_field(plan, spec)
     if spec.kind == "green_circuit_block":

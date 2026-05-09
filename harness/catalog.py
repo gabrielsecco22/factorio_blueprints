@@ -128,6 +128,8 @@ _FOOTPRINTS: dict[str, tuple[int, int]] = {
     # Solar / power
     "solar-panel": (3, 3),
     "accumulator": (2, 2),
+    # Beacons
+    "beacon": (3, 3),
     # Belts
     "transport-belt": (1, 1),
     "fast-transport-belt": (1, 1),

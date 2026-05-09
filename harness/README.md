@@ -54,7 +54,19 @@ Or run an example end-to-end:
 ```sh
 python3 -m harness.examples.stone_smelter_array
 python3 -m harness.examples.solar_field
+python3 -m harness.examples.beacon_smelter_array
 ```
+
+Available example builds:
+
+| Example                      | Kind                        | What it produces |
+| ---------------------------- | --------------------------- | ---------------- |
+| `stone_smelter_array`        | `smelter_array`             | 12 stone furnaces, no fuel feed (MVP) |
+| `steel_smelter_array`        | `smelter_array`             | 24 steel furnaces with shared coal/ore belt |
+| `electric_smelter_array`     | `electric_smelter_array`    | 24 electric furnaces with substation power |
+| `solar_field`                | `solar_field`               | 24 panels + 20 accumulators, medium poles |
+| `green_circuit_block`        | `green_circuit_block`       | 4 cable + 6 circuit assemblers, two-row layout |
+| `beacon_smelter_array`       | `beacon_smelter_array`      | 12 electric furnaces with 24 vanilla beacons (speed-3) and productivity-3 modules |
 
 ## Tests
 

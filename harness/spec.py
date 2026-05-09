@@ -81,5 +81,15 @@ class BuildSpec:
     cable_assembler_count: Optional[int] = None
     circuit_assembler_count: Optional[int] = None
 
+    # Beacon-smelter specifics. `beacons_per_machine` is advisory (the
+    # actual count depends on layout geometry); the planner reports the
+    # realised per-machine count back via `ProductionPlan.warnings`.
+    # `beacon_module` and `machine_module` are item names from
+    # `specs/modules.json` (e.g. "speed-module-3", "productivity-module-3");
+    # leave as None to skip module insertion.
+    beacons_per_machine: int = 0
+    beacon_module: Optional[str] = None
+    machine_module: Optional[str] = None
+
     # Optional human label baked into the blueprint.
     label: Optional[str] = None

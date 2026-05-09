@@ -180,7 +180,46 @@ consumes roughly 60% extra raw inputs over a single pass.
 > `quality_loop_simulator()` that runs the chain numerically; pencil-and-
 > paper estimates suffice for blueprint sizing.
 
-## 7. Recipes worth memorising
+## 7. Beacon math (vanilla 2.0.76)
+
+Vanilla beacon (per `specs/beacons.json::beacon.vanilla_2_0_76`):
+- `module_slots = 2`, `supply_area_distance = 3`, `distribution_effectivity = 1.5`
+- `energy_usage = 480 kW`
+- `allowed_effects = [consumption, speed, pollution]` (no productivity, no quality)
+- `profile = [1, 0.7071, 0.5773, 0.5, 0.4472, 0.4082, 0.3779, 0.3535, 0.3333, ...]`
+  (Space Age single-machine transmission: when N beacons cover one machine,
+  each contributes `profile[N-1]` of its raw effectivity.)
+
+For a beacon loaded with `k` copies of `speed-module-3` (+50% speed each),
+each beacon's *raw* speed contribution is `1.5 * profile[N-1] * k * 0.5`.
+With `k = 2` (full vanilla 2-slot beacon):
+
+| beacons / machine N | profile[N-1] | speed bonus per beacon | total speed bonus | speed multiplier |
+| ---: | ---: | ---: | ---: | ---: |
+| 1  | 1.0000 | +1.500 | +1.500 |  2.50x |
+| 2  | 0.7071 | +1.061 | +2.121 |  3.12x |
+| 4  | 0.5000 | +0.750 | +3.000 |  4.00x |
+| 6  | 0.4082 | +0.612 | +3.674 |  4.67x |
+| 8  | 0.3535 | +0.530 | +4.243 |  5.24x |
+| 12 | 0.2886 | +0.433 | +5.196 |  6.20x |
+
+Throughput multiplier on an electric-furnace iron-plate (vanilla baseline
+0.625 plates/s/furnace; 2 productivity-module-3 in the furnace gives
++20% productivity, total result multiplier `(1 + 0.20)`):
+
+| beacons / machine | speed mult | per-machine plates/s | machines / yellow belt |
+| ---: | ---: | ---: | ---: |
+| 0  | 1.00x | 0.625 | 48.0 |
+| 4  | 4.00x | 3.000 |  6.7 |  
+| 6  | 4.67x | 3.502 |  5.7 |
+| 8  | 5.24x | 3.929 |  5.1 |
+| 12 | 6.20x | 4.652 |  4.3 |
+
+> The `beacon_smelter_array` planner places vanilla beacons in two rows
+> (north + south of a furnace row, packed 3 tiles apart). Inner furnaces
+> are covered by 6 beacons, edge furnaces by 4.
+
+## 8. Recipes worth memorising
 
 | Recipe | Default machine | items/s/machine | One full belt needs |
 | --- | --- | ---: | --- |
