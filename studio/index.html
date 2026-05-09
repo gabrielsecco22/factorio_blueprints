@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Factudio - Factorio Blueprint Studio</title>
+  <meta name="description" content="Generate, validate, and visualise Factorio blueprints from a build spec.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="studio">
+  <header class="studio-header">
+    <div class="studio-header__inner">
+      <h1>Factudio</h1>
+      <p class="tagline">Punch in a build, generate a blueprint, edit it in FBE.</p>
+      <ul class="conn-status" aria-label="Backend status">
+        <li id="status-harness"  class="status" data-status="unknown">Harness</li>
+        <li id="status-library"  class="status" data-status="unknown">Library</li>
+        <li id="status-fbe"      class="status" data-status="unknown">FBE editor</li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="studio-main">
+
+    <!-- LEFT: parameters panel -->
+    <aside class="params" aria-label="Build parameters">
+      <h2>Build spec</h2>
+
+      <form id="spec-form" autocomplete="off">
+
+        <fieldset class="row">
+          <legend>Kind</legend>
+          <select name="kind" id="kind">
+            <option value="smelter_array">smelter_array (burner furnaces)</option>
+            <option value="electric_smelter_array">electric_smelter_array</option>
+            <option value="solar_field">solar_field</option>
+            <option value="green_circuit_block">green_circuit_block</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="row">
+          <legend>Target item</legend>
+          <input type="text" name="target" id="target" list="items-list" placeholder="iron-plate" value="iron-plate">
+          <datalist id="items-list"></datalist>
+          <p class="hint" id="target-hint"></p>
+        </fieldset>
+
+        <fieldset class="row split">
+          <div>
+            <legend>Rate (items/sec)</legend>
+            <input type="number" step="0.1" min="0" name="output_rate_per_sec" id="rate" placeholder="auto">
+          </div>
+          <div>
+            <legend>OR machine count</legend>
+            <input type="number" min="1" step="1" name="machine_count" id="machine_count" value="12">
+          </div>
+        </fieldset>
+
+        <fieldset class="row">
+          <legend>Machine</legend>
+          <select name="machine_choice" id="machine"></select>
+        </fieldset>
+
+        <fieldset class="row" id="fuel-row">
+          <legend>Fuel (burner only)</legend>
+          <select name="fuel" id="fuel">
+            <option value="coal">coal</option>
+            <option value="wood">wood</option>
+            <option value="solid-fuel">solid-fuel</option>
+            <option value="rocket-fuel">rocket-fuel</option>
+            <option value="nuclear-fuel">nuclear-fuel</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="row">
+          <legend>Belt tier</legend>
+          <select name="belt_tier" id="belt_tier"></select>
+        </fieldset>
+
+        <fieldset class="row">
+          <legend>Inserter tier</legend>
+          <select name="inserter_tier" id="inserter_tier">
+            <option value="burner-inserter">burner-inserter</option>
+            <option value="inserter">inserter (electric)</option>
+            <option value="long-handed-inserter">long-handed-inserter</option>
+            <option value="fast-inserter">fast-inserter</option>
+            <option value="bulk-inserter">bulk-inserter</option>
+            <option value="stack-inserter">stack-inserter</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="row">
+          <legend>Quality tier</legend>
+          <select name="quality" id="quality"></select>
+        </fieldset>
+
+        <fieldset class="row">
+          <legend>Research bonuses</legend>
+          <div class="research-grid" id="research-grid">
+            <!-- Filled by app.js -->
+          </div>
+        </fieldset>
+
+        <fieldset class="row">
+          <legend>Mod set</legend>
+          <select multiple size="6" id="mods" name="mods"></select>
+          <p class="hint">Defaults to all enabled mods. Cmd/Ctrl-click to deselect.</p>
+        </fieldset>
+
+        <fieldset class="row">
+          <legend>Label</legend>
+          <input type="text" name="label" id="label" placeholder="(auto)">
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn primary" id="btn-generate">Generate</button>
+          <button type="button" class="btn" id="btn-send-fbe" disabled>Open in FBE editor</button>
+          <button type="button" class="btn" id="btn-import">Import string from editor</button>
+          <button type="button" class="btn" id="btn-save" disabled>Save to library</button>
+        </div>
+      </form>
+    </aside>
+
+    <!-- RIGHT: editor + preview -->
+    <section class="editor" aria-label="Blueprint preview / editor">
+
+      <div class="editor-tabs" role="tablist">
+        <button type="button" class="tab active" role="tab" data-tab="preview" aria-selected="true">Preview</button>
+        <button type="button" class="tab" role="tab" data-tab="string">Blueprint string</button>
+        <button type="button" class="tab" role="tab" data-tab="report">Report</button>
+        <button type="button" class="tab" role="tab" data-tab="library">Library</button>
+      </div>
+
+      <div class="tab-pane active" id="pane-preview" role="tabpanel">
+        <div class="preview-toolbar">
+          <span id="preview-summary" class="muted">No blueprint yet. Click Generate.</span>
+          <span class="spacer"></span>
+          <a id="open-fbe" class="btn-link" href="#" target="_blank" rel="noopener" hidden>Open in FBE</a>
+        </div>
+        <pre id="ascii-preview" class="ascii"></pre>
+      </div>
+
+      <div class="tab-pane" id="pane-string" role="tabpanel">
+        <textarea id="bp-string" placeholder="0eNqV...    (paste a blueprint here to import, or click Generate to fill)"></textarea>
+        <div class="string-toolbar">
+          <button type="button" class="btn" id="btn-copy">Copy</button>
+          <button type="button" class="btn" id="btn-validate">Validate</button>
+          <span id="string-warn" class="muted"></span>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="pane-report" role="tabpanel">
+        <pre id="report-md" class="report"></pre>
+      </div>
+
+      <div class="tab-pane" id="pane-library" role="tabpanel">
+        <div class="library-toolbar">
+          <button type="button" class="btn" id="btn-refresh-library">Refresh</button>
+          <span id="library-count" class="muted"></span>
+        </div>
+        <ul id="library-list" class="library-list"></ul>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="bottom-bar" id="bottom-bar">
+    <div class="bb-section">
+      <h3>Rate calculator</h3>
+      <table id="rates-table" class="rates"><tbody></tbody></table>
+    </div>
+    <div class="bb-section">
+      <h3>Warnings & mod compat</h3>
+      <ul id="warnings-list" class="warnings"></ul>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

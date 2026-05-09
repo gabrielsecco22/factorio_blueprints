@@ -21,7 +21,9 @@ import socketserver
 import sys
 from pathlib import Path
 
-REQUIRED_FIELDS = ("id", "name", "homepage", "category", "description")
+REQUIRED_FIELDS = ("id", "name", "homepage", "category")
+# A record must carry at least one prose field; surveys used either name.
+DESCRIPTION_FIELDS = ("description", "summary")
 KNOWN_CATEGORIES = {
     "visual-editor",
     "calculator",
@@ -29,6 +31,13 @@ KNOWN_CATEGORIES = {
     "renderer",
     "in-game-mod",
     "library",
+    "compiler",
+    "decoder",
+    "transformer",
+    "analyzer",
+    "discord-bot",
+    "spreadsheet",
+    "reference-web",
 }
 
 # Data files we may find under webpage/data/.
@@ -65,6 +74,10 @@ def _validate_record(record: dict, idx: int, source: str) -> list[str]:
     for field in REQUIRED_FIELDS:
         if field not in record or record[field] in (None, ""):
             errors.append(f"{source}[{idx}]: missing required field {field!r}")
+    if not any(record.get(f) for f in DESCRIPTION_FIELDS):
+        errors.append(
+            f"{source}[{idx}]: needs one of {DESCRIPTION_FIELDS!r}"
+        )
     cat = record.get("category")
     if cat and cat not in KNOWN_CATEGORIES:
         errors.append(

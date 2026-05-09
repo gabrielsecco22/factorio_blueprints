@@ -1,8 +1,8 @@
 {
-  "last_built": "2026-05-09T15:32:01Z",
+  "last_built": "2026-05-09T16:00:09Z",
   "counts": {
-    "oss_tools.json": 0,
-    "community_tools.json": 0,
+    "oss_tools.json": 20,
+    "community_tools.json": 14,
     "community_sentiment_oss.json": 0
   },
   "source": "webpage/build.py"

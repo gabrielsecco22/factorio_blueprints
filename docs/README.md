@@ -15,6 +15,9 @@ Quality + Elevated Rails, 34 third-party mods).
 | `planets_quality_beacons.md` | Agent E | Per-planet rules (Nauvis, Vulcanus, Fulgora, Gleba, Aquilo), quality tiers and stat multipliers, beacon stacking and transmission ranges. | populated by agent E; derived JSON in `specs/planets.json`, `specs/quality.json`, `specs/beacons.json`, `specs/recipe_planet_restrictions.json`, `specs/entity_planet_restrictions.json` (regenerate via `tools/extract_planets.py`) |
 | `scrapers.md`                | Agent F | Per-site notes on the polite scrapers under `tools/scrapers/`: discovered API endpoints, HTML parsing strategy, anti-bot observations, data hygiene caveats. | active — covers `factorio_school`, `factorioprints`, `factoriobin` |
 | `rate_calculator.md`         | Agent G | Formulas, worked examples, and parity notes for `tools/rate_calculator.py` (engine behind `tools/rate_cli.py` and `harness/rates.py`). | populated; mirrors RateCalculator mod 3.3.8 with documented extensions for quality cascade and recipe-prod research |
+| `visual_validator.md`        | Agent H | ASCII renderer (`tools/render_blueprint.py`) and the `blueprint-visual-validator` sub-agent that consumes it; produces structured PASS/FAIL/WARN verdicts with coordinates. | active |
+| `master_orchestrator.md`     | Agent I | High-level driver (`harness/master_orchestrator.py`) that wraps `synthesize` in a generator->validator loop, plus mod-aware compatibility checks (`harness/mod_compat.py`) and a CLI for inspecting third-party blueprints. | active |
+| `legacy_entity_renames.md`   | Agent J | 1.x -> 2.0 entity rename table consumed by `tools/inventory_user_blueprints.py` to remap pre-2.0 entity names (logistic chests, stack/filter inserters) when classifying user blueprints. | active |
 
 Add new specs here with a one-line description in the table above. Keep
 each spec scoped to a single system; cross-link rather than duplicate.

@@ -309,7 +309,7 @@
       })
     ]);
 
-    const desc = el("p", { class: "card-desc", text: tool.description || "" });
+    const desc = el("p", { class: "card-desc", text: tool.description || tool.summary || "" });
 
     const linkRow = el("div", { class: "card-links" }, [
       tool.homepage

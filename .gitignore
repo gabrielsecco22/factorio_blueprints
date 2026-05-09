@@ -16,6 +16,10 @@ library/personal/
 *.bak.*
 blueprint-storage-2.dat.bak.*
 
+# Factudio: vendored FBE source (only used as a fallback if the live demo
+# is unreachable; see studio/INTEGRATION.md).
+studio/vendor/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -234,3 +238,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Claude Code session-local state
+.claude/scheduled_tasks.lock

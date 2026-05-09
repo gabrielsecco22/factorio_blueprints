@@ -1,0 +1,476 @@
+{
+  "generated_at": "2026-05-09T16:46:56Z",
+  "source_counts": {
+    "dat": 5,
+    "personal": 0,
+    "external": 3
+  },
+  "records": [
+    {
+      "id": "user_dat_001",
+      "source": "/home/gabriel/.factorio/blueprint-storage-2.dat#slot-0",
+      "label": "(no label)",
+      "kind": "envelope-only",
+      "string_size_bytes": 8181,
+      "decoded": {
+        "envelope_only": true,
+        "binary_offset": "0x42a6",
+        "in_game_kind": "blueprint",
+        "generation": 833,
+        "item_name": "blueprint"
+      },
+      "purpose_guess": "envelope-only (body in in-game binary format)",
+      "purpose_confidence": "low",
+      "purpose_reasons": [
+        "blueprint-storage-2.dat body bytes are NOT a blueprint string; we only have label + size + kind"
+      ],
+      "mod_compat": {
+        "required_mods": [],
+        "enabled": [],
+        "disabled": [],
+        "missing": [],
+        "zip_only": [],
+        "substitutes_available": [],
+        "policy": "n/a (envelope-only)"
+      },
+      "unknown_entities": [],
+      "throughput_estimate": null,
+      "validation_questions": [
+        "Slot 0: label='', kind=blueprint, content_size=8181. Confirm you can find it in your in-game library?",
+        "Do you want to manually export this blueprint so we can inventory its entities?"
+      ],
+      "notes": [
+        "Header reports 79 total objects in the file; we walked 5 entries.",
+        "Body decoding is not yet implemented for the binary .dat format. Export this blueprint from inside Factorio via Library -> the blueprint -> 'Export to string', save into library/personal/, and re-run inventory to get full details."
+      ]
+    },
+    {
+      "id": "user_dat_002",
+      "source": "/home/gabriel/.factorio/blueprint-storage-2.dat#slot-1",
+      "label": "(no label)",
+      "kind": "envelope-only",
+      "string_size_bytes": 3043,
+      "decoded": {
+        "envelope_only": true,
+        "binary_offset": "0x62ab",
+        "in_game_kind": "blueprint",
+        "generation": 832,
+        "item_name": "blueprint"
+      },
+      "purpose_guess": "envelope-only (body in in-game binary format)",
+      "purpose_confidence": "low",
+      "purpose_reasons": [
+        "blueprint-storage-2.dat body bytes are NOT a blueprint string; we only have label + size + kind"
+      ],
+      "mod_compat": {
+        "required_mods": [],
+        "enabled": [],
+        "disabled": [],
+        "missing": [],
+        "zip_only": [],
+        "substitutes_available": [],
+        "policy": "n/a (envelope-only)"
+      },
+      "unknown_entities": [],
+      "throughput_estimate": null,
+      "validation_questions": [
+        "Slot 1: label='', kind=blueprint, content_size=3043. Confirm you can find it in your in-game library?",
+        "Do you want to manually export this blueprint so we can inventory its entities?"
+      ],
+      "notes": [
+        "Header reports 79 total objects in the file; we walked 5 entries.",
+        "Body decoding is not yet implemented for the binary .dat format. Export this blueprint from inside Factorio via Library -> the blueprint -> 'Export to string', save into library/personal/, and re-run inventory to get full details."
+      ]
+    },
+    {
+      "id": "user_dat_003",
+      "source": "/home/gabriel/.factorio/blueprint-storage-2.dat#slot-2",
+      "label": "(no label)",
+      "kind": "envelope-only",
+      "string_size_bytes": 1159,
+      "decoded": {
+        "envelope_only": true,
+        "binary_offset": "0x6e9e",
+        "in_game_kind": "blueprint",
+        "generation": 831,
+        "item_name": "blueprint"
+      },
+      "purpose_guess": "envelope-only (body in in-game binary format)",
+      "purpose_confidence": "low",
+      "purpose_reasons": [
+        "blueprint-storage-2.dat body bytes are NOT a blueprint string; we only have label + size + kind"
+      ],
+      "mod_compat": {
+        "required_mods": [],
+        "enabled": [],
+        "disabled": [],
+        "missing": [],
+        "zip_only": [],
+        "substitutes_available": [],
+        "policy": "n/a (envelope-only)"
+      },
+      "unknown_entities": [],
+      "throughput_estimate": null,
+      "validation_questions": [
+        "Slot 2: label='', kind=blueprint, content_size=1159. Confirm you can find it in your in-game library?",
+        "Do you want to manually export this blueprint so we can inventory its entities?"
+      ],
+      "notes": [
+        "Header reports 79 total objects in the file; we walked 5 entries.",
+        "Body decoding is not yet implemented for the binary .dat format. Export this blueprint from inside Factorio via Library -> the blueprint -> 'Export to string', save into library/personal/, and re-run inventory to get full details."
+      ]
+    },
+    {
+      "id": "user_dat_004",
+      "source": "/home/gabriel/.factorio/blueprint-storage-2.dat#slot-3",
+      "label": "DEF 1",
+      "kind": "envelope-only",
+      "string_size_bytes": 1796,
+      "decoded": {
+        "envelope_only": true,
+        "binary_offset": "0x7335",
+        "in_game_kind": "blueprint",
+        "generation": 830,
+        "item_name": "blueprint"
+      },
+      "purpose_guess": "envelope-only (body in in-game binary format)",
+      "purpose_confidence": "low",
+      "purpose_reasons": [
+        "blueprint-storage-2.dat body bytes are NOT a blueprint string; we only have label + size + kind"
+      ],
+      "mod_compat": {
+        "required_mods": [],
+        "enabled": [],
+        "disabled": [],
+        "missing": [],
+        "zip_only": [],
+        "substitutes_available": [],
+        "policy": "n/a (envelope-only)"
+      },
+      "unknown_entities": [],
+      "throughput_estimate": null,
+      "validation_questions": [
+        "Slot 3: label='DEF 1', kind=blueprint, content_size=1796. Confirm you can find it in your in-game library?",
+        "Do you want to manually export this blueprint so we can inventory its entities?"
+      ],
+      "notes": [
+        "Header reports 79 total objects in the file; we walked 5 entries.",
+        "Body decoding is not yet implemented for the binary .dat format. Export this blueprint from inside Factorio via Library -> the blueprint -> 'Export to string', save into library/personal/, and re-run inventory to get full details."
+      ]
+    },
+    {
+      "id": "user_dat_005",
+      "source": "/home/gabriel/.factorio/blueprint-storage-2.dat#slot-4",
+      "label": "Fleet",
+      "kind": "envelope-only",
+      "string_size_bytes": 0,
+      "decoded": {
+        "envelope_only": true,
+        "binary_offset": "0x7a4e",
+        "in_game_kind": "blueprint-book",
+        "generation": 627,
+        "item_name": "blueprint-book"
+      },
+      "purpose_guess": "envelope-only (body in in-game binary format)",
+      "purpose_confidence": "low",
+      "purpose_reasons": [
+        "blueprint-storage-2.dat body bytes are NOT a blueprint string; we only have label + size + kind"
+      ],
+      "mod_compat": {
+        "required_mods": [],
+        "enabled": [],
+        "disabled": [],
+        "missing": [],
+        "zip_only": [],
+        "substitutes_available": [],
+        "policy": "n/a (envelope-only)"
+      },
+      "unknown_entities": [],
+      "throughput_estimate": null,
+      "validation_questions": [
+        "Slot 4: label='Fleet', kind=blueprint-book, content_size=None. Confirm you can find it in your in-game library?",
+        "Do you want to manually export this blueprint so we can inventory its entities?"
+      ],
+      "notes": [
+        "Header reports 79 total objects in the file; we walked 5 entries.",
+        "Body decoding is not yet implemented for the binary .dat format. Export this blueprint from inside Factorio via Library -> the blueprint -> 'Export to string', save into library/personal/, and re-run inventory to get full details."
+      ]
+    },
+    {
+      "id": "ext_006",
+      "source": "external/factorio_school/-OsBJMo7P-2oKxsEc3oB.bp (external: factorio_school)",
+      "label": "Green Circuit 2400/m",
+      "kind": "blueprint",
+      "string_size_bytes": 1529,
+      "decoded": {
+        "entity_count": 75,
+        "tile_count": 0,
+        "bbox": {
+          "width": 15,
+          "height": 25
+        },
+        "top_entities": [
+          [
+            "turbo-transport-belt",
+            19
+          ],
+          [
+            "beacon",
+            15
+          ],
+          [
+            "bulk-inserter",
+            10
+          ],
+          [
+            "pipe",
+            8
+          ],
+          [
+            "constant-combinator",
+            7
+          ],
+          [
+            "stack-inserter",
+            6
+          ],
+          [
+            "turbo-underground-belt",
+            4
+          ],
+          [
+            "foundry",
+            3
+          ]
+        ],
+        "fluid_systems": 9,
+        "circuit_networks": 7,
+        "icons": [
+          "beacon",
+          "foundry"
+        ],
+        "version_packed": 562949958402048
+      },
+      "purpose_guess": "Vulcanus foundry block, recipe=casting-iron",
+      "purpose_confidence": "high",
+      "purpose_reasons": [
+        "3 foundry; also has electromagnetic-plant"
+      ],
+      "mod_compat": {
+        "required_mods": [
+          "base",
+          "space-age"
+        ],
+        "enabled": [
+          "base",
+          "space-age"
+        ],
+        "disabled": [],
+        "missing": [],
+        "zip_only": [],
+        "substitutes_available": [],
+        "policy": "user-any"
+      },
+      "unknown_entities": [],
+      "throughput_estimate": {
+        "primary_recipe": "electronic-circuit",
+        "primary_machine": "electromagnetic-plant",
+        "items_per_second": 16.0,
+        "notes": "vanilla baseline: 2 electromagnetic-plant(s), no modules / beacons / quality / research; in-game throughput will be higher if you have prod modules or beacons applied."
+      },
+      "validation_questions": [
+        "Is this 'Green Circuit 2400/m' actually used as a Vulcanus foundry block, recipe=casting-iron? If not, what's its real purpose?",
+        "Is the throughput target ~16.00 electronic-circuit/s (electromagnetic-plant, vanilla baseline)? Different by how much?"
+      ],
+      "notes": []
+    },
+    {
+      "id": "ext_007",
+      "source": "external/factoriobin/demo.bp (external: factoriobin)",
+      "label": "Example Book",
+      "kind": "blueprint-book",
+      "string_size_bytes": 5073,
+      "decoded": {
+        "entity_count": 156,
+        "tile_count": 9,
+        "bbox": {
+          "width": 1465,
+          "height": 1121
+        },
+        "top_entities": [
+          [
+            "substation",
+            40
+          ],
+          [
+            "transport-belt",
+            33
+          ],
+          [
+            "straight-rail",
+            22
+          ],
+          [
+            "textplate-small-gold",
+            12
+          ],
+          [
+            "underground-belt",
+            11
+          ],
+          [
+            "beacon",
+            10
+          ],
+          [
+            "splitter",
+            8
+          ],
+          [
+            "medium-electric-pole",
+            4
+          ]
+        ],
+        "fluid_systems": 0,
+        "circuit_networks": 0,
+        "icons": [
+          "signal-check"
+        ],
+        "version_packed": 281474976710656
+      },
+      "purpose_guess": "assembler block, 2 machines (recipe=iron-gear-wheel)",
+      "purpose_confidence": "high",
+      "purpose_reasons": [
+        "2 assembling-machines"
+      ],
+      "mod_compat": {
+        "required_mods": [
+          "base",
+          "space-age"
+        ],
+        "enabled": [
+          "base",
+          "space-age"
+        ],
+        "disabled": [],
+        "missing": [],
+        "zip_only": [],
+        "substitutes_available": [],
+        "policy": "user-any"
+      },
+      "unknown_entities": [
+        {
+          "name": "textplate-small-gold",
+          "count": 12,
+          "status": "unknown_entity",
+          "suggested_name": null
+        },
+        {
+          "name": "logistic-chest-passive-provider",
+          "count": 1,
+          "status": "legacy_renamed",
+          "suggested_name": "passive-provider-chest"
+        },
+        {
+          "name": "logistic-chest-requester",
+          "count": 1,
+          "status": "legacy_renamed",
+          "suggested_name": "requester-chest"
+        }
+      ],
+      "throughput_estimate": {
+        "primary_recipe": "iron-gear-wheel",
+        "primary_machine": "assembling-machine-3",
+        "items_per_second": 7.5,
+        "notes": "vanilla baseline: 2 assembling-machine-3(s), no modules / beacons / quality / research; in-game throughput will be higher if you have prod modules or beacons applied."
+      },
+      "validation_questions": [
+        "Is this 'Example Book' actually used as a assembler block, 2 machines (recipe=iron-gear-wheel)? If not, what's its real purpose?",
+        "Is the throughput target ~7.50 iron-gear-wheel/s (assembling-machine-3, vanilla baseline)? Different by how much?",
+        "This blueprint uses 1.x-era entity names (logistic-chest-passive-provider -> passive-provider-chest, logistic-chest-requester -> requester-chest). OK to leave as-is (game migrates them) or do you want the blueprint rewritten to the 2.0 names?",
+        "Unknown entity names found (textplate-small-gold). Do these come from a mod you uninstalled? Should the inventory drop them or wait for you to re-enable the mod?"
+      ],
+      "notes": []
+    },
+    {
+      "id": "ext_008",
+      "source": "external/factorioprints/-OsBpTa4QO8SyAlvD8m2.bp (external: factorioprints)",
+      "label": "Auto Mall",
+      "kind": "blueprint",
+      "string_size_bytes": 5677,
+      "decoded": {
+        "entity_count": 47,
+        "tile_count": 0,
+        "bbox": {
+          "width": 15,
+          "height": 10
+        },
+        "top_entities": [
+          [
+            "decider-combinator",
+            13
+          ],
+          [
+            "arithmetic-combinator",
+            11
+          ],
+          [
+            "bulk-inserter",
+            4
+          ],
+          [
+            "small-lamp",
+            4
+          ],
+          [
+            "active-provider-chest",
+            2
+          ],
+          [
+            "assembling-machine-2",
+            2
+          ],
+          [
+            "assembling-machine-3",
+            2
+          ],
+          [
+            "constant-combinator",
+            2
+          ]
+        ],
+        "fluid_systems": 0,
+        "circuit_networks": 38,
+        "icons": [
+          "roboport",
+          "assembling-machine-3"
+        ],
+        "version_packed": 562949958402048
+      },
+      "purpose_guess": "assembler block, 4 machines",
+      "purpose_confidence": "medium",
+      "purpose_reasons": [
+        "4 assembling-machines"
+      ],
+      "mod_compat": {
+        "required_mods": [
+          "base"
+        ],
+        "enabled": [
+          "base"
+        ],
+        "disabled": [],
+        "missing": [],
+        "zip_only": [],
+        "substitutes_available": [],
+        "policy": "user-any"
+      },
+      "unknown_entities": [],
+      "throughput_estimate": null,
+      "validation_questions": [
+        "Is this 'Auto Mall' actually used as a assembler block, 4 machines? If not, what's its real purpose?"
+      ],
+      "notes": []
+    }
+  ]
+}
