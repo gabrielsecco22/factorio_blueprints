@@ -157,6 +157,30 @@ def _make_report(
 def synthesize(spec: BuildSpec) -> SynthesisResult:
     """Drive the spec -> blueprint pipeline end-to-end."""
     plan_obj = plan.plan(spec)
+
+    # Self-correct kind/machine mismatches before layout. The smelter_array
+    # layout doesn't place electric poles; if the user picked an electric
+    # furnace (e.g. via the studio's machine dropdown), promote the kind to
+    # electric_smelter_array so the layout adds substations. The reverse
+    # (kind=electric_smelter_array but burner machine) is rare but symmetric.
+    if plan_obj.cells:
+        chosen = plan_obj.cells[0].machine
+        machine = catalog.machines().get(chosen, {})
+        es = machine.get("energy_source") or {}
+        is_electric = es.get("type") == "electric"
+        if spec.kind == "smelter_array" and is_electric:
+            plan_obj.warnings.append(
+                f"machine '{chosen}' is electric; promoting kind "
+                f"smelter_array -> electric_smelter_array so the layout adds power"
+            )
+            spec.kind = "electric_smelter_array"
+        elif spec.kind == "electric_smelter_array" and not is_electric and chosen:
+            plan_obj.warnings.append(
+                f"machine '{chosen}' is not electric; demoting kind "
+                f"electric_smelter_array -> smelter_array so the layout omits power"
+            )
+            spec.kind = "smelter_array"
+
     layout_obj = layout.layout(plan_obj, spec)
 
     # Rate-calc pass (best effort: never fail synthesis on a rate hiccup).

@@ -1,11 +1,20 @@
 """Layout: turn a `ProductionPlan` (or fixed-shape spec) into placed entities.
 
-Coordinate system (matches `docs/blueprint_format.md` section 10):
+Coordinate system (verified against real Factorio-exported blueprints in
+`library/external/factorio_school/`):
 - +x = east, +y = south.
-- Entity `position` is the **center** of the entity's tile footprint.
-  - For odd-sized footprints (1x1, 3x3, 5x5), the center has integer
-    coordinates relative to a footprint whose NW corner is at (0,0).
-  - For even-sized footprints (2x2, 4x4), the center is at (.5, .5).
+- Tiles are unit squares; tile (a, b) occupies `[a, a+1) x [b, b+1)`.
+- Entity `position` is the **center** of the entity's tile footprint:
+  `position = NW_tile + size / 2`. So:
+  - Odd-sized footprints (1x1, 3x3, 5x5) -> center is half-integer
+    (e.g. 1x1 at NW=(0,0) is positioned at (0.5, 0.5)).
+  - Even-sized footprints (2x2, 4x4) -> center is integer
+    (e.g. 4x4 at NW=(0,0) is positioned at (2, 2)).
+  This matches the convention in real exported 2.0 blueprints
+  (turbo-transport-belt 1x1 at -120.5/81.5, foundry 5x5 at -120.5/85.5,
+   electromagnetic-plant 4x4 at -124/97). An earlier version of this
+  module subtracted 0.5 (using `(size - 1) / 2`); FBE rejected those
+  blueprints because entities collided when interpreted at face value.
 
 Internally we work in **tile units**. The NW corner of the bounding
 box is anchored at (0, 0) for each example, which keeps blueprint
@@ -54,20 +63,20 @@ class PlacedEntity:
 
     @property
     def position(self) -> dict[str, float]:
-        """Blueprint `position` for this entity.
+        """Blueprint `position` for this entity (center-of-footprint).
 
-        Convention (verified against `tools/blueprint_codec.py` self-test):
+        Convention (verified against real Factorio-exported blueprints):
 
-            position = NW_tile + tile_size/2 - 0.5
+            position = NW_tile + tile_size / 2
 
-        That gives integer positions for odd-sided footprints (1x1, 3x3,
-        5x5) and half-integer positions for even-sided ones (2x2, 4x4).
-        Emit ints as ints so the JSON matches what the game emits.
+        That gives half-integer positions for odd-sided footprints
+        (1x1, 3x3, 5x5) and integer positions for even-sided ones
+        (2x2, 4x4). See module docstring for examples and bug history.
         """
         x, y = self.nw_tile
         w, h = self.footprint
-        cx = x + (w - 1) / 2.0
-        cy = y + (h - 1) / 2.0
+        cx = x + w / 2.0
+        cy = y + h / 2.0
         # If the result is a whole number, emit an int (matches game style).
         cx_out: float | int = int(cx) if cx == int(cx) else cx
         cy_out: float | int = int(cy) if cy == int(cy) else cy

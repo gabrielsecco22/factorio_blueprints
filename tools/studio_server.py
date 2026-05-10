@@ -62,6 +62,39 @@ SPECS_DIR = REPO_ROOT / "specs"
 LIBRARY_DIR = REPO_ROOT / "library" / "personal"
 MOD_LIST = Path.home() / ".factorio" / "mods" / "mod-list.json"
 
+# ---------------------------------------------------------------------------
+# FBE iframe integration.
+#
+# We mount the upstream live demo (https://fbe.teoxoy.com) under /fbe/, with
+# rewritten URLs so all of FBE's relative + absolute asset references resolve
+# to /fbe/<path> instead of /<path> (which would collide with our own routes).
+#
+# studio/setup_fbe.sh seeds studio/static/fbe/index.html so the integration
+# is "installed". All other assets (data.json, sprite atlases, fonts,
+# transcoder.wasm) are lazily proxied + cached on first request via
+# _fbe_proxy() below. After warm-up the iframe needs no network access.
+# ---------------------------------------------------------------------------
+
+FBE_DIR = STUDIO_DIR / "static" / "fbe"
+FBE_UPSTREAM = "https://fbe.teoxoy.com"
+# Paths under FBE that are HTML/CSS/JS and require URL rewriting before
+# serving. Anything else (images, wasm, fonts, .basis textures, json) is
+# served byte-for-byte.
+_FBE_REWRITE_SUFFIXES = {".html", ".js", ".css"}
+# Hardcoded absolute paths we rewrite to live under /fbe/. Order matters:
+# longer prefixes first so we never double-rewrite.
+_FBE_PATH_REWRITES = (
+    ("/data/", "/fbe/data/"),
+    ("/assets/", "/fbe/assets/"),
+    ("/fonts/", "/fbe/fonts/"),
+    ("/favicon.png", "/fbe/favicon.png"),
+    ("/logo.svg", "/fbe/logo.svg"),
+    ("/logo-small.svg", "/fbe/logo-small.svg"),
+    ("/loadingWheel.svg", "/fbe/loadingWheel.svg"),
+    ("/discord.svg", "/fbe/discord.svg"),
+    ("/github.svg", "/fbe/github.svg"),
+)
+
 # Make `harness` and `tools` packages importable when running from anywhere.
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
@@ -596,6 +629,33 @@ def _api_save(payload: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _fbe_installed() -> bool:
+    """True if studio/setup_fbe.sh has been run (index.html exists)."""
+    return (FBE_DIR / "index.html").is_file()
+
+
+def _fbe_extension_status() -> dict[str, Any]:
+    """Read the ``__factudio_extension__`` sentinel from FBE's data.json.
+
+    Set by ``tools/extend_fbe_for_mods.py``. Returns
+    ``{"applied": False}`` if the bundle is not installed or has not
+    been extended.
+    """
+    data_path = FBE_DIR / "data" / "data.json"
+    if not data_path.is_file():
+        return {"applied": False}
+    try:
+        data = json.loads(data_path.read_text())
+    except (OSError, json.JSONDecodeError):
+        return {"applied": False, "error": "could not parse data.json"}
+    sentinel = data.get("__factudio_extension__")
+    if not isinstance(sentinel, dict):
+        return {"applied": False}
+    out: dict[str, Any] = {"applied": True}
+    out.update(sentinel)
+    return out
+
+
 def _api_health() -> dict[str, Any]:
     return {
         "ok": True,
@@ -606,6 +666,9 @@ def _api_health() -> dict[str, Any]:
         "mod_list_present": MOD_LIST.exists(),
         "specs_dir_present": SPECS_DIR.exists(),
         "studio_dir_present": STUDIO_DIR.exists(),
+        "fbe_installed": _fbe_installed(),
+        "fbe_upstream": FBE_UPSTREAM,
+        "fbe_extension": _fbe_extension_status(),
     }
 
 
@@ -651,10 +714,134 @@ _CONTENT_TYPES = {
     ".json": "application/json; charset=utf-8",
     ".svg": "image/svg+xml",
     ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".webp": "image/webp",
+    ".basis": "application/octet-stream",
+    ".wasm": "application/wasm",
+    ".woff": "font/woff",
+    ".woff2": "font/woff2",
     ".ico": "image/x-icon",
     ".md": "text/markdown; charset=utf-8",
     ".txt": "text/plain; charset=utf-8",
 }
+
+
+# ---------------------------------------------------------------------------
+# FBE proxy + cache.
+# ---------------------------------------------------------------------------
+
+# Concurrent fetch dedup: while one thread is downloading /fbe/foo.basis,
+# any other thread that asks for the same file blocks on the same Event.
+_fbe_inflight: dict[str, threading.Event] = {}
+_fbe_inflight_lock = threading.Lock()
+
+
+def _fbe_safe_path(rel_url: str) -> Path | None:
+    """Resolve `<rel_url>` (already stripped of /fbe/ prefix) under FBE_DIR.
+
+    Refuses traversal. Returns None if the path escapes FBE_DIR.
+    """
+    rel = rel_url.lstrip("/")
+    if not rel:
+        rel = "index.html"
+    candidate = (FBE_DIR / rel).resolve()
+    try:
+        candidate.relative_to(FBE_DIR.resolve())
+    except ValueError:
+        return None
+    return candidate
+
+
+def _fbe_rewrite_text(blob: bytes) -> bytes:
+    """Apply path rewrites so absolute upstream URLs become /fbe/ URLs."""
+    text = blob.decode("utf-8", errors="replace")
+    # Quoted form: `"/data/...` becomes `"/fbe/data/...`. We rewrite each
+    # candidate prefix exactly once. Order is significant -- never rewrite
+    # something we've already prefixed with /fbe.
+    for src, dst in _FBE_PATH_REWRITES:
+        for quote in ('"', "'", "`", "("):
+            text = text.replace(f"{quote}{src}", f"{quote}{dst}")
+    return text.encode("utf-8")
+
+
+def _fbe_fetch_upstream(rel_url: str) -> tuple[bytes, str] | None:
+    """Fetch a single asset from FBE_UPSTREAM. Returns (bytes, content-type)
+    or None on failure. Synchronous. Uses urllib (stdlib).
+    """
+    import urllib.request
+    import urllib.error
+    url = FBE_UPSTREAM + "/" + rel_url.lstrip("/")
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Factudio-FBE-Cache/1.0",
+        "Accept": "*/*",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = resp.read()
+            ctype = resp.headers.get("Content-Type", "application/octet-stream")
+            return data, ctype
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
+        sys.stderr.write(f"[studio] FBE upstream fetch failed for {rel_url}: {e}\n")
+        return None
+
+
+def _fbe_load_or_fetch(rel_url: str) -> tuple[bytes, str] | None:
+    """Return (bytes, content-type) for /fbe/<rel_url>.
+
+    Cache hit: read from FBE_DIR.
+    Cache miss: fetch upstream, apply rewrites for HTML/JS/CSS, write to
+    FBE_DIR, return.
+    Returns None if the path is invalid or upstream is unreachable.
+    """
+    cache_path = _fbe_safe_path(rel_url)
+    if cache_path is None:
+        return None
+
+    if cache_path.is_file():
+        ctype = _CONTENT_TYPES.get(cache_path.suffix.lower(), "application/octet-stream")
+        return cache_path.read_bytes(), ctype
+
+    # Dedup concurrent fetches of the same path.
+    key = rel_url
+    wait_event: threading.Event | None = None
+    own_event: threading.Event | None = None
+    with _fbe_inflight_lock:
+        ev = _fbe_inflight.get(key)
+        if ev is not None:
+            wait_event = ev
+        else:
+            own_event = threading.Event()
+            _fbe_inflight[key] = own_event
+
+    if wait_event is not None:
+        wait_event.wait(timeout=30)
+        if cache_path.is_file():
+            ctype = _CONTENT_TYPES.get(cache_path.suffix.lower(), "application/octet-stream")
+            return cache_path.read_bytes(), ctype
+        return None
+
+    try:
+        result = _fbe_fetch_upstream(rel_url)
+        if result is None:
+            return None
+        data, ctype = result
+        # Rewrite text assets so internal references point at /fbe/.
+        if cache_path.suffix.lower() in _FBE_REWRITE_SUFFIXES:
+            data = _fbe_rewrite_text(data)
+        # Persist to disk for next time.
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = cache_path.with_suffix(cache_path.suffix + ".part")
+        tmp.write_bytes(data)
+        tmp.replace(cache_path)
+        # Prefer extension-based content type for consistency.
+        ctype_local = _CONTENT_TYPES.get(cache_path.suffix.lower(), ctype)
+        return data, ctype_local
+    finally:
+        if own_event is not None:
+            own_event.set()
+            with _fbe_inflight_lock:
+                _fbe_inflight.pop(key, None)
 
 
 class StudioHandler(BaseHTTPRequestHandler):
@@ -707,6 +894,53 @@ class StudioHandler(BaseHTTPRequestHandler):
                 self._send_json(500, {"ok": False, "error": str(e), "trace": traceback.format_exc()})
                 return
             self._send_json(200, payload)
+            return
+
+        # FBE chunk-loader fallback. PixiJS computes some asset URLs via
+        # `new URL(jsUrl, location.origin)` -- location.origin is the bare
+        # studio origin (no /fbe/ prefix), so chunks like
+        # `/assets/SharedSystems-XYZ.js`, `/assets/transcoder.*.wasm`, and
+        # `/data/data.json` get requested at the wrong path. Transparently
+        # delegate those prefixes to the FBE proxy so the iframe boots.
+        # Only kicks in when FBE is installed; otherwise falls through to
+        # the normal 404 below.
+        if (
+            _fbe_installed()
+            and (
+                path.startswith("/assets/")
+                or path.startswith("/data/")
+                or path.startswith("/fonts/")
+            )
+        ):
+            path = "/fbe" + path  # rewrite in place; the next branch handles it
+
+        # FBE iframe proxy + cache. Only active if studio/setup_fbe.sh has
+        # been run (we require index.html on disk -- otherwise we'd silently
+        # download the entire upstream bundle on first request).
+        if path.startswith("/fbe/") or path == "/fbe":
+            if not _fbe_installed():
+                self._send_text(404,
+                    "FBE bundle not installed. Run `bash studio/setup_fbe.sh` "
+                    "and reload.\n")
+                return
+            rel = path[len("/fbe/"):] if path != "/fbe" else ""
+            try:
+                result = _fbe_load_or_fetch(rel)
+            except Exception as e:  # pragma: no cover
+                self._send_text(502, f"fbe proxy error: {e}\n")
+                return
+            if result is None:
+                self._send_text(404, f"fbe asset not found: {rel}\n")
+                return
+            data, ctype = result
+            self.send_response(HTTPStatus.OK)
+            self.send_header("Content-Type", ctype)
+            self.send_header("Content-Length", str(len(data)))
+            self.send_header("Cache-Control", "public, max-age=86400")
+            # Be explicit: do NOT propagate upstream's frame-ancestors
+            # CSP. We are the new origin; the iframe must work.
+            self.end_headers()
+            self.wfile.write(data)
             return
 
         # Static.

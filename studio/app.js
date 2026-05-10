@@ -68,6 +68,9 @@
     asciiPreview: $("ascii-preview"),
     previewSummary: $("preview-summary"),
     openFbe: $("open-fbe"),
+    fbeFrame: $("fbe-frame"),
+    fbeMissing: $("fbe-missing"),
+    toggleFbe: $("toggle-fbe"),
     reportMd: $("report-md"),
     libraryList: $("library-list"),
     libraryCount: $("library-count"),
@@ -97,7 +100,13 @@
     recipeCategoryToMachines: new Map(),
   };
 
+  // External FBE for the "Open in new tab" link.
   const FBE_BASE = "https://fbe.teoxoy.com";
+  // Locally-hosted FBE proxy mount. studio_server transparently proxies +
+  // caches https://fbe.teoxoy.com under /fbe/ on our same origin so the
+  // iframe is allowed (the live demo blocks iframing via CSP frame-ancestors).
+  // Install via:  bash studio/setup_fbe.sh
+  const FBE_LOCAL = "/fbe/index.html";
 
   // ----------------------------------------------------------------- init
   init().catch((err) => {
@@ -108,7 +117,9 @@
   async function init() {
     setStatus(els.statusHarness, "unknown", "Harness: checking...");
     setStatus(els.statusLibrary, "unknown", "Library: checking...");
-    pingFbe();
+    // The FBE pill is set after /api/health returns -- it now reports the
+    // local bundle status, not the upstream demo (which we proxy through
+    // /fbe/ so iframes work).
 
     const [health, items, recipes, machines, belts, quality, research, library] =
       await Promise.all([
@@ -142,6 +153,30 @@
       `Harness: ${health.harness ? "ready" : (health.harness_error || "unavailable")}`);
     setStatus(els.statusLibrary, "ok",
       `Library: ${health.library_root} (${library.length} entries)`);
+    // Cache FBE-installed status so renderFbeFrame() doesn't refetch.
+    _fbeAvailable = !!health.fbe_installed;
+    if (els.statusFbe) {
+      // Adjust the FBE-editor pill to reflect installation, mod-aware
+      // extension state, and reachability. The local bundle wins over
+      // upstream availability -- after sprite cache warm-up the iframe
+      // works even if fbe.teoxoy.com is down.
+      const ext = health.fbe_extension || {};
+      if (_fbeAvailable && ext.applied) {
+        const sources = (ext.sources || []).length;
+        const ents = ext.entities_added || 0;
+        const overlays = ext.entities_overlaid || 0;
+        const recipes = ext.recipes_added || 0;
+        setStatus(els.statusFbe, "ok",
+          `FBE bundle: extended (+${ents} entities, ${overlays} overlays, ` +
+          `+${recipes} recipes from ${sources} sources)`);
+      } else if (_fbeAvailable) {
+        setStatus(els.statusFbe, "ok",
+          "FBE bundle: installed (vanilla; run tools/extend_fbe_for_mods.py for mod-aware sprites)");
+      } else {
+        setStatus(els.statusFbe, "warn",
+          "FBE bundle: not installed (run studio/setup_fbe.sh)");
+      }
+    }
 
     populateItemsAutocomplete(items);
     populateBelts(belts);
@@ -259,11 +294,24 @@
     }
   }
 
+  function pickPrimaryRecipeFor(itemName) {
+    // Order of preference:
+    //   1. recipe whose .name matches the item name exactly (the canonical
+    //      "make X" recipe -- e.g., iron-plate produced by recipe "iron-plate"
+    //      from smelting, not by recipe "casting-iron" from Vulcanus metallurgy)
+    //   2. any non-recycling recipe in iteration order
+    //   3. first listed
+    const recipes = state.recipesByResultItem.get(itemName) || [];
+    if (recipes.length === 0) return null;
+    const exact = recipes.find((r) => r.name === itemName
+                                    && !(r.category || "").endsWith("recycling"));
+    if (exact) return exact;
+    return recipes.find((r) => !(r.category || "").endsWith("recycling")) || recipes[0];
+  }
+
   function refreshMachineDropdown() {
     const targetName = els.target.value.trim();
-    const recipes = state.recipesByResultItem.get(targetName) || [];
-    // Find a recipe that's not a recycling variant.
-    const recipe = recipes.find((r) => !(r.category || "").endsWith("recycling"));
+    const recipe = pickPrimaryRecipeFor(targetName);
     let machines = [];
     if (recipe) {
       machines = state.catalogs.machines.filter((m) =>
@@ -296,13 +344,16 @@
 
   function refreshTargetHint() {
     const name = els.target.value.trim();
-    const recipes = state.recipesByResultItem.get(name) || [];
-    if (recipes.length === 0) {
+    const r = pickPrimaryRecipeFor(name);
+    if (!r) {
       els.targetHint.textContent = "no recipe found for this item";
       return;
     }
-    const r = recipes.find((x) => !(x.category || "").endsWith("recycling")) || recipes[0];
-    els.targetHint.textContent = `recipe: ${r.name} (category=${r.category}, from_mod=${r.from_mod || "base"})`;
+    const recipes = state.recipesByResultItem.get(name) || [];
+    const altCount = recipes.filter((x) => x.name !== r.name
+                                         && !(x.category || "").endsWith("recycling")).length;
+    const altSuffix = altCount > 0 ? ` -- ${altCount} other recipe${altCount > 1 ? "s" : ""} also produce this item` : "";
+    els.targetHint.textContent = `recipe: ${r.name} (category=${r.category}, from_mod=${r.from_mod || "base"})${altSuffix}`;
   }
 
   // ---------------------------------------------------------- Tabs
@@ -338,6 +389,9 @@
     els.btnCopy.addEventListener("click", onCopy);
     els.btnValidate.addEventListener("click", onValidate);
     els.btnRefreshLibrary.addEventListener("click", () => API.library().then(renderLibrary));
+    if (els.toggleFbe) {
+      els.toggleFbe.addEventListener("change", () => renderFbeFrame(state.bpString || ""));
+    }
   }
 
   function onKindChange() {
@@ -424,11 +478,66 @@
     els.btnSave.disabled = false;
     els.reportMd.textContent = resp.report_md || "(no report)";
     renderAsciiPreview(resp);
+    renderFbeFrame(resp.blueprint_string);
     renderRates(resp.rates);
   }
 
   function fbeUrl(bp) {
     return `${FBE_BASE}/?source=${encodeURIComponent(bp)}`;
+  }
+
+  function fbeLocalUrl(bp) {
+    // Important: do NOT URL-encode the blueprint string. The bundled FBE
+    // reads `?source=` by splitting on `=` and does NOT URL-decode the
+    // remainder (see `(Zy=i.split("=")[1])` in the Vite bundle), so any
+    // `%2F`, `%2B`, `%3D` we'd send via encodeURIComponent reach pako's
+    // inflate() as literal characters and trigger
+    // "invalid bit length repeat" / "invalid code lengths set". Blueprint
+    // strings are base64 + a "0" prefix -- all chars are URL-tolerant in
+    // a query string; nothing needs escaping.
+    return `${FBE_LOCAL}?source=${bp}`;
+  }
+
+  // Probe the local FBE bundle once and remember the result; sets up the
+  // toggle-FBE checkbox accordingly. We trust /api/health (already fetched
+  // at boot) rather than HEAD on /fbe/index.html, because BaseHTTPRequestHandler
+  // doesn't implement HEAD by default and would 501.
+  let _fbeAvailable = null;
+  async function fbeAvailable() {
+    if (_fbeAvailable !== null) return _fbeAvailable;
+    try {
+      const h = await API.health();
+      _fbeAvailable = !!h.fbe_installed;
+    } catch (e) {
+      _fbeAvailable = false;
+    }
+    return _fbeAvailable;
+  }
+
+  async function renderFbeFrame(bp) {
+    if (!els.fbeFrame) return;
+    const present = await fbeAvailable();
+    const wantFbe = els.toggleFbe ? els.toggleFbe.checked : true;
+    if (!present) {
+      els.fbeFrame.style.display = "none";
+      els.fbeFrame.src = "about:blank";
+      if (els.fbeMissing) els.fbeMissing.hidden = false;
+      els.asciiPreview.style.display = "";
+      return;
+    }
+    if (els.fbeMissing) els.fbeMissing.hidden = true;
+    if (wantFbe && bp) {
+      // Note: the iframe loads /fbe/index.html?source=<bp>. studio_server
+      // proxies all /fbe/* requests + caches sprite atlases on demand, so
+      // first load is slow (sprite warm-up), subsequent loads are instant.
+      els.fbeFrame.src = fbeLocalUrl(bp);
+      els.fbeFrame.style.display = "block";
+      els.asciiPreview.style.display = "none";
+    } else {
+      els.fbeFrame.style.display = "none";
+      els.fbeFrame.src = "about:blank";
+      els.asciiPreview.style.display = "";
+    }
   }
 
   function onSendToFbe() {
@@ -477,6 +586,7 @@
 
       // Render an ascii preview from the decoded entity positions.
       renderAsciiPreviewFromDecoded(resp.decoded);
+      renderFbeFrame(s);
     } catch (e) {
       els.stringWarn.textContent = `error: ${e.message || e}`;
     } finally {

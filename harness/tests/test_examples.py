@@ -336,5 +336,86 @@ class BeaconSmelterArrayTest(unittest.TestCase):
             self.assertIn(f"| {i} |", self.result.report)
 
 
+class PositionParityTest(unittest.TestCase):
+    """Catch the FBE-incompatible position bug class.
+
+    Real Factorio blueprints use `position = NW_tile + size/2`, so:
+      odd-sized footprints (1x1, 3x3, 5x5) -> half-integer positions
+      even-sized footprints (2x2, 4x4)     -> integer positions
+
+    An earlier version of layout.py used `(size - 1)/2`, off by 0.5 in
+    every direction. FBE silently dropped or visually overlapped those
+    entities. This test fails fast on regression.
+    """
+
+    def setUp(self) -> None:
+        # One representative blueprint per planner kind, exercising the
+        # mix of footprints we care about.
+        from harness.catalog import footprint
+        from tools.blueprint_codec import decode
+
+        self.cases: list[tuple[str, dict]] = []
+        for label, mod in [
+            ("stone_smelter", stone_smelter_array),
+            ("steel_smelter", steel_smelter_array),
+            ("electric_smelter", electric_smelter_array),
+            ("solar_field", solar_field),
+            ("green_circuit", green_circuit_block),
+            ("beacon_smelter", beacon_smelter_array),
+        ]:
+            r = mod.build()
+            decoded = decode(r.blueprint_string)["blueprint"]
+            self.cases.append((label, decoded))
+        self.footprint = footprint
+
+    def test_position_parity_matches_size(self) -> None:
+        """For every entity in every example, position parity must match
+        its footprint parity (odd=>half, even=>int)."""
+        offenders: list[str] = []
+        for label, bp in self.cases:
+            for e in bp["entities"]:
+                name = e["name"]
+                px, py = e["position"]["x"], e["position"]["y"]
+                try:
+                    w, h = self.footprint(name)
+                except Exception:
+                    continue  # unknown footprint -> skip rather than mis-flag
+                want_x_half = (w % 2 == 1)
+                want_y_half = (h % 2 == 1)
+                got_x_half = (float(px) - int(px)) != 0.0
+                got_y_half = (float(py) - int(py)) != 0.0
+                if got_x_half != want_x_half or got_y_half != want_y_half:
+                    offenders.append(
+                        f"{label}: {name} {w}x{h} at ({px}, {py}) -- "
+                        f"want_half=({want_x_half},{want_y_half}) "
+                        f"got_half=({got_x_half},{got_y_half})"
+                    )
+        if offenders:
+            self.fail("position parity violations:\n  " + "\n  ".join(offenders[:20]))
+
+    def test_positions_match_real_blueprint_convention(self) -> None:
+        """Spot-check our 1x1 belts and 3x3 furnaces against the convention
+        observed in real factorio.school blueprints."""
+        for label, bp in self.cases:
+            for e in bp["entities"]:
+                name = e["name"]
+                px, py = e["position"]["x"], e["position"]["y"]
+                if name.endswith("transport-belt"):  # 1x1
+                    self.assertEqual(float(px) % 1, 0.5,
+                                     f"{label}/{name}: 1x1 belt at integer x ({px})")
+                    self.assertEqual(float(py) % 1, 0.5,
+                                     f"{label}/{name}: 1x1 belt at integer y ({py})")
+                if name in ("electric-furnace", "beacon"):  # 3x3
+                    self.assertEqual(float(px) % 1, 0.5,
+                                     f"{label}/{name}: 3x3 at integer x ({px})")
+                    self.assertEqual(float(py) % 1, 0.5,
+                                     f"{label}/{name}: 3x3 at integer y ({py})")
+                if name == "substation":  # 2x2
+                    self.assertEqual(float(px) % 1, 0.0,
+                                     f"{label}/{name}: 2x2 substation at half-integer x ({px})")
+                    self.assertEqual(float(py) % 1, 0.0,
+                                     f"{label}/{name}: 2x2 substation at half-integer y ({py})")
+
+
 if __name__ == "__main__":
     unittest.main()

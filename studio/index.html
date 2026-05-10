@@ -136,8 +136,14 @@
         <div class="preview-toolbar">
           <span id="preview-summary" class="muted">No blueprint yet. Click Generate.</span>
           <span class="spacer"></span>
-          <a id="open-fbe" class="btn-link" href="#" target="_blank" rel="noopener" hidden>Open in FBE</a>
+          <label class="muted" style="font-size: 0.85em;">
+            <input type="checkbox" id="toggle-fbe" checked>
+            FBE renderer
+          </label>
+          <a id="open-fbe" class="btn-link" href="#" target="_blank" rel="noopener" hidden>Open in new tab</a>
         </div>
+        <iframe id="fbe-frame" title="FBE blueprint preview" style="width:100%; height:560px; border:0; background:#0e1116; display:none;"></iframe>
+        <p id="fbe-missing" class="muted" hidden>FBE bundle not installed locally. Run <code>bash studio/setup_fbe.sh</code> from the repo root, then reload.</p>
         <pre id="ascii-preview" class="ascii"></pre>
       </div>
 

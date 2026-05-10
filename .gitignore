@@ -241,3 +241,9 @@ __marimo__/
 
 # Claude Code session-local state
 .claude/scheduled_tasks.lock
+
+# Factudio: locally cached FBE bundle + lazily proxied sprite atlases.
+# studio_server.py mounts https://fbe.teoxoy.com under /fbe/ with URL
+# rewriting; setup_fbe.sh seeds the entry-point assets and the rest is
+# fetched on demand. Re-create with: bash studio/setup_fbe.sh
+studio/static/fbe/
